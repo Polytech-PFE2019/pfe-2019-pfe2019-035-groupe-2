@@ -34,8 +34,5 @@
         for (String matched : fileSearch.getResult()){
         out.println("Found : " + matched);
     }
-
-
-
-}
+    }
 %>

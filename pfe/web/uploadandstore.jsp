@@ -12,6 +12,7 @@
 <%@ page import="java.util.Enumeration" %>
 <%@ page import="java.nio.file.Files" %>
 <%@ page import="java.nio.file.Paths" %>
+<%@ page import="file.FileSearch" %>
 
 
 <%
@@ -80,6 +81,23 @@
 
         }
 
+        //====================================Partie de recherche de fichiers ================================
+        FileSearch fileSearch = new FileSearch();
+
+        //try different directory and filename :)
+        File loc = new File("C:/UploadedFiles/");
+        fileSearch.searchDirectory(loc, "fin.txt");
+
+        out.print(fileSearch.getResult().size());
+        int count = fileSearch.getResult().size();
+        if(count == 0){
+            out.println("\nNo result found!");
+        }else{
+            out.println("\nFound " + count + " result!\n");
+            for (String matched : fileSearch.getResult()){
+                out.println("Found : " + matched);
+            }
+        }
 %>
 <b>You have successfully upload the file by the name of:</b>
 <%
