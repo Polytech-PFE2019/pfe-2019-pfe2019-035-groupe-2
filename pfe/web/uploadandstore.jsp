@@ -67,17 +67,24 @@
         while (entries.hasMoreElements()) {
             ZipEntry entry = entries.nextElement();
 
-                System.out.print("dir  : " + entry.getName());
-                String destPath = "C:/UploadedFiles/" + File.separator + entry.getName();
+            String destPath = "C:/UploadedFiles/" + File.separator + entry.getName();
+            if(destPath.indexOf('.')==-1){
+                File ff = new File(destPath);
+                ff.mkdir();
+            }
+            else {
                 System.out.println(" => " + destPath);
-            InputStream is = zipFile.getInputStream(entry);
-            Files.copy(is, Paths.get(destPath));
+                InputStream is = zipFile.getInputStream(entry);
+                Files.copy(is, Paths.get(destPath));
+            }
+
         }
 
 %>
 <b>You have successfully upload the file by the name of:</b>
 <%
         out.println(saveFile);
+
     }
 %>
 <a href="viewFiles.jsp">View Files</a>

@@ -66,17 +66,25 @@
 
         while (entries.hasMoreElements()) {
             ZipEntry entry = entries.nextElement();
-
-                System.out.print("dir  : " + entry.getName());
+                /*System.out.print("dir  : " + entry.getName());
                 String destPath = "C:/UploadedFiles/" + File.separator + entry.getName();
                 System.out.println(" => " + destPath);
-            InputStream is = zipFile.getInputStream(entry);
-            Files.copy(is, Paths.get(destPath));
-             /*   File file2 = new File(destPath);
-               // file2.mkdirs();*/
 
-           /*OutputStream o = new FileOutputStream(destPath);
-            o.close();*/
+
+            InputStream is = zipFile.getInputStream(entry);
+            Files.copy(is, Paths.get(destPath));*/
+            String destPath = "C:/UploadedFiles/" + File.separator + entry.getName();
+            if(destPath.indexOf('.')==-1){
+                File ff = new File(destPath);
+                ff.mkdir();
+            }
+            else {
+                System.out.println(" => " + destPath);
+
+                InputStream is = zipFile.getInputStream(entry);
+                Files.copy(is, Paths.get(destPath));
+
+            }
 
         }
 
@@ -84,6 +92,7 @@
 <b>You have successfully upload the file by the name of:</b>
 <%
         out.println(saveFile);
+
     }
 %>
 <a href="viewFiles.jsp">View Files</a>
