@@ -97,6 +97,33 @@
         }
         //=====================================Compilation vers plantUML================================================================
         Runtime.getRuntime().exec("java -jar C:/UploadedFiles/ThingML2CLI.jar -c uml -s "+ found[1]+" -o C:/UploadedFiles/");
+        //=====================================Récupération du nom du fichier plantuml================================================================
+        String chaine ="";
+        String fichierConf = found[1];
+
+        // lit le fichier ligne par ligne
+        try{
+            InputStream ips=new FileInputStream(fichierConf);
+            InputStreamReader ipsr=new InputStreamReader(ips);
+            BufferedReader br=new BufferedReader(ipsr);
+            String ligne;
+            while ((ligne=br.readLine())!=null){
+                if(ligne.indexOf("configuration")!=-1)
+                {
+
+                  chaine+=ligne+"\n";}
+            }
+            br.close();
+        }
+        catch (Exception e){
+            System.out.println(e.toString());
+        }
+        String separateur=" ";
+        String mot[]=chaine.split(separateur);
+
+        String nomPlantuml=mot[1].substring(0,mot[1].length()-1)+".plantuml";
+
+
 %>
 <b>You have successfully upload the file by the name of:</b>
 <%

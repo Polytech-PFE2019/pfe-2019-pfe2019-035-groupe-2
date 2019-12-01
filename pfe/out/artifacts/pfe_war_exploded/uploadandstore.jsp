@@ -16,7 +16,7 @@
 
 
 <%
-
+    //=====================================================================Upload du fichier zip===================================================================
     String saveFile="";
     String contentType = request.getContentType();
     if ((contentType != null) && (contentType.contains("multipart/form-data"))) {
@@ -51,13 +51,7 @@
         fileOut.close();
 
 
-        /*try {
-            new ZipFile("hh.zip").extractAll("C:/UploadedFiles");
-        } catch (ZipException e) {
-            e.printStackTrace();
-        }*/
-
-        //unzip(saveFile, "C:/UploadedFiles");
+        //==========================================================Dézippage==============================================================================
         ZipFile zipFile = new ZipFile(saveFile);
 
 
@@ -81,12 +75,13 @@
 
         }
 
-        //====================================Partie de recherche de fichiers ================================
+        //====================================Partie de recherche de fichiers ===========================================================
         FileSearch fileSearch = new FileSearch();
 
         //try different directory and filename :)
         File loc = new File("C:/UploadedFiles/");
         fileSearch.searchDirectory(loc, "simple_buzzer.thingml");
+        // found[1] est le fichier de configuration
         String found [] = {"",""};
         out.print(fileSearch.getResult().size());
         int count = fileSearch.getResult().size();
@@ -100,11 +95,35 @@
                 i++;
             }
         }
-        out.println(found[1]);
-        out.println(found[0]);
-
-
+        //=====================================Compilation vers plantUML================================================================
         Runtime.getRuntime().exec("java -jar C:/UploadedFiles/ThingML2CLI.jar -c uml -s "+ found[1]+" -o C:/UploadedFiles/");
+        //=====================================recherche dans le fichier config================================================================
+        String chaine ="";
+        String fichierConf = found[1];
+
+        // lit le fichier ligne par ligne
+        try{
+            InputStream ips=new FileInputStream(fichierConf);
+            InputStreamReader ipsr=new InputStreamReader(ips);
+            BufferedReader br=new BufferedReader(ipsr);
+            String ligne;
+            while ((ligne=br.readLine())!=null){
+                if(ligne.indexOf("configuration")!=-1)
+                {
+
+                  chaine+=ligne+"\n";}
+            }
+            br.close();
+        }
+        catch (Exception e){
+            System.out.println(e.toString());
+        }
+        String separateur=" ";
+        String mot[]=chaine.split(separateur);
+
+        String nom=mot[1].substring(0,mot[1].length()-1)+".plantuml";
+        out.println(nom);
+
 %>
 <b>You have successfully upload the file by the name of:</b>
 <%
