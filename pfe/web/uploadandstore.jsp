@@ -86,8 +86,8 @@
 
         //try different directory and filename :)
         File loc = new File("C:/UploadedFiles/");
-        fileSearch.searchDirectory(loc, "fin.txt");
-
+        fileSearch.searchDirectory(loc, "simple_buzzer.thingml");
+        String found ="";
         out.print(fileSearch.getResult().size());
         int count = fileSearch.getResult().size();
         if(count == 0){
@@ -95,9 +95,13 @@
         }else{
             out.println("\nFound " + count + " result!\n");
             for (String matched : fileSearch.getResult()){
-                out.println("Found : " + matched);
+                if(matched.length()>found.length())
+                found=matched;
             }
         }
+        out.println(found);
+
+        Runtime.getRuntime().exec("java -jar C:/UploadedFiles/ThingML2CLI.jar -c uml -s "+ found+" -o C:/UploadedFiles/");
 %>
 <b>You have successfully upload the file by the name of:</b>
 <%

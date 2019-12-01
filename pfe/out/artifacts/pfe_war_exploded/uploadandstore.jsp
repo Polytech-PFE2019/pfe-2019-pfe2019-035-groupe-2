@@ -12,6 +12,7 @@
 <%@ page import="java.util.Enumeration" %>
 <%@ page import="java.nio.file.Files" %>
 <%@ page import="java.nio.file.Paths" %>
+<%@ page import="file.FileSearch" %>
 
 
 <%
@@ -66,13 +67,7 @@
 
         while (entries.hasMoreElements()) {
             ZipEntry entry = entries.nextElement();
-                /*System.out.print("dir  : " + entry.getName());
-                String destPath = "C:/UploadedFiles/" + File.separator + entry.getName();
-                System.out.println(" => " + destPath);
 
-
-            InputStream is = zipFile.getInputStream(entry);
-            Files.copy(is, Paths.get(destPath));*/
             String destPath = "C:/UploadedFiles/" + File.separator + entry.getName();
             if(destPath.indexOf('.')==-1){
                 File ff = new File(destPath);
@@ -80,14 +75,33 @@
             }
             else {
                 System.out.println(" => " + destPath);
-
                 InputStream is = zipFile.getInputStream(entry);
                 Files.copy(is, Paths.get(destPath));
-
             }
 
         }
 
+        //====================================Partie de recherche de fichiers ================================
+        FileSearch fileSearch = new FileSearch();
+
+        //try different directory and filename :)
+        File loc = new File("C:/UploadedFiles/");
+        fileSearch.searchDirectory(loc, "simple_buzzer.thingml");
+        String found ="";
+        out.print(fileSearch.getResult().size());
+        int count = fileSearch.getResult().size();
+        if(count == 0){
+            out.println("\nNo result found!");
+        }else{
+            out.println("\nFound " + count + " result!\n");
+            for (String matched : fileSearch.getResult()){
+                if(matched.length()>found.length())
+                found=matched;
+            }
+        }
+        out.println(found);
+
+        Runtime.getRuntime().exec("java -jar C:/UploadedFiles/ThingML2CLI.jar -c uml -s "+ found+" -o C:/UploadedFiles/");
 %>
 <b>You have successfully upload the file by the name of:</b>
 <%
