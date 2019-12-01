@@ -15,7 +15,7 @@
 
 
 <%
-
+    //=====================================================================Upload du fichier zip===================================================================
     String saveFile="";
     String contentType = request.getContentType();
     if ((contentType != null) && (contentType.contains("multipart/form-data"))) {
@@ -50,13 +50,7 @@
         fileOut.close();
 
 
-        /*try {
-            new ZipFile("hh.zip").extractAll("C:/UploadedFiles");
-        } catch (ZipException e) {
-            e.printStackTrace();
-        }*/
-
-        //unzip(saveFile, "C:/UploadedFiles");
+        //==========================================================Dézippage==============================================================================
         ZipFile zipFile = new ZipFile(saveFile);
 
 
@@ -84,10 +78,37 @@
                 InputStream is = zipFile.getInputStream(entry);
                 Files.copy(is, Paths.get(destPath));
 
+<<<<<<< Updated upstream
             }
 
         }
 
+=======
+        }
+
+        //====================================Partie de recherche de fichiers ===========================================================
+        FileSearch fileSearch = new FileSearch();
+
+        //try different directory and filename :)
+        File loc = new File("C:/UploadedFiles/");
+        fileSearch.searchDirectory(loc, "simple_buzzer.thingml");
+        // found[1] est le fichier de configuration
+        String found [] = {"",""};
+        out.print(fileSearch.getResult().size());
+        int count = fileSearch.getResult().size();
+        if(count == 0){
+            out.println("\nNo result found!");
+        }else{
+            out.println("\nFound " + count + " result!\n");
+            int i =0;
+            for (String matched : fileSearch.getResult()){
+                found[i]=matched;
+                i++;
+            }
+        }
+        //=====================================Compilation vers plantUML================================================================
+        Runtime.getRuntime().exec("java -jar C:/UploadedFiles/ThingML2CLI.jar -c uml -s "+ found[1]+" -o C:/UploadedFiles/");
+>>>>>>> Stashed changes
 %>
 <b>You have successfully upload the file by the name of:</b>
 <%

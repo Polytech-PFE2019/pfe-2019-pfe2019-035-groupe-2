@@ -5,7 +5,11 @@
   Time: 19:43
   To change this template use File | Settings | File Templates.
 --%>
-
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <title>ThingML compiler</title>
+</head>
 <%@page import="java.io.*, java.sql.*"%>
 <%@ page import="java.util.zip.ZipFile" %>
 <%@ page import="java.util.zip.ZipEntry" %>
