@@ -1,0 +1,18 @@
+{
+    "physical_processes": [{
+            "name": "PP_LightLivingRoom",
+            "id": "56c683e8.b67a81",
+            "x": 853.1522806023589,
+            "y": 91.42322155183328,
+            "elementType": "PhysicalProcess"
+        }
+    ],
+    "links": [{
+            "from_id": "24af6f52.e670a",
+            "to_id": "56c683e8.b67a81"
+        }, {
+            "from_id": "5a2f9c4.789e764",
+            "to_id": "56c683e8.b67a81"
+        }
+    ]
+}

@@ -1,0 +1,446 @@
+{
+	"dm": {
+		"name": "demo",
+		"components": [{
+				"_type": "/infra/docker_host",
+				"name": "docker_host_0",
+				"properties": [],
+				"id": "7bdaceb6-b4c4-4967-b170-9cf73f4e4cae",
+				"provided_execution_port": [{
+						"name": "d4f4a4c7-5325-4c07-b394-99b8a2394520"
+					}
+				],
+				"ip": "192.168.99.100",
+				"port": ["2376"],
+				"credentials": {
+					"username": "ubuntu",
+					"password": "ubuntu",
+					"sshkey": ""
+				}
+			}, {
+				"_type": "/internal/node_red",
+				"name": "node_red_0",
+				"properties": [],
+				"id": "ce107c61-bef1-4ce9-a4df-c33a65f1f083",
+				"provided_execution_port": [{
+						"name": "6bd6821d-858f-4acf-be95-954777892413"
+					}
+				],
+				"docker_resource": {
+					"name": "fb4b0863-dce6-4130-b0fc-89488710751d",
+					"image": "nicolasferry/multiarch-node-red-thingml:latest",
+					"command": "",
+					"port_bindings": {
+						"1880": "1880"
+					},
+					"devices": {
+						"PathOnHost": "",
+						"PathInContainer": "",
+						"CgroupPermissions": "rwm"
+					}
+				},
+				"ssh_resource": {
+					"name": "a650291e-843c-43d3-b713-7cba17f84166",
+					"startCommand": "",
+					"downloadCommand": "",
+					"installCommand": "",
+					"configureCommand": "",
+					"credentials": {
+						"username": "ubuntu",
+						"password": "ubuntu",
+						"sshkey": ""
+					}
+				},
+				"ansible_resource": {
+					"name": "b3f58f13-abb6-4c36-b1c7-a6828e2361c9",
+					"playbook_path": "",
+					"playbook_host": "",
+					"credentials": {
+						"username": "ubuntu",
+						"password": "ubuntu",
+						"sshkey": ""
+					}
+				},
+				"required_execution_port": {
+					"name": "ed27ecdb-e55b-4a83-8fd4-91d5683f9d48",
+					"needDeployer": false
+				},
+				"provided_communication_port": [{
+						"name": "4243d1cf-d02f-44a8-8ce3-3a23439c3187",
+						"port_number": "1880"
+					}
+				],
+				"required_communication_port": [{
+						"name": "063f9580-990a-470c-a2ce-45f0d1a3fa90",
+						"port_number": "80",
+						"isMandatory": false
+					}
+				],
+				"nr_flow": [{
+						"id": 1000,
+						"name": "ACM0",
+						"type": "template",
+						"z": "68bf7da6.0a29f4",
+						"x": 1080,
+						"y": 80,
+						"fieldType": "msg",
+						"format": "handlebars",
+						"syntax": "mustache",
+						"template": "This is the payload: {{payload}} !",
+						"output": "str",
+						"wires": [["68b39a65.2fa0c4"]]
+					}, {
+						"id": "9b11eba.111b618",
+						"type": "function",
+						"z": "68bf7da6.0a29f4",
+						"name": "Application 1",
+						"func": "\nreturn msg;",
+						"outputs": 1,
+						"noerr": 0,
+						"x": 820,
+						"y": 90,
+						"wires": [["1000-tag-9b11eba.111b618"]]
+					}, {
+						"id": "68b39a65.2fa0c4",
+						"type": "debug",
+						"z": "68bf7da6.0a29f4",
+						"name": "Actuator 1",
+						"active": true,
+						"tosidebar": true,
+						"console": false,
+						"tostatus": false,
+						"complete": "payload",
+						"targetType": "msg",
+						"x": 1090,
+						"y": 90,
+						"wires": [[]]
+					}, {
+						"id": "1000_sync",
+						"name": "ACM Sync 1000",
+						"type": "template",
+						"z": "68bf7da6.0a29f4",
+						"x": 1000,
+						"y": 80,
+						"fieldType": "msg",
+						"format": "handlebars",
+						"syntax": "mustache",
+						"template": "This is the payload: {{payload}} !",
+						"output": "str",
+						"wires": [[1000]]
+					}, {
+						"id": "1000-tag-9b11eba.111b618",
+						"name": "ACM tag 9b11eba.111b618",
+						"type": "template",
+						"z": "68bf7da6.0a29f4",
+						"x": 900,
+						"y": 90,
+						"fieldType": "msg",
+						"format": "handlebars",
+						"syntax": "mustache",
+						"template": "This is the payload: {{payload}} !",
+						"output": "str",
+						"wires": [["1000_sync"]]
+					}
+				],
+				"path_flow": "",
+				"packages": []
+			}, {
+				"_type": "/internal/node_red",
+				"name": "node_red_1",
+				"properties": [],
+				"id": "3d84188d-088f-453a-b63f-243f7839051e",
+				"provided_execution_port": [{
+						"name": "84fdcf3d-5d42-4234-bf3b-97da84fb9ade"
+					}
+				],
+				"docker_resource": {
+					"name": "da95bd99-53a5-4b6b-a5bc-c5ee3a7d0866",
+					"image": "nicolasferry/multiarch-node-red-thingml:latest",
+					"command": "",
+					"port_bindings": {
+						"1881": "1880"
+					},
+					"devices": {
+						"PathOnHost": "",
+						"PathInContainer": "",
+						"CgroupPermissions": "rwm"
+					}
+				},
+				"ssh_resource": {
+					"name": "2676506c-c8bd-4856-92f2-a5e2fe89b5de",
+					"startCommand": "",
+					"downloadCommand": "",
+					"installCommand": "",
+					"configureCommand": "",
+					"credentials": {
+						"username": "ubuntu",
+						"password": "ubuntu",
+						"sshkey": ""
+					}
+				},
+				"ansible_resource": {
+					"name": "e7d772fc-a021-4131-8ca4-80dc0a4769de",
+					"playbook_path": "",
+					"playbook_host": "",
+					"credentials": {
+						"username": "ubuntu",
+						"password": "ubuntu",
+						"sshkey": ""
+					}
+				},
+				"required_execution_port": {
+					"name": "12b638bc-70a4-425f-b373-d5a77f94b14d",
+					"needDeployer": false
+				},
+				"provided_communication_port": [{
+						"name": "979ac7df-f920-48d8-8631-adfe0438e18a",
+						"port_number": "1881"
+					}
+				],
+				"required_communication_port": [{
+						"name": "b98389d8-c7e6-4001-b2ef-c5a73a607449",
+						"port_number": "80",
+						"isMandatory": false
+					}
+				],
+				"nr_flow": [{
+						"id": 1001,
+						"name": "ACM1",
+						"type": "template",
+						"z": "68bf7da6.0a98f4",
+						"x": 1000,
+						"y": 210,
+						"fieldType": "msg",
+						"format": "handlebars",
+						"syntax": "mustache",
+						"template": "This is the payload: {{payload}} !",
+						"output": "str",
+						"wires": [["845bded2.c87f5"]]
+					}, {
+						"id": "ede3df0b.aef39",
+						"type": "function",
+						"z": "68bf7da6.0a98f4",
+						"name": "Application 2",
+						"func": "\nreturn msg;",
+						"outputs": 1,
+						"noerr": 0,
+						"x": 750,
+						"y": 220,
+						"wires": [["1001-tag-ede3df0b.aef39"]]
+					}, {
+						"id": "845bded2.c87f5",
+						"type": "debug",
+						"z": "68bf7da6.0a98f4",
+						"name": "Actuator 2",
+						"active": true,
+						"tosidebar": true,
+						"console": false,
+						"tostatus": false,
+						"complete": "payload",
+						"targetType": "msg",
+						"x": 1010,
+						"y": 220,
+						"wires": [[]]
+					}, {
+						"id": "1001_sync",
+						"name": "ACM Sync 1001",
+						"type": "template",
+						"z": "68bf7da6.0a98f4",
+						"x": 920,
+						"y": 210,
+						"fieldType": "msg",
+						"format": "handlebars",
+						"syntax": "mustache",
+						"template": "This is the payload: {{payload}} !",
+						"output": "str",
+						"wires": [[1001]]
+					}, {
+						"id": "1001-tag-ede3df0b.aef39",
+						"name": "ACM tag ede3df0b.aef39",
+						"type": "template",
+						"z": "68bf7da6.0a98f4",
+						"x": 830,
+						"y": 220,
+						"fieldType": "msg",
+						"format": "handlebars",
+						"syntax": "mustache",
+						"template": "This is the payload: {{payload}} !",
+						"output": "str",
+						"wires": [["1001_sync"]]
+					}
+				],
+				"path_flow": "",
+				"packages": []
+			}
+		],
+		"links": [],
+		"containments": [{
+				"name": "cont_0",
+				"properties": [],
+				"src": "/docker_host_0/d4f4a4c7-5325-4c07-b394-99b8a2394520",
+				"target": "/node_red_0/ed27ecdb-e55b-4a83-8fd4-91d5683f9d48"
+			}, {
+				"name": "cont_2",
+				"properties": [],
+				"src": "/docker_host_0/d4f4a4c7-5325-4c07-b394-99b8a2394520",
+				"target": "/node_red_1/12b638bc-70a4-425f-b373-d5a77f94b14d"
+			}
+		],
+		"type_registry": []
+	},
+	"graph": {
+		"elements": {
+			"nodes": [{
+					"data": {
+						"id": "docker_host_0"
+					},
+					"position": {
+						"x": 174.64509447878072,
+						"y": 114.13280455464916
+					},
+					"group": "nodes",
+					"removed": false,
+					"selected": false,
+					"selectable": true,
+					"locked": false,
+					"grabbable": true,
+					"classes": "container"
+				}, {
+					"data": {
+						"id": "node_red_0",
+						"parent": "docker_host_0"
+					},
+					"position": {
+						"x": 249.29018895756147,
+						"y": 128.2656091092983
+					},
+					"group": "nodes",
+					"removed": false,
+					"selected": false,
+					"selectable": true,
+					"locked": false,
+					"grabbable": true,
+					"classes": "node_red"
+				}, {
+					"data": {
+						"id": "node_red_1",
+						"parent": "docker_host_0"
+					},
+					"position": {
+						"x": 100,
+						"y": 100
+					},
+					"group": "nodes",
+					"removed": false,
+					"selected": false,
+					"selectable": true,
+					"locked": false,
+					"grabbable": true,
+					"classes": "node_red"
+				}
+			]
+		},
+		"style": [{
+				"selector": "node",
+				"style": {
+					"label": "data(id)",
+					"background-fit": "contain",
+					"background-image-opacity": "0.3",
+					"text-valign": "center",
+					"text-halign": "center",
+					"font-size": "4px",
+					"font-weight": "bold"
+				}
+			}, {
+				"selector": "node.container",
+				"style": {
+					"padding": "10px",
+					"text-valign": "top",
+					"text-halign": "center",
+					"background-color": "#DDD",
+					"font-size": "8px",
+					"font-weight": "normal",
+					"shape": "rectangle",
+					"background-image": "./img/docker-official.svg"
+				}
+			}, {
+				"selector": "edge",
+				"style": {
+					"curve-style": "bezier",
+					"target-arrow-shape": "triangle"
+				}
+			}, {
+				"selector": "edge.control",
+				"style": {
+					"curve-style": "bezier",
+					"target-arrow-shape": "circle"
+				}
+			}, {
+				"selector": ":selected",
+				"style": {
+					"background-color": "black",
+					"line-color": "black",
+					"target-arrow-color": "black",
+					"source-arrow-color": "black"
+				}
+			}, {
+				"selector": "node.questionable",
+				"style": {
+					"border-color": "#A33",
+					"background-color": "#B55",
+					"shape": "roundrectangle"
+				}
+			}, {
+				"selector": "node.node_red",
+				"style": {
+					"background-image": "./img/node-red-256.png"
+				}
+			}, {
+				"selector": "node.ansible",
+				"style": {
+					"background-image": "./img/ansible.png"
+				}
+			}, {
+				"selector": "node.device",
+				"style": {
+					"padding": "10px",
+					"text-valign": "top",
+					"text-halign": "center",
+					"background-color": "#DDD",
+					"font-size": "8px",
+					"font-weight": "normal",
+					"shape": "rectangle",
+					"background-image": "./img/device.png"
+				}
+			}, {
+				"selector": "node.vm",
+				"style": {
+					"padding": "10px",
+					"text-valign": "top",
+					"text-halign": "center",
+					"background-color": "#DDD",
+					"font-size": "8px",
+					"font-weight": "normal",
+					"shape": "rectangle",
+					"background-image": "./img/server_cloud.png"
+				}
+			}
+		],
+		"zoomingEnabled": true,
+		"userZoomingEnabled": true,
+		"zoom": 2.51188643150958,
+		"minZoom": 0.4,
+		"maxZoom": 6,
+		"panningEnabled": true,
+		"userPanningEnabled": true,
+		"pan": {
+			"x": -136.06977883586222,
+			"y": -110.36770950019934
+		},
+		"boxSelectionEnabled": false,
+		"renderer": {
+			"name": "canvas"
+		}
+	},
+	"acm_model_type": "genesis"
+}

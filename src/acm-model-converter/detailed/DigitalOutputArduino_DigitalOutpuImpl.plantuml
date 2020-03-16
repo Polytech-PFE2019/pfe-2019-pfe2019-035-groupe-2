@@ -1,0 +1,12 @@
+@startuml
+skinparam defaultTextAlignment left
+caption Behavior of thing DigitalOutputArduino
+[*] --> DigitalOutpuImpl
+state DigitalOutpuImpl{
+state Running{
+	Running : m:DigitalOutput?set_digital_output / \naction do\n	DigitalIO!digital_write(pin, m.value)\n	if (m.value == DigitalState : HIGH) print "1"\n	else print "0"\nend\n
+}
+[*] --> Running
+	DigitalOutpuImpl : entry / DigitalIO!pin_mode(pin, PinMode : OUTPUT)\n
+}
+@enduml

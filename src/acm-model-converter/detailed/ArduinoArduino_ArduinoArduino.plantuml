@@ -1,0 +1,22 @@
+@startuml
+skinparam defaultTextAlignment left
+caption Behavior of thing ArduinoArduino
+[*] --> ArduinoArduino
+state ArduinoArduino{
+state RunningArduino{
+	RunningArduino : m:DigitalIO?pin_mode / \naction `pinMode(` & m.pin & `, ` & m.mode & `);`\n
+	RunningArduino : m:DigitalIO?digital_write / \naction `digitalWrite(` & m.pin & `, ` & m.value & `);`\n
+	RunningArduino : m:DigitalIO?digital_read / \naction DigitalIO!digital_read_result(m.pin, `digitalRead(` & m.pin & `)`)\n
+	RunningArduino : m:AnalogIO?analog_reference / \naction `analogReference(` & m.type & `);`\n
+	RunningArduino : m:AnalogIO?analog_read / \naction AnalogIO!analog_read_result(m.pin, `analogRead(` & m.pin & `)`)\n
+	RunningArduino : m:AnalogIO?analog_write / \naction `analogWrite(` & m.pin & `, ` & m.value & `);`\n
+	RunningArduino : m:AdvancedIO?tone / \naction `tone(` & m.pin & `, ` & m.frequency & `, ` & m.duration & `);`\n
+	RunningArduino : m:AdvancedIO?no_tone / \naction `noTone(` & m.pin & `);`\n
+	RunningArduino : m:Ping?ping / \naction Ping!pong()\n
+	RunningArduino : m:EEPROM?eeprom_read / \naction EEPROM!eeprom_value(`EEPROM.read(` & m.address & `)`)\n
+	RunningArduino : m:EEPROM?eeprom_write / \naction `EEPROM.write(` & m.address & `, ` & m.value & `);`\n
+	RunningArduino : m:EEPROM?eeprom_sync_write / \naction do\n	`EEPROM.write(` & m.address & `, ` & m.value & `);`\n	EEPROM!eeprom_write_ack()\nend\n
+}
+[*] --> RunningArduino
+}
+@enduml

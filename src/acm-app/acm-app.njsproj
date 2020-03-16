@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{2cdc56e4-cc36-4afd-94bb-b717eb140416}</ProjectGuid>
+    <ProjectHome>.</ProjectHome>
+    <ProjectView>ShowAllFiles</ProjectView>
+    <StartupFile>node_modules\concurrently\bin\concurrently</StartupFile>
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <ProjectTypeGuids>{3AF33F2E-1136-4D97-BBB7-1795711AC8B8};{349c5851-65df-11da-9384-00065b846f21};{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}</ProjectTypeGuids>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">14.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+    <LastActiveSolutionConfig>Debug|Any CPU</LastActiveSolutionConfig>
+    <StartWebBrowser>False</StartWebBrowser>
+    <SaveNodeJsSettingsInProjectFile>True</SaveNodeJsSettingsInProjectFile>
+    <ScriptArguments>"node node_modules\react-scripts\bin\react-scripts start" "node node_modules\nodemon\bin\nodemon server/index.js"</ScriptArguments>
+    <NodejsPort>3333</NodejsPort>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
+  <ItemGroup>
+    <Content Include="data.schema.json" />
+    <Content Include="genesis_models\acm_model.json" />
+    <Content Include="genesis_models\dm_nodered.json" />
+    <Content Include="genesis_models\dm_nodered_2.json" />
+    <Content Include="genesis_models\test_dm.json" />
+    <Content Include="genesis_models\__nrflow.txt" />
+    <Content Include="libman.json" />
+    <Content Include="package-lock.json" />
+    <Content Include="package.json" />
+    <Content Include="physical_models\physical.json" />
+    <Content Include="public\img\acm-configured.png" />
+    <Content Include="public\img\acm.png" />
+    <Content Include="public\img\acm_logo_header.png" />
+    <Content Include="public\img\acm_logo_header.psd" />
+    <Content Include="public\img\action.png" />
+    <Content Include="public\img\cnrs.png" />
+    <Content Include="public\img\enact.png" />
+    <Content Include="public\img\monitor-configured.png" />
+    <Content Include="public\img\monitor.png" />
+    <Content Include="public\img\mqtt.png" />
+    <Content Include="public\img\node.psd" />
+    <Content Include="public\img\physicalProcess.png" />
+    <Content Include="public\img\softwarecomponent.png" />
+    <Content Include="README.md" />
+    <Content Include="public\index.html" />
+    <Content Include="public\favicon.ico" />
+    <Content Include="public\manifest.json" />
+    <Content Include="server\acm-model-converter-proxy.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="src\App.css" />
+    <Content Include="src\components\LoadFileModal.js" />
+    <Content Include="src\components\DeployConfigModal.js" />
+    <Content Include="src\index.css" />
+    <Content Include="src\logo.svg" />
+    <Content Include="src\App.js" />
+    <Content Include="src\App.test.js" />
+    <Content Include="src\index.js" />
+    <Content Include="src\registerServiceWorker.js" />
+    <Content Include="src\components\ACMAppRoot.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="acm-app" />
+    <Folder Include="acm-app\acm-app" />
+    <Folder Include="genesis_models\" />
+    <Folder Include="physical_models\" />
+    <Folder Include="public" />
+    <Folder Include="public\img\" />
+    <Folder Include="public\js\" />
+    <Folder Include="server\" />
+    <Folder Include="src" />
+    <Folder Include="src\components" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="public\js\ACM.js" />
+    <Compile Include="public\js\bootstrap.min.js" />
+    <Compile Include="public\js\cytoscape-qtip.js" />
+    <Compile Include="public\js\cytoscape.min.js" />
+    <Compile Include="public\js\jquery.js" />
+    <Compile Include="public\js\jquery.qtip.min.js" />
+    <Compile Include="server\index.js" />
+    <Compile Include="src\components\EnvironmentModelModal.js" />
+    <Compile Include="src\components\LoadModal.js">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\components\CreatePhyModal.js" />
+    <Compile Include="src\components\SelPhyModal.js" />
+    <Compile Include="src\components\StratSelectModal.js" />
+    <Compile Include="src\components\TopMenu.js">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\components\MonitorModal.js">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\components\ACMStrategy.js">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\components\ACMStrategyList.js">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\components\MainView.js">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <!--Do not delete the following Import Project.  While this appears to do nothing it is a marker for setting TypeScript properties before our import that depends on them.-->
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="False" />
+  <Import Project="$(VSToolsPath)\Node.js Tools\Microsoft.NodejsTools.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:48022/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>True</UseCustomServer>
+          <CustomServerUrl>http://localhost:1337</CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}" User="">
+        <WebProjectProperties>
+          <StartPageUrl>
+          </StartPageUrl>
+          <StartAction>CurrentPage</StartAction>
+          <AspNetDebugging>True</AspNetDebugging>
+          <SilverlightDebugging>False</SilverlightDebugging>
+          <NativeDebugging>False</NativeDebugging>
+          <SQLDebugging>False</SQLDebugging>
+          <ExternalProgram>
+          </ExternalProgram>
+          <StartExternalURL>
+          </StartExternalURL>
+          <StartCmdLineArguments>
+          </StartCmdLineArguments>
+          <StartWorkingDirectory>
+          </StartWorkingDirectory>
+          <EnableENC>False</EnableENC>
+          <AlwaysStartWebServerOnDebug>False</AlwaysStartWebServerOnDebug>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

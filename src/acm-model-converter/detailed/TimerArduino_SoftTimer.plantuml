@@ -1,0 +1,14 @@
+@startuml
+skinparam defaultTextAlignment left
+caption Behavior of thing TimerArduino
+[*] --> SoftTimer
+state SoftTimer{
+state default_15{
+	default_15 : m:timer?timer_start / [m.time > 0]\naction startTimer(m.id, m.time)\n
+	default_15 : m:timer?timer_start / [m.time == 0]\naction timer!timer_timeout(m.id)\n
+	default_15 : m:timer?timer_cancel / \naction cancel(m.id)\n
+}
+[*] --> default_15
+	SoftTimer : entry / init_arrays()\n
+}
+@enduml

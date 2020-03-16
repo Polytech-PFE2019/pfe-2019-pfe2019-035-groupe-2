@@ -1,0 +1,13 @@
+{
+  "name": "acm",
+  "version": "0.0.0",
+  "description": "Actuation Conflict Manager Root",
+  "scripts": {
+    "preinstall": "node preinstall.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@gitlab.com/enact/actuation_conflict_manager.git"
+  },
+  "author": "CNRS"
+}

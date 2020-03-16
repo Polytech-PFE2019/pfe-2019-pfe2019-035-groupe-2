@@ -1,0 +1,851 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "Actuation Conflict Manager server API",
+    "version": "1.1.0",
+    "title": "Actuation Conflict Manager"
+  },
+  "host": "localhost:3333",
+  "basePath": "/",
+  "tags": [
+    {
+      "name": "Renderer",
+      "description": "Model rendering"
+    },
+    {
+      "name": "Model manipulation",
+      "description": "Model editing, instantiation of new ACMs"
+    },
+    {
+      "name": "Deployment",
+      "description": "Model deployment"
+    },
+    {
+      "name": "Database",
+      "description": "ACM off the shelf database"
+    }
+  ],
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/acm-model-editor/editAGGRules": {
+      "post": {
+        "tags": [
+          "Rule manipulation"
+        ],
+        "summary": "Launches AGG-editor for rule edition",
+        "description": "Launches AGG-Editor for ACM conflict finding rule edition",
+        "operationId": "editAGGRules",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Launched"
+          }
+        }
+      }
+    },
+    "/acm-renderer/model": {
+      "post": {
+        "tags": [
+          "Model manipulation"
+        ],
+        "summary": "Generate a new WIMAC model",
+        "description": "Generates a WIMAC from a service address, a service type and an environment model, along with its rendering for the view",
+        "operationId": "generateModel",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Initial model data request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ModelRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Model ok",
+            "schema": {
+              "$ref": "#/definitions/GenerateModelRet"
+            }
+          }
+        }
+      }
+    },
+    "/acm-model-editor/loadFile": {
+      "post": {
+        "tags": [
+          "Model manipulation"
+        ],
+        "summary": "Generate a new WIMAC model",
+        "description": "Generates a WIMAC from a raw model and service type then renders it",
+        "operationId": "loadFile",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Initial model data request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ModelRequestFile"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Model ok",
+            "schema": {
+              "$ref": "#/definitions/GenerateModelRet"
+            }
+          }
+        }
+      }
+    },
+    "/acm-renderer/findConflicts": {
+      "post": {
+        "tags": [
+          "Model manipulation"
+        ],
+        "summary": "Finds conflicts in a model",
+        "description": "Finds conflicts in a WIMAC model",
+        "operationId": "findConflicts",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "WIMAC to analyze",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/WIMAC"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Model ok",
+            "schema": {
+              "$ref": "#/definitions/GenerateModelRet"
+            }
+          }
+        }
+      }
+    },
+    "/acm-renderer/select": {
+      "post": {
+        "tags": [
+          "Model manipulation"
+        ],
+        "summary": "Select a conflict to solve",
+        "description": "Returns the off the shelf ACM strategies pertaining to a conflict",
+        "operationId": "selectConflict",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Data pointing the conflict",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ConflictData"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Available strategies"
+          }
+        }
+      }
+    },
+    "/acm-renderer/instantiateMonitor": {
+      "post": {
+        "tags": [
+          "Model manipulation"
+        ],
+        "summary": "Instantiates a Monitor in the model",
+        "description": "Takes a conflict ID and a strategy, instantiates the Monitor node in the WIMAC",
+        "operationId": "instantiateMonitor",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Data for the monitor instantiation",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/InstantiateMonData"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Resulting model",
+            "schema": {
+              "$ref": "#/definitions/InstantiateRet"
+            }
+          }
+        }
+      }
+    },
+    "/acm-renderer/instantiateACM": {
+      "post": {
+        "tags": [
+          "Model manipulation"
+        ],
+        "summary": "Instantiates an ACM in the model",
+        "description": "Takes a conflict ID and a strategy, instantiates the ACM node in the WIMAC",
+        "operationId": "instantiateACM",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Data for the instantiation",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/InstantiateData"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Resulting model",
+            "schema": {
+              "$ref": "#/definitions/InstantiateRet"
+            }
+          }
+        }
+      }
+    },
+    "/acm-renderer/deployOnline": {
+      "post": {
+        "tags": [
+          "Deployment"
+        ],
+        "summary": "Deploys a WIMAC to a target directly",
+        "description": "yes",
+        "operationId": "deployOnline",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Data for the deployment",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeployData"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/acm-renderer/deployDownload": {
+      "post": {
+        "tags": [
+          "Deployment"
+        ],
+        "summary": "Downloads the resulting deployment model",
+        "description": "yes",
+        "operationId": "deployDownload",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Data for the deployment",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeployData"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/acm-renderer/modelRender": {
+      "post": {
+        "tags": [
+          "Renderer"
+        ],
+        "summary": "Renders a WIMAC",
+        "description": "yes",
+        "operationId": "modelRender",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "WIMAC",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/WIMAC"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GenerateModelRet"
+            }
+          }
+        }
+      }
+    },
+    "/acm-renderer/updateEnvModel": {
+      "post": {
+        "tags": [
+          "Model manipulation"
+        ],
+        "summary": "Updates the environment model and rerenders it",
+        "description": "yes",
+        "operationId": "updateEnvModel",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Model Request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ModelRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GenerateModelRet"
+            }
+          }
+        }
+      }
+    },
+    "/acm-database/addStrategy": {
+      "post": {
+        "tags": [
+          "Database"
+        ],
+        "summary": "Adds a new off the shelf ACM strategy to the database",
+        "description": "yes",
+        "operationId": "addStrategyToDatabase",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Strategy object",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/StrategyIn"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/acm-database/strategyDatabaseListing": {
+      "get": {
+        "tags": [
+          "Database"
+        ],
+        "summary": "List all strats in the database",
+        "description": "yes",
+        "operationId": "strategyDatabaseListing",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Strategies",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/StrategyRet"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/acm-database/queryStrategyDatabase": {
+      "post": {
+        "tags": [
+          "Database"
+        ],
+        "summary": "Query database for strategies using a filter",
+        "description": "yes",
+        "operationId": "queryStrategyDatabase",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Query",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/StrategyQuery"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/StrategyRet"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/acm-database/queryDatabaseStatus": {
+      "get": {
+        "tags": [
+          "Database"
+        ],
+        "summary": "Query database for strategies using a filter",
+        "description": "yes",
+        "operationId": "queryDatabaseStatus",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/DatabaseStatusRet"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "StrategyIn": {
+      "type": "string"
+    },
+    "DatabaseStatusRet": {
+      "type": "object",
+      "properties": {
+        "online": {
+          "type": "boolean"
+        },
+        "error": {
+          "type": "string"
+        }
+      }
+    },
+    "StrategyQuery": {
+      "type": "object",
+      "properties": {
+        "sparql": {
+          "type": "string"
+        },
+        "metadata": {
+          "type": "string"
+        }
+      }
+    },
+    "StrategyRet": {
+      "type": "object",
+      "properties": {
+        "class": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "metadata": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        }
+      }
+    },
+    "DeployData": {
+      "type": "object",
+      "properties": {
+        "model": {
+          "$ref": "#/definitions/WIMAC"
+        }
+      }
+    },
+    "InstantiateRet": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "$ref": "#/definitions/WIMAC"
+        }
+      }
+    },
+    "InstantiateMonData": {
+      "type": "object",
+      "properties": {
+        "conflict": {
+          "$ref": "#/definitions/ConflictData"
+        },
+        "model": {
+          "$ref": "#/definitions/WIMAC"
+        },
+        "monitorConfig": {
+          "type": "string"
+        }
+      }
+    },
+    "InstantiateData": {
+      "type": "object",
+      "properties": {
+        "conflict": {
+          "$ref": "#/definitions/ConflictData"
+        },
+        "strat_id": {
+          "type": "string"
+        }
+      }
+    },
+    "ConflictData": {
+      "type": "object",
+      "properties": {
+        "model": {
+          "$ref": "#/definitions/GenerateModelRet"
+        },
+        "id": {
+          "type": "string"
+        }
+      }
+    },
+    "GenerateModelRet": {
+      "type": "object",
+      "properties": {
+        "model": {
+          "$ref": "#/definitions/ModelData"
+        },
+        "graph": {
+          "type": "object",
+          "description": "Cytoscape.js graph"
+        }
+      }
+    },
+    "ModelData": {
+      "type": "object",
+      "properties": {
+        "envModel": {
+          "$ref": "#/definitions/EnvironmentModel"
+        },
+        "model": {
+          "$ref": "#/definitions/WIMAC"
+        },
+        "path": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "genesis",
+            "nodered"
+          ]
+        }
+      }
+    },
+    "ModelRequest": {
+      "type": "object",
+      "properties": {
+        "json": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "nodered",
+            "genesis"
+          ]
+        },
+        "envModel": {
+          "$ref": "#/definitions/EnvironmentModel"
+        }
+      }
+    },
+    "ModelRequestFile": {
+      "type": "object",
+      "properties": {
+        "path": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "nodered",
+            "genesis"
+          ]
+        },
+        "envModel": {
+          "$ref": "#/definitions/EnvironmentModel"
+        }
+      }
+    },
+    "EnvironmentModel": {
+      "type": "object",
+      "properties": {
+        "physical_processes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/RequestPhysicalProcess"
+          }
+        },
+        "links": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/RequestPhysicalProcessLink"
+          }
+        }
+      }
+    },
+    "RequestPhysicalProcess": {
+      "type": "object",
+      "properties": {
+        "elementType": {
+          "type": "string",
+          "enum": [
+            "PhysicalProcess"
+          ]
+        },
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        }
+      }
+    },
+    "RequestPhysicalProcessLink": {
+      "type": "object",
+      "properties": {
+        "from_id": {
+          "type": "string"
+        },
+        "to_id": {
+          "type": "string"
+        }
+      }
+    },
+    "WIMAC": {
+      "type": "object",
+      "properties": {
+        "components": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/SoftwareComponent"
+          }
+        },
+        "links": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Link"
+          }
+        },
+        "models": {
+          "type": "object"
+        },
+        "physicalProcess": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PhysicalProcess"
+          }
+        },
+        "url": {
+          "type": "string"
+        }
+      }
+    },
+    "SoftwareComponent": {
+      "type": "object",
+      "properties": {
+        "elementType": {
+          "type": "string",
+          "enum": [
+            "SoftwareComponent",
+            "ACMComponent",
+            "Action",
+            "Monitor"
+          ]
+        },
+        "id": {
+          "type": "string"
+        },
+        "id_parent": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "x": {
+          "type": "number",
+          "format": "double"
+        },
+        "y": {
+          "type": "number",
+          "format": "double"
+        },
+        "physicalProcess": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PhysicalProcess"
+          }
+        }
+      }
+    },
+    "PhysicalProcess": {
+      "type": "object",
+      "properties": {
+        "elementType": {
+          "type": "string",
+          "enum": [
+            "PhysicalProcess"
+          ]
+        },
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "x": {
+          "type": "number",
+          "format": "double"
+        },
+        "y": {
+          "type": "number",
+          "format": "double"
+        }
+      }
+    },
+    "Link": {
+      "type": "object",
+      "properties": {
+        "elementType": {
+          "type": "string",
+          "enum": [
+            "Link"
+          ]
+        },
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "x": {
+          "type": "number",
+          "format": "double"
+        },
+        "y": {
+          "type": "number",
+          "format": "double"
+        },
+        "from": {
+          "$ref": "#/definitions/SoftwareComponent"
+        },
+        "to": {
+          "$ref": "#/definitions/SoftwareComponent"
+        }
+      }
+    }
+  }
+}

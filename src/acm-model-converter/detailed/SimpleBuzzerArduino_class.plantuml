@@ -1,0 +1,133 @@
+@startuml
+caption Things used in configuration SimpleBuzzerArduino
+class ArduinoArduino <<(T,#F94918)PSM>> {
+}
+class Arduino <<(T,#5BBF09)PIM>> {
+..▲ Port DigitalIO ▲..
+▶ pin_mode
+▶ digital_read
+▶ digital_write
+◀ digital_read_result
+..▲ Port AnalogIO ▲..
+▶ analog_reference
+▶ analog_read
+▶ analog_write
+◀ analog_read_result
+..▲ Port AdvancedIO ▲..
+▶ tone
+▶ no_tone
+..▲ Port Ping ▲..
+▶ ping
+◀ pong
+..▲ Port EEPROM ▲..
+▶ eeprom_read
+▶ eeprom_sync_write
+▶ eeprom_write
+◀ eeprom_value
+◀ eeprom_write_ack
+}
+class ArduinoMsgs <<(F,#BC74ED)Fragment>> {
+..Messages..
+-pin_mode(pin : DigitalPin, mode : PinMode)
+-digital_write(pin : DigitalPin, value : DigitalState)
+-digital_read(pin : DigitalPin)
+-digital_read_result(pin : DigitalPin, value : DigitalState)
+-analog_reference(type : AnalogReference)
+-analog_read(pin : AnalogPin)
+-analog_read_result(pin : AnalogPin, value : Int16)
+-analog_write(pin : PWMPin, value : UInt8)
+-tone(pin : DigitalPin, frequency : Int16, duration : Int16)
+-no_tone(pin : DigitalPin)
+-ping()
+-pong()
+-attach_interrupt(interrupt : InterruptPin, mode : InterruptTrigger)
+-detach_interrupt(interrupt : InterruptPin)
+-interrupt_notification(interrupt : InterruptPin)
+-eeprom_read(address : Int16)
+-eeprom_value(value : Int8)
+-eeprom_write(address : Int16, value : Int8)
+-eeprom_sync_write(address : Int16, value : Int8)
+-eeprom_write_ack()
+}
+class DigitalOutputArduino <<(T,#5BBF09)PIM>> {
+..Properties..
+-pin : DigitalPin = DigitalPin : PIN_13
+..▼ Port DigitalIO ▼..
+◀ pin_mode
+◀ digital_write
+}
+class DigitalOutput <<(T,#5BBF09)PIM>> {
+..▲ Port DigitalOutput ▲..
+▶ set_digital_output
+}
+class DigitalOutputMsgs <<(F,#BC74ED)Fragment>> {
+..Messages..
+-set_digital_output(value : DigitalState)
+}
+class Buzzer <<(T,#5BBF09)PIM>> {
+..Properties..
+-timerID : UInt8
+..▲ Port Buzzer ▲..
+▶ buzzer_on
+▶ buzzer_off
+▶ buzzer_delay
+..▼ Port DigitalOutput ▼..
+◀ set_digital_output
+}
+class BuzzerMsgs <<(F,#BC74ED)Fragment>> {
+..Messages..
+-buzzer_on()
+-buzzer_off()
+-buzzer_delay(delay : UInt16)
+}
+class TimerClientPort <<(F,#BC74ED)Fragment>> {
+..▼ Port timer ▼..
+▶ timer_timeout
+◀ timer_start
+◀ timer_cancel
+}
+class TimerMsgs <<(F,#BC74ED)Fragment>> {
+..Messages..
+-timer_start(id : UInt8, time : UInt16)
+-timer_cancel(id : UInt8)
+-timer_timeout(id : UInt8)
+}
+class SimpleBuzzer <<(T,#5BBF09)PIM>> {
+..Properties..
+-counter : UInt8 = 0
+-end_motif : Boolean = false
+-timerID : UInt8
+-DEBUG_ID : String
+..▼ Port Buzzer ▼..
+◀ buzzer_delay
+}
+class TimerArduino <<(T,#F94918)PSM>> {
+..Properties..
+-NB_SOFT_TIMERS : UInt16 = `NB_SOFT_TIMERS` as UInt16
+..Functions..
+-time_ms() : UInt32
+-init_arrays() : void
+-poll_soft_timers() : void
+-startTimer(id : UInt8, delay : UInt16) : void
+-cancel(id : UInt8) : void
+}
+class Timer <<(F,#BC74ED)Fragment>> {
+..▲ Port timer ▲..
+▶ timer_start
+▶ timer_cancel
+◀ timer_timeout
+}
+Arduino <|-- ArduinoArduino
+ArduinoMsgs <|-- Arduino
+DigitalOutput <|-- DigitalOutputArduino
+DigitalOutputMsgs <|-- DigitalOutput
+ArduinoMsgs <|-- DigitalOutputArduino
+BuzzerMsgs <|-- Buzzer
+DigitalOutputMsgs <|-- Buzzer
+TimerClientPort <|-- Buzzer
+TimerMsgs <|-- TimerClientPort
+BuzzerMsgs <|-- SimpleBuzzer
+TimerClientPort <|-- SimpleBuzzer
+Timer <|-- TimerArduino
+TimerMsgs <|-- Timer
+@enduml

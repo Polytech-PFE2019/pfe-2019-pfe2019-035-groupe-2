@@ -1,0 +1,14 @@
+
+# Flash image
+
+nano /etc/dhcpcd.conf
+# Modify IP address to set it 192.168.43 Mobile HotSpot network but with static IP (from 101 to 116)
+interface wlan0
+static ip_address=192.168.43.101/24
+static routers=192.168.43.1
+static domain_name_servers=192.168.43.1
+
+# For each Raspberry Pi Zero WH
+sudo raspi-config
+#  - Network options
+#    - Hostname: change name to rpiz[101-116]

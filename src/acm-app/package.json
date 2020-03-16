@@ -1,0 +1,53 @@
+{
+  "name": "acm-app",
+  "version": "0.1.2",
+  "description": "Actuation Conflict Manager",
+  "main": "index.html ",
+  "scripts": {
+    "start": "concurrently \"rethinkdb\" \"react-scripts start\" \"nodemon server/index.js\" \"java -jar agg/agg-gateway-0.2.0.jar -cp agg/agg_V21_classes.jar\" \"nodemon ../acm-model-converter-server/index.js\"",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@gitlab.com/enact/acutation_conflict_manager.git"
+  },
+  "author": "CNRS",
+  "license": "MIT",
+  "homepage": "https://gitlab.com/enact/actuation_conflict_manager",
+  "dependencies": {
+    "acm-deployment": "file:../acm-deployment",
+    "acm-detection": "file:../acm-detection",
+    "acm-injection": "file:../acm-injection",
+    "acm-metamodel": "file:../acm-metamodel",
+    "acm-model-merger": "file:../acm-model-merger",
+    "acm-repository-gateway": "file:../acm-repository-gateway",
+    "antd": "^3.14.1",
+    "concurrently": "^4.1.0",
+    "express": "^4.16.4",
+    "nodemon": "^1.18.10",
+    "react": "^16.6.3",
+    "react-dom": "^16.6.3",
+    "react-scripts": "1.1.4",
+    "swagger-ui-express": "^4.0.7"
+  },
+  "proxy": {
+    "/acm-renderer/*": {
+      "target": "http://localhost:8008/",
+      "secure": "false"
+    },
+    "/api-docs*": {
+      "target": "http://localhost:8008/",
+      "secure": "false"
+    },
+    "/acm-database/*": {
+      "target": "http://localhost:8008/",
+      "secure": "false"
+    },
+    "/acm-model-editor/*": {
+      "target": "http://localhost:8008/",
+      "secure": "false"
+    }
+  }
+}

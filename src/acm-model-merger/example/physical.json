@@ -1,0 +1,14 @@
+{
+    "physical_processes":[
+        {
+            "id":666,
+            "name":"phyProc",
+            "x":200,
+            "y":200
+        }
+    ],
+    "links":[
+        {"from_id":0,"to_id":666},
+        {"from_id":1,"to_id":666}    
+    ]
+}

@@ -1,0 +1,42 @@
+[{
+		"id": "534e8391.16269c",
+		"type": "inject",
+		"z": "68bf7da6.0a29f4",
+		"name": "Application 1",
+		"topic": "",
+		"payload": "true",
+		"payloadType": "bool",
+		"repeat": "",
+		"crontab": "",
+		"once": false,
+		"onceDelay": 0.1,
+		"x": 550,
+		"y": 90,
+		"wires": [["9b11eba.111b618"]]
+	}, {
+		"id": "9b11eba.111b618",
+		"type": "function",
+		"z": "68bf7da6.0a29f4",
+		"name": "Application 1",
+		"func": "\nreturn msg;",
+		"outputs": 1,
+		"noerr": 0,
+		"x": 820,
+		"y": 90,
+		"wires": [["68b39a65.2fa0c4"]]
+	}, {
+		"id": "68b39a65.2fa0c4",
+		"type": "debug",
+		"z": "68bf7da6.0a29f4",
+		"name": "Actuator 1",
+		"active": true,
+		"tosidebar": true,
+		"console": false,
+		"tostatus": false,
+		"complete": "payload",
+		"targetType": "msg",
+		"x": 1090,
+		"y": 90,
+		"wires": []
+	}
+]

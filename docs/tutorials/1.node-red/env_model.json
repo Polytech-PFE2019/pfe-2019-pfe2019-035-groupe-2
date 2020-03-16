@@ -1,0 +1,14 @@
+{
+	"physical_processes": [{
+			"id": "56c683e8.04da9",
+			"name": "physicalProcess0",
+			"x": 200,
+			"y": 200
+		}
+	],
+	"links": [{
+			"from_id": "f52753cb.04da9",
+			"to_id": "56c683e8.04da9"
+		}
+	]
+}

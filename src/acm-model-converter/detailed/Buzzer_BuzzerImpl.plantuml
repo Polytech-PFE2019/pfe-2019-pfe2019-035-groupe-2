@@ -1,0 +1,22 @@
+@startuml
+skinparam defaultTextAlignment left
+caption Behavior of thing Buzzer
+[*] --> BuzzerImpl
+state BuzzerImpl{
+state BuzzerOff{
+	BuzzerOff : entry / do\n	print "/"\n	DigitalOutput!set_digital_output(DigitalState : LOW)\nend\n
+
+BuzzerOff --> BuzzerOn : switch_on\nBuzzer?buzzer_on
+
+BuzzerOff --> BuzzerOn : delay\nm:Buzzer?buzzer_delay\naction timer!timer_start(timerID, m.delay)\n
+}
+state BuzzerOn{
+	BuzzerOn : entry / do\n	print "*"\n	DigitalOutput!set_digital_output(DigitalState : HIGH)\nend\n
+
+BuzzerOn --> BuzzerOff : switch_off\nBuzzer?buzzer_off\naction timer!timer_cancel(timerID)\n
+
+BuzzerOn --> BuzzerOff : switch_off\nt:timer?timer_timeout[t.id == timerID]\naction timer!timer_cancel(timerID)\n
+}
+[*] --> BuzzerOff
+}
+@enduml

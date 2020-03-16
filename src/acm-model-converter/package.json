@@ -1,0 +1,22 @@
+{
+  "name": "acm-model-converter",
+  "version": "0.0.0",
+  "description": "Actuation Conflict Manager metamodel converter",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "acm-injection": "file:../acm-injection",
+    "acm-instantiation": "file:../acm-instantiation",
+    "acm-metamodel": "file:../acm-metamodel",
+    "findit": "^2.0.0",
+    "fs-stream-sync": "^1.0.4",
+    "recursive-search": "^1.0.1",
+    "unzipper": "^0.10.5",
+    "xml2js": "^0.4.19"
+  }
+}

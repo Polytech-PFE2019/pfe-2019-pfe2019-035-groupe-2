@@ -1,0 +1,264 @@
+{
+	"dm": {
+		"name": "demo",
+		"components": [{
+				"_type": "/infra/docker_host",
+				"name": "RPiZero-101",
+				"properties": [],
+				"id": "9a19f1dd-5149-4484-8f63-a5abd921ebe8",
+				"provided_execution_port": [{
+						"name": "offerDocker"
+					}
+				],
+				"ip": "192.168.43.101",
+				"port": ["2376"],
+				"credentials": {
+					"username": "ubuntu",
+					"password": "ubuntu",
+					"sshkey": ""
+				}
+			}, {
+				"_type": "/internal/node_red",
+				"name": "NodeRED",
+				"properties": [],
+				"id": "af38e429-e6ae-4ef2-af7c-e50ccc504508",
+				"provided_execution_port": [{
+						"name": "cc112862-cd91-4f45-8aa7-a2e7101409e2"
+					}
+				],
+				"docker_resource": {
+					"name": "DockerRaspberryPiZeroGroveBaseHat",
+					"image": "node-docker-raspberry-zero:armv6",
+					"command": "",
+					"links": [],
+					"port_bindings": {
+						"1880": "1880",
+						"1883": "1883"
+					},
+					"mounts": {
+						"src": "/sys",
+						"tgt": "/sys"
+					},
+					"devices": [{
+							"PathOnHost": "/dev/mem",
+							"PathInContainer": "/dev/mem",
+							"CgroupPermissions": "rwm"
+						}, {
+							"PathOnHost": "/dev/gpiomem",
+							"PathInContainer": "/dev/gpiomem",
+							"CgroupPermissions": "rwm"
+						}, {
+							"PathOnHost": "/dev/i2c-1",
+							"PathInContainer": "/dev/i2c-1",
+							"CgroupPermissions": "rwm"
+						}
+					]
+				},
+				"ssh_resource": {
+					"name": "044a2333-1dbf-4413-80b8-061eee8a8f10",
+					"startCommand": "",
+					"downloadCommand": "",
+					"installCommand": "",
+					"configureCommand": "",
+					"credentials": {
+						"username": "ubuntu",
+						"password": "ubuntu",
+						"sshkey": ""
+					}
+				},
+				"ansible_resource": {
+					"name": "48cc3120-0a87-40a0-853a-9a8ffb7c9234",
+					"playbook_path": "",
+					"playbook_host": "",
+					"credentials": {
+						"username": "ubuntu",
+						"password": "ubuntu",
+						"sshkey": ""
+					}
+				},
+				"required_execution_port": {
+					"name": "demandDocker",
+					"needDeployer": false
+				},
+				"provided_communication_port": [{
+						"name": "f5aca459-1b7e-4876-92d9-e5de780cd526",
+						"port_number": "1880"
+					}
+				],
+				"required_communication_port": [{
+						"name": "23040e13-85ce-47e7-a4af-9ab4af2dcada",
+						"port_number": "80",
+						"isMandatory": false
+					}
+				],
+				"nr_flow": [],
+				"path_flow": "D:\\Dev\\contrats\\ENACT\\actuation_conflict_manager\\demo-pizero\\App.json",
+				"packages": []
+			}
+		],
+		"links": [],
+		"containments": [{
+				"name": "NodeRED_on_RaspberryPiZero",
+				"properties": [],
+				"src": "/RaspberryPiZero/offerDocker",
+				"target": "/NodeRED/demandDocker"
+			}, {
+				"name": "Docker_on_RPiZero-101",
+				"properties": [],
+				"src": "/RPiZero-101/offerDocker",
+				"target": "/NodeRED/demandDocker"
+			}
+		],
+		"type_registry": []
+	},
+	"graph": {
+		"elements": {
+			"nodes": [{
+					"data": {
+						"id": "RPiZero-101"
+					},
+					"position": {
+						"x": 243.91018033996522,
+						"y": 202.89228732778213
+					},
+					"group": "nodes",
+					"removed": false,
+					"selected": false,
+					"selectable": true,
+					"locked": false,
+					"grabbable": true,
+					"classes": "container"
+				}, {
+					"data": {
+						"id": "NodeRED",
+						"parent": "RPiZero-101"
+					},
+					"position": {
+						"x": 243.91018033996522,
+						"y": 202.89228732778213
+					},
+					"group": "nodes",
+					"removed": false,
+					"selected": false,
+					"selectable": true,
+					"locked": false,
+					"grabbable": true,
+					"classes": "node_red"
+				}
+			]
+		},
+		"style": [{
+				"selector": "node",
+				"style": {
+					"label": "data(id)",
+					"background-fit": "contain",
+					"background-image-opacity": "0.3",
+					"text-valign": "center",
+					"text-halign": "center",
+					"font-size": "4px",
+					"font-weight": "bold"
+				}
+			}, {
+				"selector": "node.container",
+				"style": {
+					"padding": "10px",
+					"text-valign": "top",
+					"text-halign": "center",
+					"background-color": "#DDD",
+					"font-size": "8px",
+					"font-weight": "normal",
+					"shape": "rectangle",
+					"background-image": "./img/docker-official.svg"
+				}
+			}, {
+				"selector": "edge",
+				"style": {
+					"curve-style": "bezier",
+					"target-arrow-shape": "triangle"
+				}
+			}, {
+				"selector": "edge.control",
+				"style": {
+					"curve-style": "bezier",
+					"target-arrow-shape": "circle"
+				}
+			}, {
+				"selector": ":selected",
+				"style": {
+					"background-color": "black",
+					"line-color": "black",
+					"target-arrow-color": "black",
+					"source-arrow-color": "black"
+				}
+			}, {
+				"selector": "node.questionable",
+				"style": {
+					"border-color": "#A33",
+					"background-color": "#B55",
+					"shape": "roundrectangle"
+				}
+			}, {
+				"selector": "node.node_red",
+				"style": {
+					"background-image": "./img/node-red-256.png"
+				}
+			}, {
+				"selector": "node.ansible",
+				"style": {
+					"background-image": "./img/ansible.png"
+				}
+			}, {
+				"selector": "node.orion",
+				"style": {
+					"background-color": "#ADD8E6",
+					"background-image": "./img/fiware_logo.png"
+				}
+			}, {
+				"selector": "node.thingml",
+				"style": {
+					"background-color": "#ADD8E6",
+					"background-image": "./img/thingml_short.png"
+				}
+			}, {
+				"selector": "node.device",
+				"style": {
+					"padding": "10px",
+					"text-valign": "top",
+					"text-halign": "center",
+					"background-color": "#DDD",
+					"font-size": "8px",
+					"font-weight": "normal",
+					"shape": "rectangle",
+					"background-image": "./img/device.png"
+				}
+			}, {
+				"selector": "node.vm",
+				"style": {
+					"padding": "10px",
+					"text-valign": "top",
+					"text-halign": "center",
+					"background-color": "#DDD",
+					"font-size": "8px",
+					"font-weight": "normal",
+					"shape": "rectangle",
+					"background-image": "./img/server_cloud.png"
+				}
+			}
+		],
+		"zoomingEnabled": true,
+		"userZoomingEnabled": true,
+		"zoom": 3.8032182675415607,
+		"minZoom": 0.4,
+		"maxZoom": 6,
+		"panningEnabled": true,
+		"userPanningEnabled": true,
+		"pan": {
+			"x": -532.6114708328969,
+			"y": -571.8565265784785
+		},
+		"boxSelectionEnabled": false,
+		"renderer": {
+			"name": "canvas"
+		}
+	}
+}

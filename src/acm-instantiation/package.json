@@ -1,0 +1,15 @@
+{
+  "name": "acm-instantiation",
+  "version": "0.0.0",
+  "description": "Actuation Conflict Manager instantiation component",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "acm-metamodel": "file:../acm-metamodel"
+  }
+}

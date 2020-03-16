@@ -1,0 +1,1493 @@
+{
+	"dm": {
+		"name": "demo",
+		"components": [{
+				"_type": "/infra/docker_host",
+				"name": "RPiZero-101",
+				"properties": [],
+				"version": "0.0.1",
+				"id": "237dca59-d412-4e78-951f-7cdf4f8a4549",
+				"provided_execution_port": [{
+						"name": "offerDocker",
+						"capabilities": {
+							"_type": "/capability/security_capability",
+							"name": "a_capability",
+							"control_id": "",
+							"description": ""
+						}
+					}
+				],
+				"ip": "192.168.43.101",
+				"port": ["2376"],
+				"credentials": {
+					"username": "ubuntu",
+					"password": "",
+					"sshkey": ""
+				},
+				"monitoring_agent": "none"
+			}, {
+				"_type": "/internal/node_red",
+				"name": "NodeRED-101",
+				"properties": [],
+				"version": "0.0.1",
+				"id": "85cce8fd-941d-4028-b985-038e578c9073",
+				"provided_execution_port": [{
+						"name": "offerNodeRED",
+						"capabilities": {
+							"_type": "/capability/security_capability",
+							"name": "a_capability",
+							"control_id": "",
+							"description": ""
+						}
+					}
+				],
+				"docker_resource": {
+					"name": "DockerRaspberryPiZeroGroveBaseHat",
+					"image": "node-docker-raspberry-zero:armv6",
+					"command": "",
+					"links": [],
+					"port_bindings": {
+						"1880": "1880",
+						"1883": "1883"
+					},
+					"mounts": {
+						"src": "/sys",
+						"tgt": "/sys"
+					},
+					"devices": [{
+							"PathOnHost": "/dev/mem",
+							"PathInContainer": "/dev/mem",
+							"CgroupPermissions": "rwm"
+						}, {
+							"PathOnHost": "/dev/gpiomem",
+							"PathInContainer": "/dev/gpiomem",
+							"CgroupPermissions": "rwm"
+						}, {
+							"PathOnHost": "/dev/i2c-1",
+							"PathInContainer": "/dev/i2c-1",
+							"CgroupPermissions": "rwm"
+						}
+					]
+				},
+				"ssh_resource": {
+					"name": "b2a20e07-0a9e-435d-a2a4-b30aed163f06",
+					"startCommand": "",
+					"downloadCommand": "",
+					"installCommand": "",
+					"configureCommand": "",
+					"credentials": {
+						"username": "ubuntu",
+						"password": "",
+						"sshkey": ""
+					}
+				},
+				"ansible_resource": {
+					"name": "8cb766fe-1de5-40b5-bb8c-93ea4f99599f",
+					"playbook_path": "",
+					"playbook_host": "",
+					"credentials": {
+						"username": "ubuntu",
+						"password": "",
+						"sshkey": ""
+					}
+				},
+				"required_execution_port": {
+					"name": "demandDocker",
+					"capabilities": {
+						"_type": "/capability/security_capability",
+						"name": "a_capability",
+						"control_id": "",
+						"description": ""
+					},
+					"needDeployer": false
+				},
+				"provided_communication_port": [{
+						"name": "2cfbec49-e9e4-4375-9ffa-7a69970818a7",
+						"capabilities": {
+							"_type": "/capability/security_capability",
+							"name": "a_capability",
+							"control_id": "",
+							"description": ""
+						},
+						"port_number": "1880"
+					}
+				],
+				"required_communication_port": [{
+						"name": "9db34d86-6079-4651-ae43-756f31706520",
+						"capabilities": {
+							"_type": "/capability/security_capability",
+							"name": "a_capability",
+							"control_id": "",
+							"description": ""
+						},
+						"port_number": "80",
+						"isMandatory": false
+					}
+				],
+				"nr_flow": [],
+				"path_flow": "",
+				"packages": []
+			}, {
+				"_type": "/internal/node_red_flow",
+				"name": "NodeRED-flow-101",
+				"properties": [],
+				"version": "0.0.1",
+				"id": "95435a48-dd9f-4ed1-9c46-69d51d3b5c86",
+				"provided_execution_port": [{
+						"name": "b12e48c6-d60b-4806-9101-40df5aa9762d",
+						"capabilities": {
+							"_type": "/capability/security_capability",
+							"name": "a_capability",
+							"control_id": "",
+							"description": ""
+						}
+					}
+				],
+				"docker_resource": {
+					"name": "26e1fda6-622d-4691-8592-5834b82abab4",
+					"image": "",
+					"command": "",
+					"links": [],
+					"port_bindings": {
+						"1880": "1880"
+					},
+					"devices": {
+						"PathOnHost": "",
+						"PathInContainer": "",
+						"CgroupPermissions": "rwm"
+					}
+				},
+				"ssh_resource": {
+					"name": "31b8f00e-779d-4566-bee6-a5993c18efbd",
+					"startCommand": "",
+					"downloadCommand": "",
+					"installCommand": "",
+					"configureCommand": "",
+					"stopCommand": "",
+					"credentials": {
+						"username": "ubuntu",
+						"password": "",
+						"sshkey": "",
+						"agent": ""
+					}
+				},
+				"ansible_resource": {
+					"name": "c75ee326-bca5-4a9d-a256-3385683551fa",
+					"playbook_path": "",
+					"playbook_host": "",
+					"credentials": {
+						"username": "ubuntu",
+						"password": "",
+						"sshkey": "",
+						"agent": ""
+					}
+				},
+				"required_execution_port": {
+					"name": "demandNodeRED",
+					"capabilities": {
+						"_type": "/capability/security_capability",
+						"name": "a_capability",
+						"control_id": "",
+						"description": ""
+					},
+					"needDeployer": false
+				},
+				"provided_communication_port": [{
+						"name": "44f5e0a0-d5c0-424e-a7a1-972620486a21",
+						"capabilities": {
+							"_type": "/capability/security_capability",
+							"name": "a_capability",
+							"control_id": "",
+							"description": ""
+						},
+						"port_number": "80"
+					}
+				],
+				"required_communication_port": [{
+						"name": "1739cf16-6d9b-43c2-8930-ec69b8926722",
+						"capabilities": {
+							"_type": "/capability/security_capability",
+							"name": "a_capability",
+							"control_id": "",
+							"description": ""
+						},
+						"port_number": "1880",
+						"isMandatory": false
+					}
+				],
+				
+				"nr_flow": [],
+				"path_flow": "D:\\Dev\\contrats\\ENACT\\actuation_conflict_manager\\demos\\demo-pizero\\Application_Device.json",
+				"packages": []
+			}, {
+				"_type": "/infra/docker_host",
+				"name": "RPiZero-102",
+				"properties": [],
+				"version": "0.0.1",
+				"id": "2cedf224-d424-4359-9754-0aa4eb88ff56",
+				"provided_execution_port": [{
+						"name": "offerDocker",
+						"capabilities": {
+							"_type": "/capability/security_capability",
+							"name": "a_capability",
+							"control_id": "",
+							"description": ""
+						}
+					}
+				],
+				"ip": "192.168.43.102",
+				"port": ["2376"],
+				"credentials": {
+					"username": "ubuntu",
+					"password": "",
+					"sshkey": ""
+				},
+				"monitoring_agent": "none"
+			}, {
+				"_type": "/internal/node_red",
+				"name": "NodeRED-102",
+				"properties": [],
+				"version": "0.0.1",
+				"id": "20f19826-9633-45a3-9322-e5f058aa7953",
+				"provided_execution_port": [{
+						"name": "offerNodeRED",
+						"capabilities": {
+							"_type": "/capability/security_capability",
+							"name": "a_capability",
+							"control_id": "",
+							"description": ""
+						}
+					}
+				],
+				"docker_resource": {
+					"name": "DockerRaspberryPiZeroGroveBaseHat",
+					"image": "node-docker-raspberry-zero:armv6",
+					"command": "",
+					"links": [],
+					"port_bindings": {
+						"1880": "1880",
+						"1883": "1883"
+					},
+					"mounts": {
+						"src": "/sys",
+						"tgt": "/sys"
+					},
+					"devices": [{
+							"PathOnHost": "/dev/mem",
+							"PathInContainer": "/dev/mem",
+							"CgroupPermissions": "rwm"
+						}, {
+							"PathOnHost": "/dev/gpiomem",
+							"PathInContainer": "/dev/gpiomem",
+							"CgroupPermissions": "rwm"
+						}, {
+							"PathOnHost": "/dev/i2c-1",
+							"PathInContainer": "/dev/i2c-1",
+							"CgroupPermissions": "rwm"
+						}
+					]
+				},
+				"ssh_resource": {
+					"name": "e82c61dc-d71f-4abf-a887-508434c97db5",
+					"startCommand": "",
+					"downloadCommand": "",
+					"installCommand": "",
+					"configureCommand": "",
+					"credentials": {
+						"username": "ubuntu",
+						"password": "",
+						"sshkey": ""
+					}
+				},
+				"ansible_resource": {
+					"name": "5491069a-e347-4ff2-8e16-a306908a93e8",
+					"playbook_path": "",
+					"playbook_host": "",
+					"credentials": {
+						"username": "ubuntu",
+						"password": "",
+						"sshkey": ""
+					}
+				},
+				"required_execution_port": {
+					"name": "demandDocker",
+					"capabilities": {
+						"_type": "/capability/security_capability",
+						"name": "a_capability",
+						"control_id": "",
+						"description": ""
+					},
+					"needDeployer": false
+				},
+				"provided_communication_port": [{
+						"name": "8f72107b-de0f-43d4-8ff4-71d18bd8bea2",
+						"capabilities": {
+							"_type": "/capability/security_capability",
+							"name": "a_capability",
+							"control_id": "",
+							"description": ""
+						},
+						"port_number": "1880"
+					}
+				],
+				"required_communication_port": [{
+						"name": "7c655702-c1a7-4815-9051-3ce7188652c9",
+						"capabilities": {
+							"_type": "/capability/security_capability",
+							"name": "a_capability",
+							"control_id": "",
+							"description": ""
+						},
+						"port_number": "80",
+						"isMandatory": false
+					}
+				],
+				"nr_flow": [],
+				"path_flow": "",
+				"packages": []
+			}, {
+				"_type": "/internal/node_red_flow",
+				"name": "NodeRED-flow-102",
+				"properties": [],
+				"version": "0.0.1",
+				"id": "2ed75caa-faf7-4d15-bdce-7e787414af47",
+				"provided_execution_port": [{
+						"name": "cea00b52-3a64-424b-b2d3-67de8af67565",
+						"capabilities": {
+							"_type": "/capability/security_capability",
+							"name": "a_capability",
+							"control_id": "",
+							"description": ""
+						}
+					}
+				],
+				"docker_resource": {
+					"name": "3217a248-0c44-4868-b2e1-0626c657037a",
+					"image": "",
+					"command": "",
+					"links": [],
+					"port_bindings": {
+						"1880": "1880"
+					},
+					"devices": {
+						"PathOnHost": "",
+						"PathInContainer": "",
+						"CgroupPermissions": "rwm"
+					}
+				},
+				"ssh_resource": {
+					"name": "94bf1a10-e1d7-4175-8193-95835d6f6674",
+					"startCommand": "",
+					"downloadCommand": "",
+					"installCommand": "",
+					"configureCommand": "",
+					"stopCommand": "",
+					"credentials": {
+						"username": "ubuntu",
+						"password": "",
+						"sshkey": "",
+						"agent": ""
+					}
+				},
+				"ansible_resource": {
+					"name": "221ae0b6-31c6-4194-a3b2-ad4cf0fe0178",
+					"playbook_path": "",
+					"playbook_host": "",
+					"credentials": {
+						"username": "ubuntu",
+						"password": "",
+						"sshkey": "",
+						"agent": ""
+					}
+				},
+				"required_execution_port": {
+					"name": "demandNodeRED",
+					"capabilities": {
+						"_type": "/capability/security_capability",
+						"name": "a_capability",
+						"control_id": "",
+						"description": ""
+					},
+					"needDeployer": false
+				},
+				"provided_communication_port": [{
+						"name": "69997cd5-cac7-4c8e-9e5c-21c413dd993a",
+						"capabilities": {
+							"_type": "/capability/security_capability",
+							"name": "a_capability",
+							"control_id": "",
+							"description": ""
+						},
+						"port_number": "80"
+					}
+				],
+				"required_communication_port": [{
+						"name": "b073d7b2-6bf4-4431-82b0-155a969aa67f",
+						"capabilities": {
+							"_type": "/capability/security_capability",
+							"name": "a_capability",
+							"control_id": "",
+							"description": ""
+						},
+						"port_number": "1880",
+						"isMandatory": false
+					}
+				],
+				
+				"nr_flow": [],
+				"path_flow": "D:\\Dev\\contrats\\ENACT\\actuation_conflict_manager\\demos\\demo-pizero\\Application_Device.json",
+				"packages": []
+			}, {
+				"_type": "/infra/docker_host",
+				"name": "RPiZero-103",
+				"properties": [],
+				"version": "0.0.1",
+				"id": "3988a85e-91c1-4242-ae8f-bbcb1d6cf293",
+				"provided_execution_port": [{
+						"name": "offerDocker",
+						"capabilities": {
+							"_type": "/capability/security_capability",
+							"name": "a_capability",
+							"control_id": "",
+							"description": ""
+						}
+					}
+				],
+				"ip": "192.168.43.103",
+				"port": ["2376"],
+				"credentials": {
+					"username": "ubuntu",
+					"password": "",
+					"sshkey": ""
+				},
+				"monitoring_agent": "none"
+			}, {
+				"_type": "/internal/node_red",
+				"name": "NodeRED-103",
+				"properties": [],
+				"version": "0.0.1",
+				"id": "21d8305f-2ddb-4e05-9fe3-1c5ac813dfc4",
+				"provided_execution_port": [{
+						"name": "offerNodeRED",
+						"capabilities": {
+							"_type": "/capability/security_capability",
+							"name": "a_capability",
+							"control_id": "",
+							"description": ""
+						}
+					}
+				],
+				"docker_resource": {
+					"name": "DockerRaspberryPiZeroGroveBaseHat",
+					"image": "node-docker-raspberry-zero:armv6",
+					"command": "",
+					"links": [],
+					"port_bindings": {
+						"1880": "1880",
+						"1883": "1883"
+					},
+					"mounts": {
+						"src": "/sys",
+						"tgt": "/sys"
+					},
+					"devices": [{
+							"PathOnHost": "/dev/mem",
+							"PathInContainer": "/dev/mem",
+							"CgroupPermissions": "rwm"
+						}, {
+							"PathOnHost": "/dev/gpiomem",
+							"PathInContainer": "/dev/gpiomem",
+							"CgroupPermissions": "rwm"
+						}, {
+							"PathOnHost": "/dev/i2c-1",
+							"PathInContainer": "/dev/i2c-1",
+							"CgroupPermissions": "rwm"
+						}
+					]
+				},
+				"ssh_resource": {
+					"name": "9273ef7f-2a94-4211-81b6-a1b425e5ca8e",
+					"startCommand": "",
+					"downloadCommand": "",
+					"installCommand": "",
+					"configureCommand": "",
+					"credentials": {
+						"username": "ubuntu",
+						"password": "",
+						"sshkey": ""
+					}
+				},
+				"ansible_resource": {
+					"name": "3fd547ee-ed2c-4fb6-8e48-91ba3b77a6c1",
+					"playbook_path": "",
+					"playbook_host": "",
+					"credentials": {
+						"username": "ubuntu",
+						"password": "",
+						"sshkey": ""
+					}
+				},
+				"required_execution_port": {
+					"name": "demandDocker",
+					"capabilities": {
+						"_type": "/capability/security_capability",
+						"name": "a_capability",
+						"control_id": "",
+						"description": ""
+					},
+					"needDeployer": false
+				},
+				"provided_communication_port": [{
+						"name": "1d74ed83-6c3a-4ed1-9cb3-284819567e4f",
+						"capabilities": {
+							"_type": "/capability/security_capability",
+							"name": "a_capability",
+							"control_id": "",
+							"description": ""
+						},
+						"port_number": "1880"
+					}
+				],
+				"required_communication_port": [{
+						"name": "9645702d-5be4-40c5-bdc6-bec5a4ebc6a1",
+						"capabilities": {
+							"_type": "/capability/security_capability",
+							"name": "a_capability",
+							"control_id": "",
+							"description": ""
+						},
+						"port_number": "80",
+						"isMandatory": false
+					}
+				],
+				"nr_flow": [],
+				"path_flow": "",
+				"packages": []
+			}, {
+				"_type": "/internal/node_red_flow",
+				"name": "NodeRED-flow-103",
+				"properties": [],
+				"version": "0.0.1",
+				"id": "f84d7928-337a-450d-81aa-c62d3ec74695",
+				"provided_execution_port": [{
+						"name": "5068ac9f-db7f-4874-9206-e60849eb778e",
+						"capabilities": {
+							"_type": "/capability/security_capability",
+							"name": "a_capability",
+							"control_id": "",
+							"description": ""
+						}
+					}
+				],
+				"docker_resource": {
+					"name": "bcece153-211c-4b16-8794-f155f19a0470",
+					"image": "",
+					"command": "",
+					"links": [],
+					"port_bindings": {
+						"1880": "1880"
+					},
+					"devices": {
+						"PathOnHost": "",
+						"PathInContainer": "",
+						"CgroupPermissions": "rwm"
+					}
+				},
+				"ssh_resource": {
+					"name": "099cff58-9926-4bc9-9b14-ca46e5d5a594",
+					"startCommand": "",
+					"downloadCommand": "",
+					"installCommand": "",
+					"configureCommand": "",
+					"stopCommand": "",
+					"credentials": {
+						"username": "ubuntu",
+						"password": "",
+						"sshkey": "",
+						"agent": ""
+					}
+				},
+				"ansible_resource": {
+					"name": "47c572c5-b1b6-44e3-9d17-0447adcbc955",
+					"playbook_path": "",
+					"playbook_host": "",
+					"credentials": {
+						"username": "ubuntu",
+						"password": "",
+						"sshkey": "",
+						"agent": ""
+					}
+				},
+				"required_execution_port": {
+					"name": "demandNodeRED",
+					"capabilities": {
+						"_type": "/capability/security_capability",
+						"name": "a_capability",
+						"control_id": "",
+						"description": ""
+					},
+					"needDeployer": false
+				},
+				"provided_communication_port": [{
+						"name": "5d92b702-ccff-4b80-b49c-e07ac1a44a62",
+						"capabilities": {
+							"_type": "/capability/security_capability",
+							"name": "a_capability",
+							"control_id": "",
+							"description": ""
+						},
+						"port_number": "80"
+					}
+				],
+				"required_communication_port": [{
+						"name": "de02b823-8c3d-4f28-bf97-aafbc356a4c3",
+						"capabilities": {
+							"_type": "/capability/security_capability",
+							"name": "a_capability",
+							"control_id": "",
+							"description": ""
+						},
+						"port_number": "1880",
+						"isMandatory": false
+					}
+				],
+				
+				"nr_flow": [],
+				"path_flow": "D:\\Dev\\contrats\\ENACT\\actuation_conflict_manager\\demos\\demo-pizero\\Application_Device.json",
+				"packages": []
+			}, {
+				"_type": "/infra/docker_host",
+				"name": "RPiZero-104",
+				"properties": [],
+				"version": "0.0.1",
+				"id": "4d437dce-f83f-4b19-93f8-0bd160869394",
+				"provided_execution_port": [{
+						"name": "offerDocker",
+						"capabilities": {
+							"_type": "/capability/security_capability",
+							"name": "a_capability",
+							"control_id": "",
+							"description": ""
+						}
+					}
+				],
+				"ip": "192.168.43.104",
+				"port": ["2376"],
+				"credentials": {
+					"username": "ubuntu",
+					"password": "",
+					"sshkey": ""
+				},
+				"monitoring_agent": "none"
+			}, {
+				"_type": "/internal/node_red",
+				"name": "NodeRED-104",
+				"properties": [],
+				"version": "0.0.1",
+				"id": "20d64bde-1dc6-4a4f-a4bd-c204e9ea943f",
+				"provided_execution_port": [{
+						"name": "offerNodeRED",
+						"capabilities": {
+							"_type": "/capability/security_capability",
+							"name": "a_capability",
+							"control_id": "",
+							"description": ""
+						}
+					}
+				],
+				"docker_resource": {
+					"name": "DockerRaspberryPiZeroGroveBaseHat",
+					"image": "node-docker-raspberry-zero:armv6",
+					"command": "",
+					"links": [],
+					"port_bindings": {
+						"1880": "1880",
+						"1883": "1883"
+					},
+					"mounts": {
+						"src": "/sys",
+						"tgt": "/sys"
+					},
+					"devices": [{
+							"PathOnHost": "/dev/mem",
+							"PathInContainer": "/dev/mem",
+							"CgroupPermissions": "rwm"
+						}, {
+							"PathOnHost": "/dev/gpiomem",
+							"PathInContainer": "/dev/gpiomem",
+							"CgroupPermissions": "rwm"
+						}, {
+							"PathOnHost": "/dev/i2c-1",
+							"PathInContainer": "/dev/i2c-1",
+							"CgroupPermissions": "rwm"
+						}
+					]
+				},
+				"ssh_resource": {
+					"name": "c57263d6-7f08-42c6-8f05-1fc41c4fa0cf",
+					"startCommand": "",
+					"downloadCommand": "",
+					"installCommand": "",
+					"configureCommand": "",
+					"credentials": {
+						"username": "ubuntu",
+						"password": "",
+						"sshkey": ""
+					}
+				},
+				"ansible_resource": {
+					"name": "fcf9b20d-d843-4eb2-8deb-7de3a9764b7d",
+					"playbook_path": "",
+					"playbook_host": "",
+					"credentials": {
+						"username": "ubuntu",
+						"password": "",
+						"sshkey": ""
+					}
+				},
+				"required_execution_port": {
+					"name": "demandDocker",
+					"capabilities": {
+						"_type": "/capability/security_capability",
+						"name": "a_capability",
+						"control_id": "",
+						"description": ""
+					},
+					"needDeployer": false
+				},
+				"provided_communication_port": [{
+						"name": "89695c58-192c-4d08-8067-bbc65651dd29",
+						"capabilities": {
+							"_type": "/capability/security_capability",
+							"name": "a_capability",
+							"control_id": "",
+							"description": ""
+						},
+						"port_number": "1880"
+					}
+				],
+				"required_communication_port": [{
+						"name": "e7646291-cace-45ab-8009-c467d809768d",
+						"capabilities": {
+							"_type": "/capability/security_capability",
+							"name": "a_capability",
+							"control_id": "",
+							"description": ""
+						},
+						"port_number": "80",
+						"isMandatory": false
+					}
+				],
+				"nr_flow": [],
+				"path_flow": "",
+				"packages": []
+			}, {
+				"_type": "/internal/node_red_flow",
+				"name": "NodeRED-flow-104",
+				"properties": [],
+				"version": "0.0.1",
+				"id": "808763fa-b36f-4a8a-a2df-395bf47a905b",
+				"provided_execution_port": [{
+						"name": "f2ded21d-16b8-4e42-a340-319411cc91c7",
+						"capabilities": {
+							"_type": "/capability/security_capability",
+							"name": "a_capability",
+							"control_id": "",
+							"description": ""
+						}
+					}
+				],
+				"docker_resource": {
+					"name": "14238183-f884-4e8d-8842-4391445c54b6",
+					"image": "",
+					"command": "",
+					"links": [],
+					"port_bindings": {
+						"1880": "1880"
+					},
+					"devices": {
+						"PathOnHost": "",
+						"PathInContainer": "",
+						"CgroupPermissions": "rwm"
+					}
+				},
+				"ssh_resource": {
+					"name": "8a2f3f43-9b0e-47a8-885e-5e1f09789de9",
+					"startCommand": "",
+					"downloadCommand": "",
+					"installCommand": "",
+					"configureCommand": "",
+					"stopCommand": "",
+					"credentials": {
+						"username": "ubuntu",
+						"password": "",
+						"sshkey": "",
+						"agent": ""
+					}
+				},
+				"ansible_resource": {
+					"name": "f075e959-17e3-46b5-ac32-cfc54c04dfee",
+					"playbook_path": "",
+					"playbook_host": "",
+					"credentials": {
+						"username": "ubuntu",
+						"password": "",
+						"sshkey": "",
+						"agent": ""
+					}
+				},
+				"required_execution_port": {
+					"name": "demandNodeRED",
+					"capabilities": {
+						"_type": "/capability/security_capability",
+						"name": "a_capability",
+						"control_id": "",
+						"description": ""
+					},
+					"needDeployer": false
+				},
+				"provided_communication_port": [{
+						"name": "ffebeb53-906c-4bcb-a447-a00c0d396e85",
+						"capabilities": {
+							"_type": "/capability/security_capability",
+							"name": "a_capability",
+							"control_id": "",
+							"description": ""
+						},
+						"port_number": "80"
+					}
+				],
+				"required_communication_port": [{
+						"name": "813eb24e-2591-480b-b9ef-db14f03f378c",
+						"capabilities": {
+							"_type": "/capability/security_capability",
+							"name": "a_capability",
+							"control_id": "",
+							"description": ""
+						},
+						"port_number": "1880",
+						"isMandatory": false
+					}
+				],
+				
+				"nr_flow": [],
+				"path_flow": "D:\\Dev\\contrats\\ENACT\\actuation_conflict_manager\\demos\\demo-pizero\\Application_Device.json",
+				"packages": []
+			}, {
+				"_type": "/infra/docker_host",
+				"name": "Docker-Application",
+				"properties": [],
+				"version": "0.0.1",
+				"id": "8f2a8e16-e6e6-4539-beb7-fa54da8e0925",
+				"provided_execution_port": [{
+						"name": "offerDocker",
+						"capabilities": {
+							"_type": "/capability/security_capability",
+							"name": "a_capability",
+							"control_id": "",
+							"description": ""
+						}
+					}
+				],
+				"ip": "192.168.99.100",
+				"port": ["2376"],
+				"credentials": {
+					"username": "ubuntu",
+					"password": "",
+					"sshkey": ""
+				},
+				"monitoring_agent": "none"
+			}, {
+				"_type": "/internal/node_red",
+				"name": "NodeRED-Application",
+				"properties": [],
+				"version": "0.0.1",
+				"id": "9f3fbc09-6f11-4881-81d7-bfcb3ef942da",
+				"provided_execution_port": [{
+						"name": "offerNodeRED",
+						"capabilities": {
+							"_type": "/capability/security_capability",
+							"name": "a_capability",
+							"control_id": "",
+							"description": ""
+						}
+				}
+				],
+				"docker_resource": {
+					"name": "3cb5c7e0-feb0-40c4-8ef5-a0898eb111d1",
+					"image": "nicolasferry/multiarch-node-red-thingml:latest",
+					"command": "",
+					"links": [],
+					"port_bindings": {
+						"1880": "1880",
+						"1883": "1883"
+					},
+					"devices": {
+						"PathOnHost": "",
+						"PathInContainer": "",
+						"CgroupPermissions": "rwm"
+					}
+				},
+				"ssh_resource": {
+					"name": "8843ee51-6fd6-4575-9ae3-c90df801697c",
+					"startCommand": "",
+					"downloadCommand": "",
+					"installCommand": "",
+					"configureCommand": "",
+					"credentials": {
+						"username": "ubuntu",
+						"password": "",
+						"sshkey": ""
+					}
+				},
+				"ansible_resource": {
+					"name": "59602d84-0707-44fe-bec2-1209cdd35ef1",
+					"playbook_path": "",
+					"playbook_host": "",
+					"credentials": {
+						"username": "ubuntu",
+						"password": "",
+						"sshkey": ""
+					}
+				},
+				"required_execution_port": {
+					"name": "demandDocker",
+					"capabilities": {
+						"_type": "/capability/security_capability",
+						"name": "a_capability",
+						"control_id": "",
+						"description": ""
+					},
+					"needDeployer": false
+				},
+				"provided_communication_port": [{
+						"name": "ffedfe6d-7dc9-467c-8f2c-8283e8f5e7e9",
+						"capabilities": {
+							"_type": "/capability/security_capability",
+							"name": "a_capability",
+							"control_id": "",
+							"description": ""
+						},
+						"port_number": "1880"
+					}
+				],
+				"required_communication_port": [{
+						"name": "a81f638a-a6d3-4b94-89d0-6a2c95cdcc40",
+						"capabilities": {
+							"_type": "/capability/security_capability",
+							"name": "a_capability",
+							"control_id": "",
+							"description": ""
+						},
+						"port_number": "80",
+						"isMandatory": false
+					}
+				],
+				"nr_flow": [],
+				"path_flow": "",
+				"packages": []
+			}, {
+				"_type": "/internal/node_red_flow",
+				"name": "NodeRED-flow-Application",
+				"properties": [],
+				"version": "0.0.1",
+				"id": "d1e56e5b-1f97-4591-a6a7-0bf6c0809ca5",
+				"provided_execution_port": [{
+						"name": "0804ad9a-7f1b-41fa-bd79-99abe55d974f",
+						"capabilities": {
+							"_type": "/capability/security_capability",
+							"name": "a_capability",
+							"control_id": "",
+							"description": ""
+						}
+					}
+				],
+				"docker_resource": {
+					"name": "9bd40770-2b2b-4974-991d-3e1306555e1c",
+					"image": "",
+					"command": "",
+					"links": [],
+					"port_bindings": {
+						"1880": "1880"
+					},
+					"devices": {
+						"PathOnHost": "",
+						"PathInContainer": "",
+						"CgroupPermissions": "rwm"
+					}
+				},
+				"ssh_resource": {
+					"name": "1356691b-62b0-4e15-840b-0d6bb50ac555",
+					"startCommand": "",
+					"downloadCommand": "",
+					"installCommand": "",
+					"configureCommand": "",
+					"stopCommand": "",
+					"credentials": {
+						"username": "ubuntu",
+						"password": "",
+						"sshkey": "",
+						"agent": ""
+					}
+				},
+				"ansible_resource": {
+					"name": "fa696d40-dbd5-4edc-9de3-38b461720950",
+					"playbook_path": "",
+					"playbook_host": "",
+					"credentials": {
+						"username": "ubuntu",
+						"password": "",
+						"sshkey": "",
+						"agent": ""
+					}
+				},
+				"required_execution_port": {
+					"name": "demandNodeRED",
+					"capabilities": {
+						"_type": "/capability/security_capability",
+						"name": "a_capability",
+						"control_id": "",
+						"description": ""
+					},
+					"needDeployer": false
+				},
+				"provided_communication_port": [{
+						"name": "8b1a4aa8-1d06-4465-9f21-e815d220ae3c",
+						"capabilities": {
+							"_type": "/capability/security_capability",
+							"name": "a_capability",
+							"control_id": "",
+							"description": ""
+						},
+						"port_number": "80"
+					}
+				],
+				"required_communication_port": [{
+						"name": "f201e34e-51b1-42ba-9428-3646ac3a86d8",
+						"capabilities": {
+							"_type": "/capability/security_capability",
+							"name": "a_capability",
+							"control_id": "",
+							"description": ""
+						},
+						"port_number": "1880",
+						"isMandatory": false
+					}
+				],
+
+				"nr_flow": [],
+				"path_flow": "D:\\Dev\\contrats\\ENACT\\actuation_conflict_manager\\demos\\demo-pizero\\Application_Edge.json",
+				"packages": ["enact-actuation-conflict-manager-node", "node-red-contrib-mqtt-broker"]
+			}
+		],
+		"links": [],
+		"containments": [{
+				"name": "Docker_on_RPiZero-101",
+				"properties": [],
+				"src": "/RPiZero-101/offerDocker",
+				"target": "/NodeRED-101/demandDocker"
+			}, {
+				"name": "NodeRED-flow-101_on_RPiZero-101",
+				"properties": [],
+				"src": "/NodeRED-101/offerNodeRED",
+				"target": "/NodeRED-flow-101/demandNodeRED"
+			}, {
+				"name": "Docker_on_RPiZero-102",
+				"properties": [],
+				"src": "/RPiZero-102/offerDocker",
+				"target": "/NodeRED-102/demandDocker"
+			}, {
+				"name": "NodeRED-flow-102_on_RPiZero-102",
+				"properties": [],
+				"src": "/NodeRED-102/offerNodeRED",
+				"target": "/NodeRED-flow-102/demandNodeRED"
+			}, {
+				"name": "Docker_on_RPiZero-103",
+				"properties": [],
+				"src": "/RPiZero-103/offerDocker",
+				"target": "/NodeRED-103/demandDocker"
+			}, {
+				"name": "NodeRED-flow-103_on_RPiZero-103",
+				"properties": [],
+				"src": "/NodeRED-103/offerNodeRED",
+				"target": "/NodeRED-flow-103/demandNodeRED"
+			}, {
+				"name": "Docker_on_RPiZero-104",
+				"properties": [],
+				"src": "/RPiZero-104/offerDocker",
+				"target": "/NodeRED-104/demandDocker"
+			}, {
+				"name": "NodeRED-flow-104_on_RPiZero-104",
+				"properties": [],
+				"src": "/NodeRED-104/offerNodeRED",
+				"target": "/NodeRED-flow-104/demandNodeRED"
+			}, {
+				"name": "NodeRED-Application_on_Docker-Application",
+				"properties": [],
+				"src": "/Docker-Application/offerDocker",
+				"target": "/NodeRED-Application/demandDocker"
+			}, {
+				"name": "NodeRED-flow-Application_on_NodeRED-Application",
+				"properties": [],
+				"src": "/NodeRED-Application/offerNodeRED",
+				"target": "/NodeRED-flow-Application/demandNodeRED"
+			}
+		],
+		"type_registry": []
+	},
+	"graph": {
+		"elements": {
+			"nodes": [{
+					"data": {
+						"id": "RPiZero-101"
+					},
+					"position": {
+						"x": 285,
+						"y": 190
+					},
+					"group": "nodes",
+					"removed": false,
+					"selected": false,
+					"selectable": true,
+					"locked": false,
+					"grabbable": true,
+					"classes": "container"
+				}, {
+					"data": {
+						"id": "NodeRED-101",
+						"parent": "RPiZero-101"
+					},
+					"position": {
+						"x": 285,
+						"y": 190
+					},
+					"group": "nodes",
+					"removed": false,
+					"selected": false,
+					"selectable": true,
+					"locked": false,
+					"grabbable": true,
+					"classes": "node_red"
+				}, {
+					"data": {
+						"id": "NodeRED-flow-101",
+						"parent": "NodeRED-101"
+					},
+					"position": {
+						"x": 285,
+						"y": 190
+					},
+					"group": "nodes",
+					"removed": false,
+					"selected": false,
+					"selectable": true,
+					"locked": false,
+					"grabbable": true,
+					"classes": ""
+				}, {
+					"data": {
+						"id": "RPiZero-102"
+					},
+					"position": {
+						"x": 385,
+						"y": 190
+					},
+					"group": "nodes",
+					"removed": false,
+					"selected": false,
+					"selectable": true,
+					"locked": false,
+					"grabbable": true,
+					"classes": "container"
+				}, {
+					"data": {
+						"id": "NodeRED-102",
+						"parent": "RPiZero-102"
+					},
+					"position": {
+						"x": 385,
+						"y": 190
+					},
+					"group": "nodes",
+					"removed": false,
+					"selected": false,
+					"selectable": true,
+					"locked": false,
+					"grabbable": true,
+					"classes": "node_red"
+				}, {
+					"data": {
+						"id": "NodeRED-flow-102",
+						"parent": "NodeRED-102"
+					},
+					"position": {
+						"x": 385,
+						"y": 190
+					},
+					"group": "nodes",
+					"removed": false,
+					"selected": false,
+					"selectable": true,
+					"locked": false,
+					"grabbable": true,
+					"classes": ""
+				}, {
+					"data": {
+						"id": "RPiZero-103"
+					},
+					"position": {
+						"x": 285,
+						"y": 290
+					},
+					"group": "nodes",
+					"removed": false,
+					"selected": false,
+					"selectable": true,
+					"locked": false,
+					"grabbable": true,
+					"classes": "container"
+				}, {
+					"data": {
+						"id": "NodeRED-103",
+						"parent": "RPiZero-103"
+					},
+					"position": {
+						"x": 285,
+						"y": 290
+					},
+					"group": "nodes",
+					"removed": false,
+					"selected": false,
+					"selectable": true,
+					"locked": false,
+					"grabbable": true,
+					"classes": "node_red"
+				}, {
+					"data": {
+						"id": "NodeRED-flow-103",
+						"parent": "NodeRED-103"
+					},
+					"position": {
+						"x": 285,
+						"y": 290
+					},
+					"group": "nodes",
+					"removed": false,
+					"selected": false,
+					"selectable": true,
+					"locked": false,
+					"grabbable": true,
+					"classes": ""
+				}, {
+					"data": {
+						"id": "RPiZero-104"
+					},
+					"position": {
+						"x": 385,
+						"y": 290
+					},
+					"group": "nodes",
+					"removed": false,
+					"selected": false,
+					"selectable": true,
+					"locked": false,
+					"grabbable": true,
+					"classes": "container"
+				}, {
+					"data": {
+						"id": "NodeRED-104",
+						"parent": "RPiZero-104"
+					},
+					"position": {
+						"x": 385,
+						"y": 290
+					},
+					"group": "nodes",
+					"removed": false,
+					"selected": false,
+					"selectable": true,
+					"locked": false,
+					"grabbable": true,
+					"classes": "node_red"
+				}, {
+					"data": {
+						"id": "NodeRED-flow-104",
+						"parent": "NodeRED-104"
+					},
+					"position": {
+						"x": 385,
+						"y": 290
+					},
+					"group": "nodes",
+					"removed": false,
+					"selected": false,
+					"selectable": true,
+					"locked": false,
+					"grabbable": true,
+					"classes": ""
+				}, {
+					"data": {
+						"id": "Docker-Application"
+					},
+					"position": {
+						"x": 183.66514345708916,
+						"y": 218.4663312166767
+					},
+					"group": "nodes",
+					"removed": false,
+					"selected": false,
+					"selectable": true,
+					"locked": false,
+					"grabbable": true,
+					"classes": "container"
+				}, {
+					"data": {
+						"id": "NodeRED-Application",
+						"parent": "Docker-Application"
+					},
+					"position": {
+						"x": 183.66514345708916,
+						"y": 218.4663312166767
+					},
+					"group": "nodes",
+					"removed": false,
+					"selected": false,
+					"selectable": true,
+					"locked": false,
+					"grabbable": true,
+					"classes": "node_red"
+				}, {
+					"data": {
+						"id": "NodeRED-flow-Application",
+						"parent": "NodeRED-Application"
+					},
+					"position": {
+						"x": 183.66514345708916,
+						"y": 218.4663312166767
+					},
+					"group": "nodes",
+					"removed": false,
+					"selected": false,
+					"selectable": true,
+					"locked": false,
+					"grabbable": true,
+					"classes": ""
+				}
+		] 
+		},
+		"style": [{
+				"selector": "node",
+				"style": {
+					"label": "data(id)",
+					"background-fit": "contain",
+					"background-image-opacity": "0.3",
+					"text-valign": "center",
+					"text-halign": "center",
+					"font-size": "4px",
+					"font-weight": "bold"
+				}
+			}, {
+				"selector": "node.container",
+				"style": {
+					"padding": "10px",
+					"text-valign": "top",
+					"text-halign": "center",
+					"background-color": "#DDD",
+					"font-size": "8px",
+					"font-weight": "normal",
+					"shape": "rectangle",
+					"background-image": "./img/docker-official.svg"
+				}
+			}, {
+				"selector": "edge",
+				"style": {
+					"curve-style": "bezier",
+					"target-arrow-shape": "triangle"
+				}
+			}, {
+				"selector": "edge.control",
+				"style": {
+					"curve-style": "bezier",
+					"target-arrow-shape": "circle"
+				}
+			}, {
+				"selector": ":selected",
+				"style": {
+					"background-color": "black",
+					"line-color": "black",
+					"target-arrow-color": "black",
+					"source-arrow-color": "black"
+				}
+			}, {
+				"selector": "node.questionable",
+				"style": {
+					"border-color": "#A33",
+					"background-color": "#B55",
+					"shape": "roundrectangle"
+				}
+			}, {
+				"selector": "node.node_red",
+				"style": {
+					"background-image": "./img/node-red-256.png"
+				}
+			}, {
+				"selector": "node.ansible",
+				"style": {
+					"background-image": "./img/ansible.png"
+				}
+			}, {
+				"selector": "node.orion",
+				"style": {
+					"background-color": "#ADD8E6",
+					"background-image": "./img/fiware_logo.png"
+				}
+			}, {
+				"selector": "node.thingml",
+				"style": {
+					"background-color": "#ADD8E6",
+					"background-image": "./img/thingml_short.png"
+				}
+			}, {
+				"selector": "node.device",
+				"style": {
+					"padding": "10px",
+					"text-valign": "top",
+					"text-halign": "center",
+					"background-color": "#DDD",
+					"font-size": "8px",
+					"font-weight": "normal",
+					"shape": "rectangle",
+					"background-image": "./img/device.png"
+				}
+			}, {
+				"selector": "node.vm",
+				"style": {
+					"padding": "10px",
+					"text-valign": "top",
+					"text-halign": "center",
+					"background-color": "#DDD",
+					"font-size": "8px",
+					"font-weight": "normal",
+					"shape": "rectangle",
+					"background-image": "./img/server_cloud.png"
+				}
+			}
+		],
+		"zoomingEnabled": true,
+		"userZoomingEnabled": true,
+		"zoom": 3.2470172353340128,
+		"minZoom": 0.4,
+		"maxZoom": 6,
+		"panningEnabled": true,
+		"userPanningEnabled": true,
+		"pan": {
+			"x": -408.0676908559383,
+			"y": -443.1820530532351
+		},
+		"boxSelectionEnabled": false,
+		"renderer": {
+			"name": "canvas"
+		}
+	}
+}
+

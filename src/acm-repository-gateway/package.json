@@ -1,0 +1,14 @@
+{
+  "name": "acm-repository-gateway",
+  "version": "0.0.0",
+  "description": "Actuation Conflict Manager Gateway to off-the-shelf actuation management component repository",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "rethinkdb": "^2.3.3"
+  }
+}

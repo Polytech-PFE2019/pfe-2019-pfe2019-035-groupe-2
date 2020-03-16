@@ -1,0 +1,529 @@
+{
+  "dm": {
+    "name": "demo",
+    "components": [{
+        "_type": "/infra/docker_host",
+        "name": "MyHost",
+        "properties": [],
+        "version": "0.0.1",
+        "id": "6a340417-d5ce-4886-a678-fd4d379e4af4",
+        "provided_execution_port": [{
+            "name": "offerDocker",
+            "capabilities": {
+              "_type": "/capability/security_capability",
+              "name": "a_capability",
+              "control_id": "",
+              "description": ""
+            }
+          }
+        ],
+        "ip": "192.168.99.100",
+        "port": ["2376"],
+        "credentials": {
+          "username": "ubuntu",
+          "password": "",
+          "sshkey": "",
+          "agent": ""
+        },
+        "monitoring_agent": "none"
+      }, {
+        "_type": "/internal/node_red",
+        "name": "NodeRED",
+        "properties": [],
+        "version": "0.0.1",
+        "id": "020fa378-a10e-4b66-8da6-70023d4ef21d",
+        "provided_execution_port": [{
+            "name": "offerNodeRED",
+            "capabilities": {
+              "_type": "/capability/security_capability",
+              "name": "a_capability",
+              "control_id": "",
+              "description": ""
+            }
+          }
+        ],
+        "docker_resource": {
+          "name": "2de8b843-b078-4776-9877-f60b7ecf3132",
+          "image": "nicolasferry/multiarch-node-red-thingml:latest",
+          "command": "",
+          "links": [],
+          "port_bindings": {
+            "1880": "1880"
+          },
+          "devices": {
+            "PathOnHost": "",
+            "PathInContainer": "",
+            "CgroupPermissions": "rwm"
+          }
+        },
+        "ssh_resource": {
+          "name": "89e14e27-43bf-4ec6-aa61-5ca2189b9084",
+          "startCommand": "",
+          "downloadCommand": "",
+          "installCommand": "",
+          "configureCommand": "",
+          "stopCommand": "",
+          "credentials": {
+            "username": "ubuntu",
+            "password": "",
+            "sshkey": "",
+            "agent": ""
+          }
+        },
+        "ansible_resource": {
+          "name": "a963b86a-a43d-475d-8f5b-d5862170cb3d",
+          "playbook_path": "",
+          "playbook_host": "",
+          "credentials": {
+            "username": "ubuntu",
+            "password": "",
+            "sshkey": "",
+            "agent": ""
+          }
+        },
+        "required_execution_port": {
+          "name": "demandDocker",
+          "capabilities": {
+            "_type": "/capability/security_capability",
+            "name": "a_capability",
+            "control_id": "",
+            "description": ""
+          },
+          "needDeployer": false
+        },
+        "provided_communication_port": [{
+            "name": "391aaf3a-a424-4f82-9d19-c2d70a7e8a99",
+            "capabilities": {
+              "_type": "/capability/security_capability",
+              "name": "a_capability",
+              "control_id": "",
+              "description": ""
+            },
+            "port_number": "1880"
+          }
+        ],
+        "required_communication_port": [{
+            "name": "362f04d2-65be-4091-9078-735a0c4f6fc2",
+            "capabilities": {
+              "_type": "/capability/security_capability",
+              "name": "a_capability",
+              "control_id": "",
+              "description": ""
+            },
+            "port_number": "80",
+            "isMandatory": false
+          }
+        ],
+        "nr_flow": [],
+        "path_flow": "",
+        "packages": []
+      }, {
+        "_type": "/internal/node_red_flow",
+        "name": "NodeRED-flow",
+        "properties": [],
+        "version": "0.0.1",
+        "id": "23642b2e-5149-4ab8-9da9-fe20332fdbe2",
+        "provided_execution_port": [{
+            "name": "431cf5d8-ba73-4e28-85be-f51676b03a53",
+            "capabilities": {
+              "_type": "/capability/security_capability",
+              "name": "a_capability",
+              "control_id": "",
+              "description": ""
+            }
+          }
+        ],
+        "docker_resource": {
+          "name": "ecbf66b9-b0e9-496c-b856-fb646b632516",
+          "image": "",
+          "command": "",
+          "links": [],
+          "port_bindings": {
+            "1880": "1880"
+          },
+          "devices": {
+            "PathOnHost": "",
+            "PathInContainer": "",
+            "CgroupPermissions": "rwm"
+          }
+        },
+        "ssh_resource": {
+          "name": "aec8462c-406f-471e-b851-78afb9d9c018",
+          "startCommand": "",
+          "downloadCommand": "",
+          "installCommand": "",
+          "configureCommand": "",
+          "stopCommand": "",
+          "credentials": {
+            "username": "ubuntu",
+            "password": "",
+            "sshkey": "",
+            "agent": ""
+          }
+        },
+        "ansible_resource": {
+          "name": "6d7c1a86-0527-46f7-8710-0b4f12dc8c35",
+          "playbook_path": "",
+          "playbook_host": "",
+          "credentials": {
+            "username": "ubuntu",
+            "password": "",
+            "sshkey": "",
+            "agent": ""
+          }
+        },
+        "required_execution_port": {
+          "name": "demandNodeRED",
+          "capabilities": {
+            "_type": "/capability/security_capability",
+            "name": "a_capability",
+            "control_id": "",
+            "description": ""
+          },
+          "needDeployer": false
+        },
+        "provided_communication_port": [{
+            "name": "868b8b6c-7d97-4867-bb72-f1a6cb940c6e",
+            "capabilities": {
+              "_type": "/capability/security_capability",
+              "name": "a_capability",
+              "control_id": "",
+              "description": ""
+            },
+            "port_number": "80"
+          }
+        ],
+        "required_communication_port": [{
+            "name": "d8014392-601d-4d2f-9609-70a3d2c14c47",
+            "capabilities": {
+              "_type": "/capability/security_capability",
+              "name": "a_capability",
+              "control_id": "",
+              "description": ""
+            },
+            "port_number": "1880",
+            "isMandatory": false
+          }
+        ],
+        "nr_flow": [{
+            "id": "4cbff363.4f76ec",
+            "type": "ui_switch",
+            "z": "d7e596e4.c927e8",
+            "name": "TV",
+            "label": "TV",
+            "tooltip": "",
+            "group": "8a70d307.f8d4e",
+            "order": 2,
+            "width": 0,
+            "height": 0,
+            "passthru": true,
+            "decouple": "false",
+            "topic": "tv",
+            "style": "",
+            "onvalue": "true",
+            "onvalueType": "bool",
+            "onicon": "",
+            "oncolor": "",
+            "offvalue": "false",
+            "offvalueType": "bool",
+            "officon": "",
+            "offcolor": "",
+            "x": 270,
+            "y": 120,
+            "wires": [["fffc8467.3141a8"]]
+          }, {
+            "id": "6825bc65.822434",
+            "type": "ui_switch",
+            "z": "d7e596e4.c927e8",
+            "name": "Presence",
+            "label": "Presence",
+            "tooltip": "",
+            "group": "8a70d307.f8d4e",
+            "order": 3,
+            "width": 0,
+            "height": 0,
+            "passthru": true,
+            "decouple": "false",
+            "topic": "presence",
+            "style": "",
+            "onvalue": "true",
+            "onvalueType": "bool",
+            "onicon": "",
+            "oncolor": "",
+            "offvalue": "false",
+            "offvalueType": "bool",
+            "officon": "",
+            "offcolor": "",
+            "x": 280,
+            "y": 40,
+            "wires": [["33c0fffb.1045e"]]
+          }, {
+            "id": "fffc8467.3141a8",
+            "type": "Invert",
+            "z": "d7e596e4.c927e8",
+            "name": "Invert",
+            "x": 410,
+            "y": 120,
+            "wires": [["33c0fffb.1045e"]]
+          }, {
+            "id": "33c0fffb.1045e",
+            "type": "ui_switch",
+            "z": "d7e596e4.c927e8",
+            "name": "",
+            "label": "Light",
+            "tooltip": "",
+            "group": "8a70d307.f8d4e",
+            "order": 2,
+            "width": 0,
+            "height": 0,
+            "passthru": true,
+            "decouple": "false",
+            "topic": "",
+            "style": "",
+            "onvalue": "true",
+            "onvalueType": "bool",
+            "onicon": "",
+            "oncolor": "",
+            "offvalue": "false",
+            "offvalueType": "bool",
+            "officon": "",
+            "offcolor": "",
+            "x": 570,
+            "y": 80,
+            "wires": [[]]
+          }, {
+            "id": "542a094f.318c48",
+            "type": "inject",
+            "z": "d7e596e4.c927e8",
+            "name": "",
+            "topic": "",
+            "payload": "true",
+            "payloadType": "bool",
+            "repeat": "1",
+            "crontab": "",
+            "once": false,
+            "onceDelay": 0.1,
+            "x": 110,
+            "y": 40,
+            "wires": [["6825bc65.822434"]]
+          }, {
+            "id": "6a48c3cd.23f50c",
+            "type": "inject",
+            "z": "d7e596e4.c927e8",
+            "name": "",
+            "topic": "",
+            "payload": "true",
+            "payloadType": "bool",
+            "repeat": "1",
+            "crontab": "",
+            "once": false,
+            "onceDelay": 0.1,
+            "x": 110,
+            "y": 120,
+            "wires": [["4cbff363.4f76ec"]]
+          }, {
+            "id": "8a70d307.f8d4e",
+            "type": "ui_group",
+            "z": "",
+            "name": "Default",
+            "tab": "e71b743f.70e818",
+            "disp": true,
+            "width": "6",
+            "collapse": false
+          }, {
+            "id": "e71b743f.70e818",
+            "type": "ui_tab",
+            "z": "",
+            "name": "Living Room",
+            "icon": "dashboard",
+            "order": 1,
+            "disabled": false,
+            "hidden": false
+          }
+        ],
+        "path_flow": "",
+        "packages": ["node-red-contrib-boolean-logic", "node-red-dashboard"]
+      }
+    ],
+    "links": [],
+    "containments": [{
+        "name": "NodeRED_on_Docker",
+        "properties": [],
+        "src": "/MyHost/offerDocker",
+        "target": "/NodeRED/demandDocker"
+      }, {
+        "name": "NodeRED-flow_on_NodeRED",
+        "properties": [],
+        "src": "/NodeRED/offerNodeRED",
+        "target": "/NodeRED-flow/demandNodeRED"
+      }
+    ],
+    "type_registry": []
+  },
+  "graph": {
+    "elements": {
+      "nodes": [{
+          "data": {
+            "id": "MyHost"
+          },
+          "position": {
+            "x": 219.09340826128076,
+            "y": 159.144151413187
+          },
+          "group": "nodes",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "classes": "container"
+        }, {
+          "data": {
+            "id": "NodeRED",
+            "parent": "MyHost"
+          },
+          "position": {
+            "x": 219.09340826128076,
+            "y": 159.144151413187
+          },
+          "group": "nodes",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "classes": "node_red"
+        }, {
+          "data": {
+            "id": "NodeRED-flow",
+            "parent": "NodeRED"
+          },
+          "position": {
+            "x": 219.09340826128076,
+            "y": 159.144151413187
+          },
+          "group": "nodes",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "classes": ""
+        }
+      ]
+    },
+    "style": [{
+        "selector": "node",
+        "style": {
+          "label": "data(id)",
+          "background-fit": "contain",
+          "background-image-opacity": "0.3",
+          "text-valign": "center",
+          "text-halign": "center",
+          "font-size": "4px",
+          "font-weight": "bold"
+        }
+      }, {
+        "selector": "node.container",
+        "style": {
+          "padding": "10px",
+          "text-valign": "top",
+          "text-halign": "center",
+          "background-color": "#DDD",
+          "font-size": "8px",
+          "font-weight": "normal",
+          "shape": "rectangle",
+          "background-image": "./img/docker-official.svg"
+        }
+      }, {
+        "selector": "edge",
+        "style": {
+          "curve-style": "bezier",
+          "target-arrow-shape": "triangle"
+        }
+      }, {
+        "selector": "edge.control",
+        "style": {
+          "curve-style": "bezier",
+          "target-arrow-shape": "circle"
+        }
+      }, {
+        "selector": ":selected",
+        "style": {
+          "background-color": "black",
+          "line-color": "black",
+          "target-arrow-color": "black",
+          "source-arrow-color": "black"
+        }
+      }, {
+        "selector": "node.questionable",
+        "style": {
+          "border-color": "#A33",
+          "background-color": "#B55",
+          "shape": "roundrectangle"
+        }
+      }, {
+        "selector": "node.node_red",
+        "style": {
+          "background-image": "./img/node-red-256.png"
+        }
+      }, {
+        "selector": "node.ansible",
+        "style": {
+          "background-image": "./img/ansible.png"
+        }
+      }, {
+        "selector": "node.orion",
+        "style": {
+          "background-color": "#ADD8E6",
+          "background-image": "./img/fiware_logo.png"
+        }
+      }, {
+        "selector": "node.thingml",
+        "style": {
+          "background-color": "#ADD8E6",
+          "background-image": "./img/thingml_short.png"
+        }
+      }, {
+        "selector": "node.device",
+        "style": {
+          "padding": "10px",
+          "text-valign": "top",
+          "text-halign": "center",
+          "background-color": "#DDD",
+          "font-size": "8px",
+          "font-weight": "normal",
+          "shape": "rectangle",
+          "background-image": "./img/device.png"
+        }
+      }, {
+        "selector": "node.vm",
+        "style": {
+          "padding": "10px",
+          "text-valign": "top",
+          "text-halign": "center",
+          "background-color": "#DDD",
+          "font-size": "8px",
+          "font-weight": "normal",
+          "shape": "rectangle",
+          "background-image": "./img/server_cloud.png"
+        }
+      }
+    ],
+    "zoomingEnabled": true,
+    "userZoomingEnabled": true,
+    "zoom": 2.3886430233209834,
+    "minZoom": 0.4,
+    "maxZoom": 6,
+    "panningEnabled": true,
+    "userPanningEnabled": true,
+    "pan": {
+      "x": -322.9064346111826,
+      "y": -214.178581321565
+    },
+    "boxSelectionEnabled": false,
+    "renderer": {
+      "name": "canvas"
+    }
+  }
+}

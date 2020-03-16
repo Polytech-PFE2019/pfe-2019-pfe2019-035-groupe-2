@@ -1,0 +1,15 @@
+{
+  "name": "acm-model-merger",
+  "version": "0.0.0",
+  "description": "Actuation Conflict Manager model merging component",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "acm-metamodel": "file:../acm-metamodel"
+  }
+}

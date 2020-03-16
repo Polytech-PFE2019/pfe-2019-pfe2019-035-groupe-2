@@ -1,0 +1,29 @@
+@startuml
+skinparam defaultTextAlignment left
+caption Behavior of thing SimpleBuzzer
+[*] --> SimpleBuzzerImpl
+state SimpleBuzzerImpl{
+state Fast{
+	Fast : entry / do\n	print "F"\n	counter = 0\nend\n
+
+Fast --> Slow : switch\nt:timer?timer_timeout[t.id == timerID and counter == 3 and not end_motif]\naction do\n	timer!timer_start(timerID, 50)\nend\n
+
+Fast --> Wait : waiting\nt:timer?timer_timeout[t.id == timerID and counter == 3 and end_motif]\naction do\nend\n
+	Fast : t:timer?timer_timeout / [t.id == timerID and counter < 3]\naction do\n	print "."\n	Buzzer!buzzer_delay(100)\n	counter = counter + 1\n	timer!timer_start(timerID, 150)\nend\n
+}
+state Slow{
+	Slow : entry / do\n	print "S"\n	counter = 0\nend\n
+	Slow : exit / end_motif = true\n
+
+Slow --> Fast : switch\nt:timer?timer_timeout[t.id == timerID and counter == 3]\naction do\n	timer!timer_start(timerID, 50)\nend\n
+	Slow : t:timer?timer_timeout / [t.id == timerID and counter < 3]\naction do\n	print "-"\n	Buzzer!buzzer_delay(200)\n	counter = counter + 1\n	timer!timer_start(timerID, 250)\nend\n
+}
+state Wait{
+	Wait : entry / do\n	println "W"\n	timer!timer_start(timerID, 1000)\nend\n
+	Wait : exit / timer!timer_start(timerID, 50)\n
+
+Wait --> Fast : begin\nt:timer?timer_timeout[t.id == timerID]\naction do\n	end_motif = false\nend\n
+}
+[*] --> Wait
+}
+@enduml

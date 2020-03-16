@@ -1,0 +1,45 @@
+[
+  {
+    "id": "9e1ac4.38bee54",
+    "type": "inject",
+    "z": "68bf7da6.0a98f4",
+    "name": "Application 2",
+    "topic": "",
+    "payload": "true",
+    "payloadType": "bool",
+    "repeat": "",
+    "crontab": "",
+    "once": false,
+    "onceDelay": 0.1,
+    "x": 470,
+    "y": 220,
+    "wires": [ [ "ede3df0b.aef39" ] ]
+  },
+  {
+    "id": "ede3df0b.aef39",
+    "type": "function",
+    "z": "68bf7da6.0a98f4",
+    "name": "Application 2",
+    "func": "\nreturn msg;",
+    "outputs": 1,
+    "noerr": 0,
+    "x": 750,
+    "y": 220,
+    "wires": [ [ "845bded2.c87f5" ] ]
+  },
+  {
+    "id": "845bded2.c87f5",
+    "type": "debug",
+    "z": "68bf7da6.0a98f4",
+    "name": "Actuator 2",
+    "active": true,
+    "tosidebar": true,
+    "console": false,
+    "tostatus": false,
+    "complete": "payload",
+    "targetType": "msg",
+    "x": 1010,
+    "y": 220,
+    "wires": []
+  }
+]

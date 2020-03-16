@@ -1,0 +1,3001 @@
+{
+	"dm": {
+		"name": "demo",
+		"components": [{
+				"_type": "/infra/docker_host",
+				"name": "RPiZero-101",
+				"properties": [],
+				"version": "0.0.1",
+				"id": "1f6e8361-cb3d-4804-859d-cf4687d33f75",
+				"provided_execution_port": [{
+						"name": "offerDocker",
+						"capabilities": {
+							"_type": "/capability/security_capability",
+							"name": "a_capability",
+							"control_id": "",
+							"description": ""
+						}
+					}
+				],
+				"ip": "192.168.43.101",
+				"port": ["2376"],
+				"credentials": {
+					"username": "ubuntu",
+					"password": "",
+					"sshkey": ""
+				},
+				"monitoring_agent": "none"
+			}, {
+				"_type": "/internal/node_red",
+				"name": "NodeRED-101",
+				"properties": [],
+				"version": "0.0.1",
+				"id": "749a5949-ea31-4027-8716-bec3859b3e52",
+				"provided_execution_port": [{
+						"name": "offerNodeRED",
+						"capabilities": {
+							"_type": "/capability/security_capability",
+							"name": "a_capability",
+							"control_id": "",
+							"description": ""
+						}
+					}
+				],
+				"docker_resource": {
+					"name": "DockerRaspberryPiZeroGroveBaseHat",
+					"image": "node-docker-raspberry-zero:armv6",
+					"command": "",
+					"links": [],
+					"port_bindings": {
+						"1880": "1880",
+						"1883": "1883"
+					},
+					"mounts": {
+						"src": "/sys",
+						"tgt": "/sys"
+					},
+					"devices": [{
+							"PathOnHost": "/dev/mem",
+							"PathInContainer": "/dev/mem",
+							"CgroupPermissions": "rwm"
+						}, {
+							"PathOnHost": "/dev/gpiomem",
+							"PathInContainer": "/dev/gpiomem",
+							"CgroupPermissions": "rwm"
+						}, {
+							"PathOnHost": "/dev/i2c-1",
+							"PathInContainer": "/dev/i2c-1",
+							"CgroupPermissions": "rwm"
+						}
+					]
+				},
+				"ssh_resource": {
+					"name": "7a65f958-3c8b-41b2-8abe-43143ff2d8a3",
+					"startCommand": "",
+					"downloadCommand": "",
+					"installCommand": "",
+					"configureCommand": "",
+					"credentials": {
+						"username": "ubuntu",
+						"password": "",
+						"sshkey": ""
+					}
+				},
+				"ansible_resource": {
+					"name": "fdf2f840-df14-482f-b276-c34502ffc92b",
+					"playbook_path": "",
+					"playbook_host": "",
+					"credentials": {
+						"username": "ubuntu",
+						"password": "",
+						"sshkey": ""
+					}
+				},
+				"required_execution_port": {
+					"name": "demandDocker",
+					"capabilities": {
+						"_type": "/capability/security_capability",
+						"name": "a_capability",
+						"control_id": "",
+						"description": ""
+					},
+					"needDeployer": false
+				},
+				"provided_communication_port": [{
+						"name": "8ac42c27-5f64-4e94-b07c-ea84ce5100cb",
+						"capabilities": {
+							"_type": "/capability/security_capability",
+							"name": "a_capability",
+							"control_id": "",
+							"description": ""
+						},
+						"port_number": "1880"
+					}
+				],
+				"required_communication_port": [{
+						"name": "3eeb4823-8e3f-4c34-91e1-9f2dbe90af96",
+						"capabilities": {
+							"_type": "/capability/security_capability",
+							"name": "a_capability",
+							"control_id": "",
+							"description": ""
+						},
+						"port_number": "80",
+						"isMandatory": false
+					}
+				],
+				"nr_flow": [],
+				"path_flow": "",
+				"packages": []
+			}, {
+				"_type": "/internal/node_red_flow",
+				"name": "NodeRED-flow-101",
+				"properties": [],
+				"version": "0.0.1",
+				"id": "923676d6-9263-47c3-9fa6-0806f8422d90",
+				"provided_execution_port": [{
+						"name": "7b594857-bbb5-4c13-8cbc-1ec6bc7d3bd5",
+						"capabilities": {
+							"_type": "/capability/security_capability",
+							"name": "a_capability",
+							"control_id": "",
+							"description": ""
+						}
+					}
+				],
+				"docker_resource": {
+					"name": "f42de72d-f200-493e-ba84-c758215d6813",
+					"image": "",
+					"command": "",
+					"links": [],
+					"port_bindings": {
+						"1880": "1880"
+					},
+					"devices": {
+						"PathOnHost": "",
+						"PathInContainer": "",
+						"CgroupPermissions": "rwm"
+					}
+				},
+				"ssh_resource": {
+					"name": "7d0311fd-9dac-45e5-9cec-154c2065be3c",
+					"startCommand": "",
+					"downloadCommand": "",
+					"installCommand": "",
+					"configureCommand": "",
+					"stopCommand": "",
+					"credentials": {
+						"username": "ubuntu",
+						"password": "",
+						"sshkey": "",
+						"agent": ""
+					}
+				},
+				"ansible_resource": {
+					"name": "c3afab6d-2777-4f80-a33a-20863cd53135",
+					"playbook_path": "",
+					"playbook_host": "",
+					"credentials": {
+						"username": "ubuntu",
+						"password": "",
+						"sshkey": "",
+						"agent": ""
+					}
+				},
+				"required_execution_port": {
+					"name": "demandNodeRED",
+					"capabilities": {
+						"_type": "/capability/security_capability",
+						"name": "a_capability",
+						"control_id": "",
+						"description": ""
+					},
+					"needDeployer": false
+				},
+				"provided_communication_port": [{
+						"name": "d31dc788-4cf0-4854-b350-80ac17acbace",
+						"capabilities": {
+							"_type": "/capability/security_capability",
+							"name": "a_capability",
+							"control_id": "",
+							"description": ""
+						},
+						"port_number": "80"
+					}
+				],
+				"required_communication_port": [{
+						"name": "77f897a1-846a-419e-9db8-567456b17e85",
+						"capabilities": {
+							"_type": "/capability/security_capability",
+							"name": "a_capability",
+							"control_id": "",
+							"description": ""
+						},
+						"port_number": "1880",
+						"isMandatory": false
+					}
+				],
+				
+				"nr_flow": [{
+						"id": "eac2018f.030101",
+						"type": "rpi-gpio out",
+						"z": "eac2018f.010101",
+						"name": "D 16",
+						"pin": "36",
+						"set": true,
+						"level": "0",
+						"freq": "",
+						"out": "out",
+						"x": 610,
+						"y": 140,
+						"wires": []
+					}, {
+						"id": "eac2018f.040101",
+						"type": "rpi-gpio in",
+						"z": "eac2018f.010101",
+						"name": "D 17",
+						"pin": "11",
+						"intype": "tri",
+						"debounce": "25",
+						"read": true,
+						"x": 90,
+						"y": 80,
+						"wires": [["eac2018f.180101"]]
+					}, {
+						"id": "eac2018f.050101",
+						"type": "grove-chainable-rgb-led",
+						"z": "eac2018f.010101",
+						"name": "",
+						"pin": "5",
+						"x": 560,
+						"y": 200,
+						"wires": []
+					}, {
+						"id": "eac2018f.070101",
+						"type": "mqtt in",
+						"z": "eac2018f.010101",
+						"name": "",
+						"topic": "/grove/button_led",
+						"qos": "2",
+						"datatype": "auto",
+						"broker": "eac2018f.020101",
+						"x": 130,
+						"y": 140,
+						"wires": [["eac2018f.150101"]]
+					}, {
+						"id": "eac2018f.080101",
+						"type": "mqtt in",
+						"z": "eac2018f.010101",
+						"name": "",
+						"topic": "/grove/rgb_led",
+						"qos": "2",
+						"datatype": "auto",
+						"broker": "eac2018f.020101",
+						"x": 120,
+						"y": 200,
+						"wires": [["eac2018f.170101"]]
+					}, {
+						"id": "eac2018f.060101",
+						"type": "mqtt out",
+						"z": "eac2018f.010101",
+						"name": "",
+						"topic": "/grove/button",
+						"qos": "",
+						"retain": "",
+						"broker": "eac2018f.020101",
+						"x": 580,
+						"y": 80,
+						"wires": []
+					}, {
+						"id": "eac2018f.090101",
+						"type": "mosca in",
+						"z": "eac2018f.010101",
+						"mqtt_port": 1883,
+						"mqtt_ws_port": 8080,
+						"name": "",
+						"username": "",
+						"password": "",
+						"dburl": "",
+						"x": 110,
+						"y": 40,
+						"wires": [[]]
+					}, {
+						"id": "eac2018f.100101",
+						"type": "grove-4-digit-display",
+						"z": "eac2018f.010101",
+						"name": "",
+						"pin": "22",
+						"x": 580,
+						"y": 260,
+						"wires": []
+					}, {
+						"id": "eac2018f.110101",
+						"type": "mqtt in",
+						"z": "eac2018f.010101",
+						"name": "",
+						"topic": "/grove/4digit_display",
+						"qos": "2",
+						"datatype": "auto",
+						"broker": "eac2018f.020101",
+						"x": 130,
+						"y": 260,
+						"wires": [["eac2018f.160101"]]
+					}, {
+						"id": "eac2018f.120101",
+						"type": "inject",
+						"z": "eac2018f.010101",
+						"name": "Startup Inject",
+						"topic": "",
+						"payload": "0",
+						"payloadType": "num",
+						"repeat": "",
+						"crontab": "",
+						"once": true,
+						"onceDelay": "1",
+						"x": 120,
+						"y": 420,
+						"wires": [["eac2018f.130101", "eac2018f.200101", "eac2018f.220101", "eac2018f.230101"]]
+					}, {
+						"id": "eac2018f.130101",
+						"type": "trigger",
+						"z": "eac2018f.010101",
+						"op1": " 101",
+						"op2": "    ",
+						"op1type": "str",
+						"op2type": "str",
+						"duration": "5",
+						"extend": false,
+						"units": "s",
+						"reset": "",
+						"bytopic": "all",
+						"name": "",
+						"x": 320,
+						"y": 500,
+						"wires": [["eac2018f.140101"]]
+					}, {
+						"id": "eac2018f.140101",
+						"type": "grove-4-digit-display",
+						"z": "eac2018f.010101",
+						"name": "",
+						"pin": "22",
+						"x": 500,
+						"y": 500,
+						"wires": []
+					}, {
+						"id": "eac2018f.150101",
+						"type": "function",
+						"z": "eac2018f.010101",
+						"name": "Store ButtonLed state",
+						"func": "flow.set('ButtonLed', msg.payload);\n\nreturn msg;",
+						"outputs": 1,
+						"noerr": 0,
+						"x": 340,
+						"y": 140,
+						"wires": [["eac2018f.030101"]]
+					}, {
+						"id": "eac2018f.160101",
+						"type": "function",
+						"z": "eac2018f.010101",
+						"name": "Store Display state",
+						"func": "try {\n    val = Number(msg.payload);\n} catch (error) {\n    val = msg.payload;\n}\n\nif (Number.isInteger(val)) {\n    if (val > 9999) {\n        val = 0\n    }\n    if (val === 0) {\n        strval = \"    \";\n    } else if (val < 10) {\n        strval = \"   \" + val;\n    } else if (val < 100) {\n        strval = \"  \" + val;\n    } else if (val < 1000) {\n        strval = \" \" + val;\n    } else {\n        strval = val;\n    }\n    flow.set('Display', val);\n    msg.payload = strval;\n}\nreturn msg;",
+						"outputs": 1,
+						"noerr": 0,
+						"x": 330,
+						"y": 260,
+						"wires": [["eac2018f.100101"]]
+					}, {
+						"id": "eac2018f.170101",
+						"type": "function",
+						"z": "eac2018f.010101",
+						"name": "Store RGBLED state",
+						"func": "if (msg.payload === \"\") return null;\non = -1;\ntry {\n    msg.payload = JSON.parse(msg.payload)\n    on = Number(msg.payload.on)\n    val = Number(msg.payload.val);\n    flow.set('RGBLed', {'on': on, 'val': val});\n} catch (error) {\n    val = msg.payload;\n}\n\nif (on === 0) {\n    msg.payload = \"rgb(0, 0, 0)\";\n} else if (on === 1) {\n    if (val === -1) {\n        msg.payload = \"rgb(255, 255, 255)\";\n    } else if (Number.isInteger(val)) {\n        val = val % 360;\n        msg.payload = \"hsv(\" + val + \",100%, 50%)\";\n    } else {\n        return null;\n    }\n}\nreturn msg;",
+						"outputs": 1,
+						"noerr": 0,
+						"x": 340,
+						"y": 200,
+						"wires": [["eac2018f.050101"]]
+					}, {
+						"id": "eac2018f.180101",
+						"type": "function",
+						"z": "eac2018f.010101",
+						"name": "Emit Sensors/Actuators states",
+						"func": "buttonLed = flow.get('ButtonLed') || 0;\nrgbLed = flow.get('RGBLed') || {'on': 0, 'val': -1};\ndisplay = flow.get('Display') || 0;\nbutton = msg.payload;\n\nmsg.payload = {\n        \"button\": button,\n        \"buttonLed\": buttonLed,\n        \"rgbLed\": rgbLed,\n        \"display\": display\n}\n\nreturn msg;",
+						"outputs": 1,
+						"noerr": 0,
+						"x": 330,
+						"y": 80,
+						"wires": [["eac2018f.060101"]]
+					}, {
+						"id": "eac2018f.190101",
+						"type": "comment",
+						"z": "eac2018f.010101",
+						"name": "Init Phase",
+						"info": "",
+						"x": 80,
+						"y": 360,
+						"wires": []
+					}, {
+						"id": "eac2018f.200101",
+						"type": "function",
+						"z": "eac2018f.010101",
+						"name": "Reset flow variables",
+						"func": "flow.set('ButtonLed', 0);\nflow.set(\"RGBLed\", {'on': 0, 'val': -1});\nflow.set(\"Display\", 0);\n\nreturn msg;",
+						"outputs": 1,
+						"noerr": 0,
+						"x": 360,
+						"y": 380,
+						"wires": [[]]
+					}, {
+						"id": "eac2018f.210101",
+						"type": "grove-chainable-rgb-led",
+						"z": "eac2018f.010101",
+						"name": "",
+						"pin": "5",
+						"x": 520,
+						"y": 460,
+						"wires": []
+					}, {
+						"id": "eac2018f.220101",
+						"type": "rpi-gpio out",
+						"z": "eac2018f.010101",
+						"name": "D 16",
+						"pin": "36",
+						"set": true,
+						"level": "0",
+						"freq": "",
+						"out": "out",
+						"x": 470,
+						"y": 420,
+						"wires": []
+					}, {
+						"id": "eac2018f.230101",
+						"type": "function",
+						"z": "eac2018f.010101",
+						"name": "Switch off",
+						"func": "msg.payload = \"rgb(0,0,0)\"\nreturn msg;",
+						"outputs": 1,
+						"noerr": 0,
+						"x": 320,
+						"y": 460,
+						"wires": [["eac2018f.210101"]]
+					}, {
+						"id": "eac2018f.020101",
+						"type": "mqtt-broker",
+						"z": "eac2018f.010101",
+						"name": "",
+						"broker": "localhost",
+						"port": "1883",
+						"clientid": "",
+						"usetls": false,
+						"compatmode": true,
+						"keepalive": "60",
+						"cleansession": true,
+						"birthTopic": "",
+						"birthQos": "0",
+						"birthPayload": "",
+						"closeTopic": "",
+						"closeQos": "0",
+						"closePayload": "",
+						"willTopic": "",
+						"willQos": "0",
+						"willPayload": ""
+					}
+				],
+				"path_flow": "",
+				"packages": []
+			}, {
+				"_type": "/infra/docker_host",
+				"name": "RPiZero-102",
+				"properties": [],
+				"version": "0.0.1",
+				"id": "ef2a581a-4283-4dd6-8e3e-efaf9e8b42e9",
+				"provided_execution_port": [{
+						"name": "offerDocker",
+						"capabilities": {
+							"_type": "/capability/security_capability",
+							"name": "a_capability",
+							"control_id": "",
+							"description": ""
+						}
+					}
+				],
+				"ip": "192.168.43.102",
+				"port": ["2376"],
+				"credentials": {
+					"username": "ubuntu",
+					"password": "",
+					"sshkey": ""
+				},
+				"monitoring_agent": "none"
+			}, {
+				"_type": "/internal/node_red",
+				"name": "NodeRED-102",
+				"properties": [],
+				"version": "0.0.1",
+				"id": "21e5d607-cd49-4c8f-9ba8-58669f9fcb8b",
+				"provided_execution_port": [{
+						"name": "offerNodeRED",
+						"capabilities": {
+							"_type": "/capability/security_capability",
+							"name": "a_capability",
+							"control_id": "",
+							"description": ""
+						}
+					}
+				],
+				"docker_resource": {
+					"name": "DockerRaspberryPiZeroGroveBaseHat",
+					"image": "node-docker-raspberry-zero:armv6",
+					"command": "",
+					"links": [],
+					"port_bindings": {
+						"1880": "1880",
+						"1883": "1883"
+					},
+					"mounts": {
+						"src": "/sys",
+						"tgt": "/sys"
+					},
+					"devices": [{
+							"PathOnHost": "/dev/mem",
+							"PathInContainer": "/dev/mem",
+							"CgroupPermissions": "rwm"
+						}, {
+							"PathOnHost": "/dev/gpiomem",
+							"PathInContainer": "/dev/gpiomem",
+							"CgroupPermissions": "rwm"
+						}, {
+							"PathOnHost": "/dev/i2c-1",
+							"PathInContainer": "/dev/i2c-1",
+							"CgroupPermissions": "rwm"
+						}
+					]
+				},
+				"ssh_resource": {
+					"name": "60eddca9-cd0a-4661-bf4a-1d7e9480f42d",
+					"startCommand": "",
+					"downloadCommand": "",
+					"installCommand": "",
+					"configureCommand": "",
+					"credentials": {
+						"username": "ubuntu",
+						"password": "",
+						"sshkey": ""
+					}
+				},
+				"ansible_resource": {
+					"name": "438ddd89-ec98-415f-9eed-dd763b43a530",
+					"playbook_path": "",
+					"playbook_host": "",
+					"credentials": {
+						"username": "ubuntu",
+						"password": "",
+						"sshkey": ""
+					}
+				},
+				"required_execution_port": {
+					"name": "demandDocker",
+					"capabilities": {
+						"_type": "/capability/security_capability",
+						"name": "a_capability",
+						"control_id": "",
+						"description": ""
+					},
+					"needDeployer": false
+				},
+				"provided_communication_port": [{
+						"name": "234d7123-a871-4010-8c6a-f0e9a76cefe7",
+						"capabilities": {
+							"_type": "/capability/security_capability",
+							"name": "a_capability",
+							"control_id": "",
+							"description": ""
+						},
+						"port_number": "1880"
+					}
+				],
+				"required_communication_port": [{
+						"name": "f1dd8b03-1f78-4364-8b37-6e63fcd4b791",
+						"capabilities": {
+							"_type": "/capability/security_capability",
+							"name": "a_capability",
+							"control_id": "",
+							"description": ""
+						},
+						"port_number": "80",
+						"isMandatory": false
+					}
+				],
+				"nr_flow": [],
+				"path_flow": "",
+				"packages": []
+			}, {
+				"_type": "/internal/node_red_flow",
+				"name": "NodeRED-flow-102",
+				"properties": [],
+				"version": "0.0.1",
+				"id": "3eab8759-bc6e-4f34-9429-46b38d26f7a7",
+				"provided_execution_port": [{
+						"name": "3dfca6df-1bc5-4b1b-9321-d3a103e3f361",
+						"capabilities": {
+							"_type": "/capability/security_capability",
+							"name": "a_capability",
+							"control_id": "",
+							"description": ""
+						}
+					}
+				],
+				"docker_resource": {
+					"name": "4f6f7ab4-9e6b-450f-aeab-e246699bddf0",
+					"image": "",
+					"command": "",
+					"links": [],
+					"port_bindings": {
+						"1880": "1880"
+					},
+					"devices": {
+						"PathOnHost": "",
+						"PathInContainer": "",
+						"CgroupPermissions": "rwm"
+					}
+				},
+				"ssh_resource": {
+					"name": "649327a4-b666-4598-ab03-ce89e357a292",
+					"startCommand": "",
+					"downloadCommand": "",
+					"installCommand": "",
+					"configureCommand": "",
+					"stopCommand": "",
+					"credentials": {
+						"username": "ubuntu",
+						"password": "",
+						"sshkey": "",
+						"agent": ""
+					}
+				},
+				"ansible_resource": {
+					"name": "92ed7fc4-e09a-4429-8c7c-e84c03a679e7",
+					"playbook_path": "",
+					"playbook_host": "",
+					"credentials": {
+						"username": "ubuntu",
+						"password": "",
+						"sshkey": "",
+						"agent": ""
+					}
+				},
+				"required_execution_port": {
+					"name": "demandNodeRED",
+					"capabilities": {
+						"_type": "/capability/security_capability",
+						"name": "a_capability",
+						"control_id": "",
+						"description": ""
+					},
+					"needDeployer": false
+				},
+				"provided_communication_port": [{
+						"name": "be146394-7f60-4c02-8f60-6a4cf5d7aebd",
+						"capabilities": {
+							"_type": "/capability/security_capability",
+							"name": "a_capability",
+							"control_id": "",
+							"description": ""
+						},
+						"port_number": "80"
+					}
+				],
+				"required_communication_port": [{
+						"name": "f9e8fe2f-601d-440b-bea7-8fca5afeba0c",
+						"capabilities": {
+							"_type": "/capability/security_capability",
+							"name": "a_capability",
+							"control_id": "",
+							"description": ""
+						},
+						"port_number": "1880",
+						"isMandatory": false
+					}
+				],
+				
+				"nr_flow": [{
+						"id": "eac2018f.030102",
+						"type": "rpi-gpio out",
+						"z": "eac2018f.010102",
+						"name": "D 16",
+						"pin": "36",
+						"set": true,
+						"level": "0",
+						"freq": "",
+						"out": "out",
+						"x": 610,
+						"y": 140,
+						"wires": []
+					}, {
+						"id": "eac2018f.040102",
+						"type": "rpi-gpio in",
+						"z": "eac2018f.010102",
+						"name": "D 17",
+						"pin": "11",
+						"intype": "tri",
+						"debounce": "25",
+						"read": true,
+						"x": 90,
+						"y": 80,
+						"wires": [["eac2018f.180102"]]
+					}, {
+						"id": "eac2018f.050102",
+						"type": "grove-chainable-rgb-led",
+						"z": "eac2018f.010102",
+						"name": "",
+						"pin": "5",
+						"x": 560,
+						"y": 200,
+						"wires": []
+					}, {
+						"id": "eac2018f.070102",
+						"type": "mqtt in",
+						"z": "eac2018f.010102",
+						"name": "",
+						"topic": "/grove/button_led",
+						"qos": "2",
+						"datatype": "auto",
+						"broker": "eac2018f.020102",
+						"x": 130,
+						"y": 140,
+						"wires": [["eac2018f.150102"]]
+					}, {
+						"id": "eac2018f.080102",
+						"type": "mqtt in",
+						"z": "eac2018f.010102",
+						"name": "",
+						"topic": "/grove/rgb_led",
+						"qos": "2",
+						"datatype": "auto",
+						"broker": "eac2018f.020102",
+						"x": 120,
+						"y": 200,
+						"wires": [["eac2018f.170102"]]
+					}, {
+						"id": "eac2018f.060102",
+						"type": "mqtt out",
+						"z": "eac2018f.010102",
+						"name": "",
+						"topic": "/grove/button",
+						"qos": "",
+						"retain": "",
+						"broker": "eac2018f.020102",
+						"x": 580,
+						"y": 80,
+						"wires": []
+					}, {
+						"id": "eac2018f.090102",
+						"type": "mosca in",
+						"z": "eac2018f.010102",
+						"mqtt_port": 1883,
+						"mqtt_ws_port": 8080,
+						"name": "",
+						"username": "",
+						"password": "",
+						"dburl": "",
+						"x": 110,
+						"y": 40,
+						"wires": [[]]
+					}, {
+						"id": "eac2018f.100102",
+						"type": "grove-4-digit-display",
+						"z": "eac2018f.010102",
+						"name": "",
+						"pin": "22",
+						"x": 580,
+						"y": 260,
+						"wires": []
+					}, {
+						"id": "eac2018f.110102",
+						"type": "mqtt in",
+						"z": "eac2018f.010102",
+						"name": "",
+						"topic": "/grove/4digit_display",
+						"qos": "2",
+						"datatype": "auto",
+						"broker": "eac2018f.020102",
+						"x": 130,
+						"y": 260,
+						"wires": [["eac2018f.160102"]]
+					}, {
+						"id": "eac2018f.120102",
+						"type": "inject",
+						"z": "eac2018f.010102",
+						"name": "Startup Inject",
+						"topic": "",
+						"payload": "0",
+						"payloadType": "num",
+						"repeat": "",
+						"crontab": "",
+						"once": true,
+						"onceDelay": "1",
+						"x": 120,
+						"y": 420,
+						"wires": [["eac2018f.130102", "eac2018f.200102", "eac2018f.220102", "eac2018f.230102"]]
+					}, {
+						"id": "eac2018f.130102",
+						"type": "trigger",
+						"z": "eac2018f.010102",
+						"op1": " 102",
+						"op2": "    ",
+						"op1type": "str",
+						"op2type": "str",
+						"duration": "5",
+						"extend": false,
+						"units": "s",
+						"reset": "",
+						"bytopic": "all",
+						"name": "",
+						"x": 320,
+						"y": 500,
+						"wires": [["eac2018f.140102"]]
+					}, {
+						"id": "eac2018f.140102",
+						"type": "grove-4-digit-display",
+						"z": "eac2018f.010102",
+						"name": "",
+						"pin": "22",
+						"x": 500,
+						"y": 500,
+						"wires": []
+					}, {
+						"id": "eac2018f.150102",
+						"type": "function",
+						"z": "eac2018f.010102",
+						"name": "Store ButtonLed state",
+						"func": "flow.set('ButtonLed', msg.payload);\n\nreturn msg;",
+						"outputs": 1,
+						"noerr": 0,
+						"x": 340,
+						"y": 140,
+						"wires": [["eac2018f.030102"]]
+					}, {
+						"id": "eac2018f.160102",
+						"type": "function",
+						"z": "eac2018f.010102",
+						"name": "Store Display state",
+						"func": "try {\n    val = Number(msg.payload);\n} catch (error) {\n    val = msg.payload;\n}\n\nif (Number.isInteger(val)) {\n    if (val > 9999) {\n        val = 0\n    }\n    if (val === 0) {\n        strval = \"    \";\n    } else if (val < 10) {\n        strval = \"   \" + val;\n    } else if (val < 100) {\n        strval = \"  \" + val;\n    } else if (val < 1000) {\n        strval = \" \" + val;\n    } else {\n        strval = val;\n    }\n    flow.set('Display', val);\n    msg.payload = strval;\n}\nreturn msg;",
+						"outputs": 1,
+						"noerr": 0,
+						"x": 330,
+						"y": 260,
+						"wires": [["eac2018f.100102"]]
+					}, {
+						"id": "eac2018f.170102",
+						"type": "function",
+						"z": "eac2018f.010102",
+						"name": "Store RGBLED state",
+						"func": "if (msg.payload === \"\") return null;\non = -1;\ntry {\n    msg.payload = JSON.parse(msg.payload)\n    on = Number(msg.payload.on)\n    val = Number(msg.payload.val);\n    flow.set('RGBLed', {'on': on, 'val': val});\n} catch (error) {\n    val = msg.payload;\n}\n\nif (on === 0) {\n    msg.payload = \"rgb(0, 0, 0)\";\n} else if (on === 1) {\n    if (val === -1) {\n        msg.payload = \"rgb(255, 255, 255)\";\n    } else if (Number.isInteger(val)) {\n        val = val % 360;\n        msg.payload = \"hsv(\" + val + \",100%, 50%)\";\n    } else {\n        return null;\n    }\n}\nreturn msg;",
+						"outputs": 1,
+						"noerr": 0,
+						"x": 340,
+						"y": 200,
+						"wires": [["eac2018f.050102"]]
+					}, {
+						"id": "eac2018f.180102",
+						"type": "function",
+						"z": "eac2018f.010102",
+						"name": "Emit Sensors/Actuators states",
+						"func": "buttonLed = flow.get('ButtonLed') || 0;\nrgbLed = flow.get('RGBLed') || {'on': 0, 'val': -1};\ndisplay = flow.get('Display') || 0;\nbutton = msg.payload;\n\nmsg.payload = {\n        \"button\": button,\n        \"buttonLed\": buttonLed,\n        \"rgbLed\": rgbLed,\n        \"display\": display\n}\n\nreturn msg;",
+						"outputs": 1,
+						"noerr": 0,
+						"x": 330,
+						"y": 80,
+						"wires": [["eac2018f.060102"]]
+					}, {
+						"id": "eac2018f.190102",
+						"type": "comment",
+						"z": "eac2018f.010102",
+						"name": "Init Phase",
+						"info": "",
+						"x": 80,
+						"y": 360,
+						"wires": []
+					}, {
+						"id": "eac2018f.200102",
+						"type": "function",
+						"z": "eac2018f.010102",
+						"name": "Reset flow variables",
+						"func": "flow.set('ButtonLed', 0);\nflow.set(\"RGBLed\", {'on': 0, 'val': -1});\nflow.set(\"Display\", 0);\n\nreturn msg;",
+						"outputs": 1,
+						"noerr": 0,
+						"x": 360,
+						"y": 380,
+						"wires": [[]]
+					}, {
+						"id": "eac2018f.210102",
+						"type": "grove-chainable-rgb-led",
+						"z": "eac2018f.010102",
+						"name": "",
+						"pin": "5",
+						"x": 520,
+						"y": 460,
+						"wires": []
+					}, {
+						"id": "eac2018f.220102",
+						"type": "rpi-gpio out",
+						"z": "eac2018f.010102",
+						"name": "D 16",
+						"pin": "36",
+						"set": true,
+						"level": "0",
+						"freq": "",
+						"out": "out",
+						"x": 470,
+						"y": 420,
+						"wires": []
+					}, {
+						"id": "eac2018f.230102",
+						"type": "function",
+						"z": "eac2018f.010102",
+						"name": "Switch off",
+						"func": "msg.payload = \"rgb(0,0,0)\"\nreturn msg;",
+						"outputs": 1,
+						"noerr": 0,
+						"x": 320,
+						"y": 460,
+						"wires": [["eac2018f.210102"]]
+					}, {
+						"id": "eac2018f.020102",
+						"type": "mqtt-broker",
+						"z": "eac2018f.010101",
+						"name": "",
+						"broker": "localhost",
+						"port": "1883",
+						"clientid": "",
+						"usetls": false,
+						"compatmode": true,
+						"keepalive": "60",
+						"cleansession": true,
+						"birthTopic": "",
+						"birthQos": "0",
+						"birthPayload": "",
+						"closeTopic": "",
+						"closeQos": "0",
+						"closePayload": "",
+						"willTopic": "",
+						"willQos": "0",
+						"willPayload": ""
+					}
+				],
+				"path_flow": "",
+				"packages": []
+			}, {
+				"_type": "/infra/docker_host",
+				"name": "RPiZero-103",
+				"properties": [],
+				"version": "0.0.1",
+				"id": "d899a2fc-7a82-4ae9-8dfb-e3dd0180344e",
+				"provided_execution_port": [{
+						"name": "offerDocker",
+						"capabilities": {
+							"_type": "/capability/security_capability",
+							"name": "a_capability",
+							"control_id": "",
+							"description": ""
+						}
+					}
+				],
+				"ip": "192.168.43.103",
+				"port": ["2376"],
+				"credentials": {
+					"username": "ubuntu",
+					"password": "",
+					"sshkey": ""
+				},
+				"monitoring_agent": "none"
+			}, {
+				"_type": "/internal/node_red",
+				"name": "NodeRED-103",
+				"properties": [],
+				"version": "0.0.1",
+				"id": "3b574bc4-6a48-4aca-a2bd-c0f47ee77bf8",
+				"provided_execution_port": [{
+						"name": "offerNodeRED",
+						"capabilities": {
+							"_type": "/capability/security_capability",
+							"name": "a_capability",
+							"control_id": "",
+							"description": ""
+						}
+					}
+				],
+				"docker_resource": {
+					"name": "DockerRaspberryPiZeroGroveBaseHat",
+					"image": "node-docker-raspberry-zero:armv6",
+					"command": "",
+					"links": [],
+					"port_bindings": {
+						"1880": "1880",
+						"1883": "1883"
+					},
+					"mounts": {
+						"src": "/sys",
+						"tgt": "/sys"
+					},
+					"devices": [{
+							"PathOnHost": "/dev/mem",
+							"PathInContainer": "/dev/mem",
+							"CgroupPermissions": "rwm"
+						}, {
+							"PathOnHost": "/dev/gpiomem",
+							"PathInContainer": "/dev/gpiomem",
+							"CgroupPermissions": "rwm"
+						}, {
+							"PathOnHost": "/dev/i2c-1",
+							"PathInContainer": "/dev/i2c-1",
+							"CgroupPermissions": "rwm"
+						}
+					]
+				},
+				"ssh_resource": {
+					"name": "22f08184-58ae-4d68-b3df-5a6f23c00e74",
+					"startCommand": "",
+					"downloadCommand": "",
+					"installCommand": "",
+					"configureCommand": "",
+					"credentials": {
+						"username": "ubuntu",
+						"password": "",
+						"sshkey": ""
+					}
+				},
+				"ansible_resource": {
+					"name": "5c0c837d-4b6d-41c8-a49c-c115b1c40e61",
+					"playbook_path": "",
+					"playbook_host": "",
+					"credentials": {
+						"username": "ubuntu",
+						"password": "",
+						"sshkey": ""
+					}
+				},
+				"required_execution_port": {
+					"name": "demandDocker",
+					"capabilities": {
+						"_type": "/capability/security_capability",
+						"name": "a_capability",
+						"control_id": "",
+						"description": ""
+					},
+					"needDeployer": false
+				},
+				"provided_communication_port": [{
+						"name": "b4bbb472-4b89-4b98-a910-6faa4ccf9089",
+						"capabilities": {
+							"_type": "/capability/security_capability",
+							"name": "a_capability",
+							"control_id": "",
+							"description": ""
+						},
+						"port_number": "1880"
+					}
+				],
+				"required_communication_port": [{
+						"name": "ef79f109-5ad8-44a9-8428-56f9e2291db4",
+						"capabilities": {
+							"_type": "/capability/security_capability",
+							"name": "a_capability",
+							"control_id": "",
+							"description": ""
+						},
+						"port_number": "80",
+						"isMandatory": false
+					}
+				],
+				"nr_flow": [],
+				"path_flow": "",
+				"packages": []
+			}, {
+				"_type": "/internal/node_red_flow",
+				"name": "NodeRED-flow-103",
+				"properties": [],
+				"version": "0.0.1",
+				"id": "cfe3efd3-23f9-4203-8223-386188c0f61a",
+				"provided_execution_port": [{
+						"name": "4b3465f5-45cf-4a3c-95fb-6fb1dde148a5",
+						"capabilities": {
+							"_type": "/capability/security_capability",
+							"name": "a_capability",
+							"control_id": "",
+							"description": ""
+						}
+					}
+				],
+				"docker_resource": {
+					"name": "c9fda491-55ca-4b83-a786-bbf8ecec3f04",
+					"image": "",
+					"command": "",
+					"links": [],
+					"port_bindings": {
+						"1880": "1880"
+					},
+					"devices": {
+						"PathOnHost": "",
+						"PathInContainer": "",
+						"CgroupPermissions": "rwm"
+					}
+				},
+				"ssh_resource": {
+					"name": "b933217e-dba9-4afc-b9e4-64416a70ef91",
+					"startCommand": "",
+					"downloadCommand": "",
+					"installCommand": "",
+					"configureCommand": "",
+					"stopCommand": "",
+					"credentials": {
+						"username": "ubuntu",
+						"password": "",
+						"sshkey": "",
+						"agent": ""
+					}
+				},
+				"ansible_resource": {
+					"name": "f9d1851b-97d7-481e-a10e-02a9c899f1a8",
+					"playbook_path": "",
+					"playbook_host": "",
+					"credentials": {
+						"username": "ubuntu",
+						"password": "",
+						"sshkey": "",
+						"agent": ""
+					}
+				},
+				"required_execution_port": {
+					"name": "demandNodeRED",
+					"capabilities": {
+						"_type": "/capability/security_capability",
+						"name": "a_capability",
+						"control_id": "",
+						"description": ""
+					},
+					"needDeployer": false
+				},
+				"provided_communication_port": [{
+						"name": "3e3352b1-5324-421c-b08d-56948be81e83",
+						"capabilities": {
+							"_type": "/capability/security_capability",
+							"name": "a_capability",
+							"control_id": "",
+							"description": ""
+						},
+						"port_number": "80"
+					}
+				],
+				"required_communication_port": [{
+						"name": "56626d4c-f87f-40f9-a658-5dca0fbf82ff",
+						"capabilities": {
+							"_type": "/capability/security_capability",
+							"name": "a_capability",
+							"control_id": "",
+							"description": ""
+						},
+						"port_number": "1880",
+						"isMandatory": false
+					}
+				],
+				
+				"nr_flow": [{
+						"id": "eac2018f.030103",
+						"type": "rpi-gpio out",
+						"z": "eac2018f.010103",
+						"name": "D 16",
+						"pin": "36",
+						"set": true,
+						"level": "0",
+						"freq": "",
+						"out": "out",
+						"x": 610,
+						"y": 140,
+						"wires": []
+					}, {
+						"id": "eac2018f.040103",
+						"type": "rpi-gpio in",
+						"z": "eac2018f.010103",
+						"name": "D 17",
+						"pin": "11",
+						"intype": "tri",
+						"debounce": "25",
+						"read": true,
+						"x": 90,
+						"y": 80,
+						"wires": [["eac2018f.180103"]]
+					}, {
+						"id": "eac2018f.050103",
+						"type": "grove-chainable-rgb-led",
+						"z": "eac2018f.010103",
+						"name": "",
+						"pin": "5",
+						"x": 560,
+						"y": 200,
+						"wires": []
+					}, {
+						"id": "eac2018f.070103",
+						"type": "mqtt in",
+						"z": "eac2018f.010103",
+						"name": "",
+						"topic": "/grove/button_led",
+						"qos": "2",
+						"datatype": "auto",
+						"broker": "eac2018f.020103",
+						"x": 130,
+						"y": 140,
+						"wires": [["eac2018f.150103"]]
+					}, {
+						"id": "eac2018f.080103",
+						"type": "mqtt in",
+						"z": "eac2018f.010103",
+						"name": "",
+						"topic": "/grove/rgb_led",
+						"qos": "2",
+						"datatype": "auto",
+						"broker": "eac2018f.020103",
+						"x": 120,
+						"y": 200,
+						"wires": [["eac2018f.170103"]]
+					}, {
+						"id": "eac2018f.060103",
+						"type": "mqtt out",
+						"z": "eac2018f.010103",
+						"name": "",
+						"topic": "/grove/button",
+						"qos": "",
+						"retain": "",
+						"broker": "eac2018f.020103",
+						"x": 580,
+						"y": 80,
+						"wires": []
+					}, {
+						"id": "eac2018f.090103",
+						"type": "mosca in",
+						"z": "eac2018f.010103",
+						"mqtt_port": 1883,
+						"mqtt_ws_port": 8080,
+						"name": "",
+						"username": "",
+						"password": "",
+						"dburl": "",
+						"x": 110,
+						"y": 40,
+						"wires": [[]]
+					}, {
+						"id": "eac2018f.100103",
+						"type": "grove-4-digit-display",
+						"z": "eac2018f.010103",
+						"name": "",
+						"pin": "22",
+						"x": 580,
+						"y": 260,
+						"wires": []
+					}, {
+						"id": "eac2018f.110103",
+						"type": "mqtt in",
+						"z": "eac2018f.010103",
+						"name": "",
+						"topic": "/grove/4digit_display",
+						"qos": "2",
+						"datatype": "auto",
+						"broker": "eac2018f.020103",
+						"x": 130,
+						"y": 260,
+						"wires": [["eac2018f.160103"]]
+					}, {
+						"id": "eac2018f.120103",
+						"type": "inject",
+						"z": "eac2018f.010103",
+						"name": "Startup Inject",
+						"topic": "",
+						"payload": "0",
+						"payloadType": "num",
+						"repeat": "",
+						"crontab": "",
+						"once": true,
+						"onceDelay": "1",
+						"x": 120,
+						"y": 420,
+						"wires": [["eac2018f.130103", "eac2018f.200103", "eac2018f.220103", "eac2018f.230103"]]
+					}, {
+						"id": "eac2018f.130103",
+						"type": "trigger",
+						"z": "eac2018f.010103",
+						"op1": " 103",
+						"op2": "    ",
+						"op1type": "str",
+						"op2type": "str",
+						"duration": "5",
+						"extend": false,
+						"units": "s",
+						"reset": "",
+						"bytopic": "all",
+						"name": "",
+						"x": 320,
+						"y": 500,
+						"wires": [["eac2018f.140103"]]
+					}, {
+						"id": "eac2018f.140103",
+						"type": "grove-4-digit-display",
+						"z": "eac2018f.010103",
+						"name": "",
+						"pin": "22",
+						"x": 500,
+						"y": 500,
+						"wires": []
+					}, {
+						"id": "eac2018f.150103",
+						"type": "function",
+						"z": "eac2018f.010103",
+						"name": "Store ButtonLed state",
+						"func": "flow.set('ButtonLed', msg.payload);\n\nreturn msg;",
+						"outputs": 1,
+						"noerr": 0,
+						"x": 340,
+						"y": 140,
+						"wires": [["eac2018f.030103"]]
+					}, {
+						"id": "eac2018f.160103",
+						"type": "function",
+						"z": "eac2018f.010103",
+						"name": "Store Display state",
+						"func": "try {\n    val = Number(msg.payload);\n} catch (error) {\n    val = msg.payload;\n}\n\nif (Number.isInteger(val)) {\n    if (val > 9999) {\n        val = 0\n    }\n    if (val === 0) {\n        strval = \"    \";\n    } else if (val < 10) {\n        strval = \"   \" + val;\n    } else if (val < 100) {\n        strval = \"  \" + val;\n    } else if (val < 1000) {\n        strval = \" \" + val;\n    } else {\n        strval = val;\n    }\n    flow.set('Display', val);\n    msg.payload = strval;\n}\nreturn msg;",
+						"outputs": 1,
+						"noerr": 0,
+						"x": 330,
+						"y": 260,
+						"wires": [["eac2018f.100103"]]
+					}, {
+						"id": "eac2018f.170103",
+						"type": "function",
+						"z": "eac2018f.010103",
+						"name": "Store RGBLED state",
+						"func": "if (msg.payload === \"\") return null;\non = -1;\ntry {\n    msg.payload = JSON.parse(msg.payload)\n    on = Number(msg.payload.on)\n    val = Number(msg.payload.val);\n    flow.set('RGBLed', {'on': on, 'val': val});\n} catch (error) {\n    val = msg.payload;\n}\n\nif (on === 0) {\n    msg.payload = \"rgb(0, 0, 0)\";\n} else if (on === 1) {\n    if (val === -1) {\n        msg.payload = \"rgb(255, 255, 255)\";\n    } else if (Number.isInteger(val)) {\n        val = val % 360;\n        msg.payload = \"hsv(\" + val + \",100%, 50%)\";\n    } else {\n        return null;\n    }\n}\nreturn msg;",
+						"outputs": 1,
+						"noerr": 0,
+						"x": 340,
+						"y": 200,
+						"wires": [["eac2018f.050103"]]
+					}, {
+						"id": "eac2018f.180103",
+						"type": "function",
+						"z": "eac2018f.010103",
+						"name": "Emit Sensors/Actuators states",
+						"func": "buttonLed = flow.get('ButtonLed') || 0;\nrgbLed = flow.get('RGBLed') || {'on': 0, 'val': -1};\ndisplay = flow.get('Display') || 0;\nbutton = msg.payload;\n\nmsg.payload = {\n        \"button\": button,\n        \"buttonLed\": buttonLed,\n        \"rgbLed\": rgbLed,\n        \"display\": display\n}\n\nreturn msg;",
+						"outputs": 1,
+						"noerr": 0,
+						"x": 330,
+						"y": 80,
+						"wires": [["eac2018f.060103"]]
+					}, {
+						"id": "eac2018f.190103",
+						"type": "comment",
+						"z": "eac2018f.010103",
+						"name": "Init Phase",
+						"info": "",
+						"x": 80,
+						"y": 360,
+						"wires": []
+					}, {
+						"id": "eac2018f.200103",
+						"type": "function",
+						"z": "eac2018f.010103",
+						"name": "Reset flow variables",
+						"func": "flow.set('ButtonLed', 0);\nflow.set(\"RGBLed\", {'on': 0, 'val': -1});\nflow.set(\"Display\", 0);\n\nreturn msg;",
+						"outputs": 1,
+						"noerr": 0,
+						"x": 360,
+						"y": 380,
+						"wires": [[]]
+					}, {
+						"id": "eac2018f.210103",
+						"type": "grove-chainable-rgb-led",
+						"z": "eac2018f.010103",
+						"name": "",
+						"pin": "5",
+						"x": 520,
+						"y": 460,
+						"wires": []
+					}, {
+						"id": "eac2018f.220103",
+						"type": "rpi-gpio out",
+						"z": "eac2018f.010103",
+						"name": "D 16",
+						"pin": "36",
+						"set": true,
+						"level": "0",
+						"freq": "",
+						"out": "out",
+						"x": 470,
+						"y": 420,
+						"wires": []
+					}, {
+						"id": "eac2018f.230103",
+						"type": "function",
+						"z": "eac2018f.010103",
+						"name": "Switch off",
+						"func": "msg.payload = \"rgb(0,0,0)\"\nreturn msg;",
+						"outputs": 1,
+						"noerr": 0,
+						"x": 320,
+						"y": 460,
+						"wires": [["eac2018f.210103"]]
+					}, {
+						"id": "eac2018f.020103",
+						"type": "mqtt-broker",
+						"z": "eac2018f.010101",
+						"name": "",
+						"broker": "localhost",
+						"port": "1883",
+						"clientid": "",
+						"usetls": false,
+						"compatmode": true,
+						"keepalive": "60",
+						"cleansession": true,
+						"birthTopic": "",
+						"birthQos": "0",
+						"birthPayload": "",
+						"closeTopic": "",
+						"closeQos": "0",
+						"closePayload": "",
+						"willTopic": "",
+						"willQos": "0",
+						"willPayload": ""
+					}
+				],
+				"path_flow": "",
+				"packages": []
+			}, {
+				"_type": "/infra/docker_host",
+				"name": "RPiZero-104",
+				"properties": [],
+				"version": "0.0.1",
+				"id": "5312d47e-e3b9-475e-8507-b32ea79c480c",
+				"provided_execution_port": [{
+						"name": "offerDocker",
+						"capabilities": {
+							"_type": "/capability/security_capability",
+							"name": "a_capability",
+							"control_id": "",
+							"description": ""
+						}
+					}
+				],
+				"ip": "192.168.43.104",
+				"port": ["2376"],
+				"credentials": {
+					"username": "ubuntu",
+					"password": "",
+					"sshkey": ""
+				},
+				"monitoring_agent": "none"
+			}, {
+				"_type": "/internal/node_red",
+				"name": "NodeRED-104",
+				"properties": [],
+				"version": "0.0.1",
+				"id": "04768b36-7ae3-4187-9122-7b7e9b925466",
+				"provided_execution_port": [{
+						"name": "offerNodeRED",
+						"capabilities": {
+							"_type": "/capability/security_capability",
+							"name": "a_capability",
+							"control_id": "",
+							"description": ""
+						}
+					}
+				],
+				"docker_resource": {
+					"name": "DockerRaspberryPiZeroGroveBaseHat",
+					"image": "node-docker-raspberry-zero:armv6",
+					"command": "",
+					"links": [],
+					"port_bindings": {
+						"1880": "1880",
+						"1883": "1883"
+					},
+					"mounts": {
+						"src": "/sys",
+						"tgt": "/sys"
+					},
+					"devices": [{
+							"PathOnHost": "/dev/mem",
+							"PathInContainer": "/dev/mem",
+							"CgroupPermissions": "rwm"
+						}, {
+							"PathOnHost": "/dev/gpiomem",
+							"PathInContainer": "/dev/gpiomem",
+							"CgroupPermissions": "rwm"
+						}, {
+							"PathOnHost": "/dev/i2c-1",
+							"PathInContainer": "/dev/i2c-1",
+							"CgroupPermissions": "rwm"
+						}
+					]
+				},
+				"ssh_resource": {
+					"name": "4a350587-e989-448d-8071-2998a2eee407",
+					"startCommand": "",
+					"downloadCommand": "",
+					"installCommand": "",
+					"configureCommand": "",
+					"credentials": {
+						"username": "ubuntu",
+						"password": "",
+						"sshkey": ""
+					}
+				},
+				"ansible_resource": {
+					"name": "16647e31-c8e3-4b51-a36d-22e652691dd3",
+					"playbook_path": "",
+					"playbook_host": "",
+					"credentials": {
+						"username": "ubuntu",
+						"password": "",
+						"sshkey": ""
+					}
+				},
+				"required_execution_port": {
+					"name": "demandDocker",
+					"capabilities": {
+						"_type": "/capability/security_capability",
+						"name": "a_capability",
+						"control_id": "",
+						"description": ""
+					},
+					"needDeployer": false
+				},
+				"provided_communication_port": [{
+						"name": "0e32974e-1ad6-4146-9f2f-7dd502643b44",
+						"capabilities": {
+							"_type": "/capability/security_capability",
+							"name": "a_capability",
+							"control_id": "",
+							"description": ""
+						},
+						"port_number": "1880"
+					}
+				],
+				"required_communication_port": [{
+						"name": "eb55bd8a-43e6-4262-8dce-fa2e65a4bc04",
+						"capabilities": {
+							"_type": "/capability/security_capability",
+							"name": "a_capability",
+							"control_id": "",
+							"description": ""
+						},
+						"port_number": "80",
+						"isMandatory": false
+					}
+				],
+				"nr_flow": [],
+				"path_flow": "",
+				"packages": []
+			}, {
+				"_type": "/internal/node_red_flow",
+				"name": "NodeRED-flow-104",
+				"properties": [],
+				"version": "0.0.1",
+				"id": "ac99f514-98a3-4ea6-87ff-b01fb75387fe",
+				"provided_execution_port": [{
+						"name": "f73d61d8-15f3-4363-9e46-559e3d92f56a",
+						"capabilities": {
+							"_type": "/capability/security_capability",
+							"name": "a_capability",
+							"control_id": "",
+							"description": ""
+						}
+					}
+				],
+				"docker_resource": {
+					"name": "061be09f-0b03-413d-bcdf-ab681b43e8da",
+					"image": "",
+					"command": "",
+					"links": [],
+					"port_bindings": {
+						"1880": "1880"
+					},
+					"devices": {
+						"PathOnHost": "",
+						"PathInContainer": "",
+						"CgroupPermissions": "rwm"
+					}
+				},
+				"ssh_resource": {
+					"name": "a9ebeb78-262b-41c6-bb72-8c7ab283ff84",
+					"startCommand": "",
+					"downloadCommand": "",
+					"installCommand": "",
+					"configureCommand": "",
+					"stopCommand": "",
+					"credentials": {
+						"username": "ubuntu",
+						"password": "",
+						"sshkey": "",
+						"agent": ""
+					}
+				},
+				"ansible_resource": {
+					"name": "3621d73c-58bf-4e6f-8d0a-0ebb127c5e7e",
+					"playbook_path": "",
+					"playbook_host": "",
+					"credentials": {
+						"username": "ubuntu",
+						"password": "",
+						"sshkey": "",
+						"agent": ""
+					}
+				},
+				"required_execution_port": {
+					"name": "demandNodeRED",
+					"capabilities": {
+						"_type": "/capability/security_capability",
+						"name": "a_capability",
+						"control_id": "",
+						"description": ""
+					},
+					"needDeployer": false
+				},
+				"provided_communication_port": [{
+						"name": "18ffa394-101d-41c6-b1b3-773cd92e59ea",
+						"capabilities": {
+							"_type": "/capability/security_capability",
+							"name": "a_capability",
+							"control_id": "",
+							"description": ""
+						},
+						"port_number": "80"
+					}
+				],
+				"required_communication_port": [{
+						"name": "4b09a1c7-87e4-44a5-ae60-988b60c82a02",
+						"capabilities": {
+							"_type": "/capability/security_capability",
+							"name": "a_capability",
+							"control_id": "",
+							"description": ""
+						},
+						"port_number": "1880",
+						"isMandatory": false
+					}
+				],
+				
+				"nr_flow": [{
+						"id": "eac2018f.030104",
+						"type": "rpi-gpio out",
+						"z": "eac2018f.010104",
+						"name": "D 16",
+						"pin": "36",
+						"set": true,
+						"level": "0",
+						"freq": "",
+						"out": "out",
+						"x": 610,
+						"y": 140,
+						"wires": []
+					}, {
+						"id": "eac2018f.040104",
+						"type": "rpi-gpio in",
+						"z": "eac2018f.010104",
+						"name": "D 17",
+						"pin": "11",
+						"intype": "tri",
+						"debounce": "25",
+						"read": true,
+						"x": 90,
+						"y": 80,
+						"wires": [["eac2018f.180104"]]
+					}, {
+						"id": "eac2018f.050104",
+						"type": "grove-chainable-rgb-led",
+						"z": "eac2018f.010104",
+						"name": "",
+						"pin": "5",
+						"x": 560,
+						"y": 200,
+						"wires": []
+					}, {
+						"id": "eac2018f.070104",
+						"type": "mqtt in",
+						"z": "eac2018f.010104",
+						"name": "",
+						"topic": "/grove/button_led",
+						"qos": "2",
+						"datatype": "auto",
+						"broker": "eac2018f.020104",
+						"x": 130,
+						"y": 140,
+						"wires": [["eac2018f.150104"]]
+					}, {
+						"id": "eac2018f.080104",
+						"type": "mqtt in",
+						"z": "eac2018f.010104",
+						"name": "",
+						"topic": "/grove/rgb_led",
+						"qos": "2",
+						"datatype": "auto",
+						"broker": "eac2018f.020104",
+						"x": 120,
+						"y": 200,
+						"wires": [["eac2018f.170104"]]
+					}, {
+						"id": "eac2018f.060104",
+						"type": "mqtt out",
+						"z": "eac2018f.010104",
+						"name": "",
+						"topic": "/grove/button",
+						"qos": "",
+						"retain": "",
+						"broker": "eac2018f.020104",
+						"x": 580,
+						"y": 80,
+						"wires": []
+					}, {
+						"id": "eac2018f.090104",
+						"type": "mosca in",
+						"z": "eac2018f.010104",
+						"mqtt_port": 1883,
+						"mqtt_ws_port": 8080,
+						"name": "",
+						"username": "",
+						"password": "",
+						"dburl": "",
+						"x": 110,
+						"y": 40,
+						"wires": [[]]
+					}, {
+						"id": "eac2018f.100104",
+						"type": "grove-4-digit-display",
+						"z": "eac2018f.010104",
+						"name": "",
+						"pin": "22",
+						"x": 580,
+						"y": 260,
+						"wires": []
+					}, {
+						"id": "eac2018f.110104",
+						"type": "mqtt in",
+						"z": "eac2018f.010104",
+						"name": "",
+						"topic": "/grove/4digit_display",
+						"qos": "2",
+						"datatype": "auto",
+						"broker": "eac2018f.020104",
+						"x": 130,
+						"y": 260,
+						"wires": [["eac2018f.160104"]]
+					}, {
+						"id": "eac2018f.120104",
+						"type": "inject",
+						"z": "eac2018f.010104",
+						"name": "Startup Inject",
+						"topic": "",
+						"payload": "0",
+						"payloadType": "num",
+						"repeat": "",
+						"crontab": "",
+						"once": true,
+						"onceDelay": "1",
+						"x": 120,
+						"y": 420,
+						"wires": [["eac2018f.130104", "eac2018f.200104", "eac2018f.220104", "eac2018f.230104"]]
+					}, {
+						"id": "eac2018f.130104",
+						"type": "trigger",
+						"z": "eac2018f.010104",
+						"op1": " 104",
+						"op2": "    ",
+						"op1type": "str",
+						"op2type": "str",
+						"duration": "5",
+						"extend": false,
+						"units": "s",
+						"reset": "",
+						"bytopic": "all",
+						"name": "",
+						"x": 320,
+						"y": 500,
+						"wires": [["eac2018f.140104"]]
+					}, {
+						"id": "eac2018f.140104",
+						"type": "grove-4-digit-display",
+						"z": "eac2018f.010104",
+						"name": "",
+						"pin": "22",
+						"x": 500,
+						"y": 500,
+						"wires": []
+					}, {
+						"id": "eac2018f.150104",
+						"type": "function",
+						"z": "eac2018f.010104",
+						"name": "Store ButtonLed state",
+						"func": "flow.set('ButtonLed', msg.payload);\n\nreturn msg;",
+						"outputs": 1,
+						"noerr": 0,
+						"x": 340,
+						"y": 140,
+						"wires": [["eac2018f.030104"]]
+					}, {
+						"id": "eac2018f.160104",
+						"type": "function",
+						"z": "eac2018f.010104",
+						"name": "Store Display state",
+						"func": "try {\n    val = Number(msg.payload);\n} catch (error) {\n    val = msg.payload;\n}\n\nif (Number.isInteger(val)) {\n    if (val > 9999) {\n        val = 0\n    }\n    if (val === 0) {\n        strval = \"    \";\n    } else if (val < 10) {\n        strval = \"   \" + val;\n    } else if (val < 100) {\n        strval = \"  \" + val;\n    } else if (val < 1000) {\n        strval = \" \" + val;\n    } else {\n        strval = val;\n    }\n    flow.set('Display', val);\n    msg.payload = strval;\n}\nreturn msg;",
+						"outputs": 1,
+						"noerr": 0,
+						"x": 330,
+						"y": 260,
+						"wires": [["eac2018f.100104"]]
+					}, {
+						"id": "eac2018f.170104",
+						"type": "function",
+						"z": "eac2018f.010104",
+						"name": "Store RGBLED state",
+						"func": "if (msg.payload === \"\") return null;\non = -1;\ntry {\n    msg.payload = JSON.parse(msg.payload)\n    on = Number(msg.payload.on)\n    val = Number(msg.payload.val);\n    flow.set('RGBLed', {'on': on, 'val': val});\n} catch (error) {\n    val = msg.payload;\n}\n\nif (on === 0) {\n    msg.payload = \"rgb(0, 0, 0)\";\n} else if (on === 1) {\n    if (val === -1) {\n        msg.payload = \"rgb(255, 255, 255)\";\n    } else if (Number.isInteger(val)) {\n        val = val % 360;\n        msg.payload = \"hsv(\" + val + \",100%, 50%)\";\n    } else {\n        return null;\n    }\n}\nreturn msg;",
+						"outputs": 1,
+						"noerr": 0,
+						"x": 340,
+						"y": 200,
+						"wires": [["eac2018f.050104"]]
+					}, {
+						"id": "eac2018f.180104",
+						"type": "function",
+						"z": "eac2018f.010104",
+						"name": "Emit Sensors/Actuators states",
+						"func": "buttonLed = flow.get('ButtonLed') || 0;\nrgbLed = flow.get('RGBLed') || {'on': 0, 'val': -1};\ndisplay = flow.get('Display') || 0;\nbutton = msg.payload;\n\nmsg.payload = {\n        \"button\": button,\n        \"buttonLed\": buttonLed,\n        \"rgbLed\": rgbLed,\n        \"display\": display\n}\n\nreturn msg;",
+						"outputs": 1,
+						"noerr": 0,
+						"x": 330,
+						"y": 80,
+						"wires": [["eac2018f.060104"]]
+					}, {
+						"id": "eac2018f.190104",
+						"type": "comment",
+						"z": "eac2018f.010104",
+						"name": "Init Phase",
+						"info": "",
+						"x": 80,
+						"y": 360,
+						"wires": []
+					}, {
+						"id": "eac2018f.200104",
+						"type": "function",
+						"z": "eac2018f.010104",
+						"name": "Reset flow variables",
+						"func": "flow.set('ButtonLed', 0);\nflow.set(\"RGBLed\", {'on': 0, 'val': -1});\nflow.set(\"Display\", 0);\n\nreturn msg;",
+						"outputs": 1,
+						"noerr": 0,
+						"x": 360,
+						"y": 380,
+						"wires": [[]]
+					}, {
+						"id": "eac2018f.210104",
+						"type": "grove-chainable-rgb-led",
+						"z": "eac2018f.010104",
+						"name": "",
+						"pin": "5",
+						"x": 520,
+						"y": 460,
+						"wires": []
+					}, {
+						"id": "eac2018f.220104",
+						"type": "rpi-gpio out",
+						"z": "eac2018f.010104",
+						"name": "D 16",
+						"pin": "36",
+						"set": true,
+						"level": "0",
+						"freq": "",
+						"out": "out",
+						"x": 470,
+						"y": 420,
+						"wires": []
+					}, {
+						"id": "eac2018f.230104",
+						"type": "function",
+						"z": "eac2018f.010104",
+						"name": "Switch off",
+						"func": "msg.payload = \"rgb(0,0,0)\"\nreturn msg;",
+						"outputs": 1,
+						"noerr": 0,
+						"x": 320,
+						"y": 460,
+						"wires": [["eac2018f.210104"]]
+					}, {
+						"id": "eac2018f.020104",
+						"type": "mqtt-broker",
+						"z": "eac2018f.010101",
+						"name": "",
+						"broker": "localhost",
+						"port": "1883",
+						"clientid": "",
+						"usetls": false,
+						"compatmode": true,
+						"keepalive": "60",
+						"cleansession": true,
+						"birthTopic": "",
+						"birthQos": "0",
+						"birthPayload": "",
+						"closeTopic": "",
+						"closeQos": "0",
+						"closePayload": "",
+						"willTopic": "",
+						"willQos": "0",
+						"willPayload": ""
+					}
+				],
+				"path_flow": "",
+				"packages": []
+			}, {
+				"_type": "/infra/docker_host",
+				"name": "Docker-Application",
+				"properties": [],
+				"version": "0.0.1",
+				"id": "c381c87d-1075-4bfa-9873-22e133cee447",
+				"provided_execution_port": [{
+						"name": "offerDocker",
+						"capabilities": {
+							"_type": "/capability/security_capability",
+							"name": "a_capability",
+							"control_id": "",
+							"description": ""
+						}
+					}
+				],
+				"ip": "192.168.99.100",
+				"port": ["2376"],
+				"credentials": {
+					"username": "ubuntu",
+					"password": "",
+					"sshkey": ""
+				},
+				"monitoring_agent": "none"
+			}, {
+				"_type": "/internal/node_red",
+				"name": "NodeRED-Application",
+				"properties": [],
+				"version": "0.0.1",
+				"id": "91cedcea-8346-4c81-a594-8ad1ca9360f3",
+				"provided_execution_port": [{
+						"name": "offerNodeRED",
+						"capabilities": {
+							"_type": "/capability/security_capability",
+							"name": "a_capability",
+							"control_id": "",
+							"description": ""
+						}
+				}
+				],
+				"docker_resource": {
+					"name": "2d7d08f0-4034-447f-9559-d8168d82ab42",
+					"image": "nicolasferry/multiarch-node-red-thingml:latest",
+					"command": "",
+					"links": [],
+					"port_bindings": {
+						"1880": "1880",
+						"1883": "1883"
+					},
+					"devices": {
+						"PathOnHost": "",
+						"PathInContainer": "",
+						"CgroupPermissions": "rwm"
+					}
+				},
+				"ssh_resource": {
+					"name": "4edd0aa4-dc53-48d1-acb2-f407b2a202c0",
+					"startCommand": "",
+					"downloadCommand": "",
+					"installCommand": "",
+					"configureCommand": "",
+					"credentials": {
+						"username": "ubuntu",
+						"password": "",
+						"sshkey": ""
+					}
+				},
+				"ansible_resource": {
+					"name": "0322c896-e8d5-4bef-acab-1518e7681ce6",
+					"playbook_path": "",
+					"playbook_host": "",
+					"credentials": {
+						"username": "ubuntu",
+						"password": "",
+						"sshkey": ""
+					}
+				},
+				"required_execution_port": {
+					"name": "demandDocker",
+					"capabilities": {
+						"_type": "/capability/security_capability",
+						"name": "a_capability",
+						"control_id": "",
+						"description": ""
+					},
+					"needDeployer": false
+				},
+				"provided_communication_port": [{
+						"name": "f641d4ac-dd4f-42f5-a01a-d9e2623f6e80",
+						"capabilities": {
+							"_type": "/capability/security_capability",
+							"name": "a_capability",
+							"control_id": "",
+							"description": ""
+						},
+						"port_number": "1880"
+					}
+				],
+				"required_communication_port": [{
+						"name": "f2f85f34-6848-4d41-a353-3332fcf81c51",
+						"capabilities": {
+							"_type": "/capability/security_capability",
+							"name": "a_capability",
+							"control_id": "",
+							"description": ""
+						},
+						"port_number": "80",
+						"isMandatory": false
+					}
+				],
+				"nr_flow": [],
+				"path_flow": "",
+				"packages": []
+			}, {
+				"_type": "/internal/node_red_flow",
+				"name": "NodeRED-flow-Application",
+				"properties": [],
+				"version": "0.0.1",
+				"id": "6b04ee47-eaf0-4d46-bd9c-1e7693b6a8c8",
+				"provided_execution_port": [{
+						"name": "a366aaf9-98be-439c-ad83-51c3abe01b91",
+						"capabilities": {
+							"_type": "/capability/security_capability",
+							"name": "a_capability",
+							"control_id": "",
+							"description": ""
+						}
+					}
+				],
+				"docker_resource": {
+					"name": "5291db5e-bc29-4ddd-a356-7bb7a97f5ee7",
+					"image": "",
+					"command": "",
+					"links": [],
+					"port_bindings": {
+						"1880": "1880"
+					},
+					"devices": {
+						"PathOnHost": "",
+						"PathInContainer": "",
+						"CgroupPermissions": "rwm"
+					}
+				},
+				"ssh_resource": {
+					"name": "ae75f9d4-3742-46e7-89f8-0349bc703576",
+					"startCommand": "",
+					"downloadCommand": "",
+					"installCommand": "",
+					"configureCommand": "",
+					"stopCommand": "",
+					"credentials": {
+						"username": "ubuntu",
+						"password": "",
+						"sshkey": "",
+						"agent": ""
+					}
+				},
+				"ansible_resource": {
+					"name": "3ed886a6-1a06-4621-92e7-131920e8bc24",
+					"playbook_path": "",
+					"playbook_host": "",
+					"credentials": {
+						"username": "ubuntu",
+						"password": "",
+						"sshkey": "",
+						"agent": ""
+					}
+				},
+				"required_execution_port": {
+					"name": "demandNodeRED",
+					"capabilities": {
+						"_type": "/capability/security_capability",
+						"name": "a_capability",
+						"control_id": "",
+						"description": ""
+					},
+					"needDeployer": false
+				},
+				"provided_communication_port": [{
+						"name": "fd317db7-a14f-48c1-bd23-da75a565c90a",
+						"capabilities": {
+							"_type": "/capability/security_capability",
+							"name": "a_capability",
+							"control_id": "",
+							"description": ""
+						},
+						"port_number": "80"
+					}
+				],
+				"required_communication_port": [{
+						"name": "03b5883f-0687-41e4-a6c1-873b47b1f745",
+						"capabilities": {
+							"_type": "/capability/security_capability",
+							"name": "a_capability",
+							"control_id": "",
+							"description": ""
+						},
+						"port_number": "1880",
+						"isMandatory": false
+					}
+				],
+
+				"nr_flow": [{
+						"id": "eac2019f.020101",
+						"type": "mqtt in",
+						"z": "eac2019f.000000",
+						"name": "RpiZ 101 Button",
+						"topic": "/grove/button",
+						"qos": "2",
+						"datatype": "auto",
+						"broker": "eac2019f.010101",
+						"x": 120,
+						"y": 60,
+						"wires": [["eac2019f.090101"]]
+					}, {
+						"id": "eac2019f.030101",
+						"type": "mqtt out",
+						"z": "eac2019f.000000",
+						"name": "RpiZ 101 Led",
+						"topic": "/grove/button_led",
+						"qos": "",
+						"retain": "",
+						"broker": "eac2019f.010101",
+						"x": 1280,
+						"y": 20,
+						"wires": []
+					}, {
+						"id": "eac2019f.040101",
+						"type": "mqtt out",
+						"z": "eac2019f.000000",
+						"name": "RpiZ 101 RGB",
+						"topic": "/grove/rgb_led",
+						"qos": "",
+						"retain": "",
+						"broker": "eac2019f.010101",
+						"x": 1280,
+						"y": 60,
+						"wires": []
+					}, {
+						"id": "eac2019f.050101",
+						"type": "mqtt out",
+						"z": "eac2019f.000000",
+						"name": "RpiZ 101 Display",
+						"topic": "/grove/4digit_display",
+						"qos": "",
+						"retain": "",
+						"broker": "eac2019f.010101",
+						"x": 1290,
+						"y": 100,
+						"wires": []
+					}, {
+						"id": "eac2019f.060101",
+						"type": "function",
+						"z": "eac2019f.000000",
+						"name": "Emit ValBool",
+						"func": "msg.payload = msg.payload.button === 0 ? true : false;\n\nreturn msg;",
+						"outputs": 1,
+						"noerr": 0,
+						"x": 430,
+						"y": 20,
+						"wires": [["eac2019f.030101"]]
+					}, {
+						"id": "eac2019f.070101",
+						"type": "function",
+						"z": "eac2019f.000000",
+						"name": "ToRGB",
+						"func": "try {\n    on = parseInt(msg.payload.rgbLed.on);\n    val = parseInt(msg.payload.rgbLed.val);\n    if (msg.payload.button === 0) {\n        on_new = (on + 1) % 2;\n    msg.payload = { 'on': on_new, 'val': val }\n    } else {\n        on_new = on;\n    msg.payload = null;\n    }\n} catch (error) {\n    val = msg.payload;\n}\n\nreturn msg;\n",
+						"outputs": 1,
+						"noerr": 0,
+						"x": 440,
+						"y": 60,
+						"wires": [["eac2019f.040101"]]
+					}, {
+						"id": "eac2019f.080101",
+						"type": "function",
+						"z": "eac2019f.000000",
+						"name": "Incr counter",
+						"func": "try {\n    val = parseInt(msg.payload.display);\n} catch (error) {\n    val = msg.payload;\n}\n\nif (msg.payload.button === 0) {\n    msg.payload = val + 1;\n    return msg;\n}",
+						"outputs": 1,
+						"noerr": 0,
+						"x": 430,
+						"y": 100,
+						"wires": [["eac2019f.050101"]]
+					}, {
+						"id": "eac2019f.090101",
+						"type": "function",
+						"z": "eac2019f.000000",
+						"name": "toObj",
+						"func": "msg.payload = JSON.parse(msg.payload)\nreturn msg;",
+						"outputs": 1,
+						"noerr": 0,
+						"x": 270,
+						"y": 60,
+						"wires": [["eac2019f.060101", "eac2019f.070101", "eac2019f.080101"]]
+					}, {
+						"id": "eac2019f.010101",
+						"type": "mqtt-broker",
+						"z": "eac2019f.000000",
+						"name": "",
+						"broker": "192.168.43.101",
+						"port": "1883",
+						"clientid": "",
+						"usetls": false,
+						"compatmode": true,
+						"keepalive": "60",
+						"cleansession": true,
+						"birthTopic": "",
+						"birthQos": "0",
+						"birthPayload": "",
+						"closeTopic": "",
+						"closeQos": "0",
+						"closePayload": "",
+						"willTopic": "",
+						"willQos": "0",
+						"willPayload": ""
+					}, {
+						"id": "eac2019f.020102",
+						"type": "mqtt in",
+						"z": "eac2019f.000000",
+						"name": "RpiZ 102 Button",
+						"topic": "/grove/button",
+						"qos": "2",
+						"datatype": "auto",
+						"broker": "eac2019f.010102",
+						"x": 120,
+						"y": 180,
+						"wires": [["eac2019f.090102"]]
+					}, {
+						"id": "eac2019f.030102",
+						"type": "mqtt out",
+						"z": "eac2019f.000000",
+						"name": "RpiZ 102 Led",
+						"topic": "/grove/button_led",
+						"qos": "",
+						"retain": "",
+						"broker": "eac2019f.010102",
+						"x": 1280,
+						"y": 140,
+						"wires": []
+					}, {
+						"id": "eac2019f.040102",
+						"type": "mqtt out",
+						"z": "eac2019f.000000",
+						"name": "RpiZ 102 RGB",
+						"topic": "/grove/rgb_led",
+						"qos": "",
+						"retain": "",
+						"broker": "eac2019f.010102",
+						"x": 1280,
+						"y": 180,
+						"wires": []
+					}, {
+						"id": "eac2019f.050102",
+						"type": "mqtt out",
+						"z": "eac2019f.000000",
+						"name": "RpiZ 102 Display",
+						"topic": "/grove/4digit_display",
+						"qos": "",
+						"retain": "",
+						"broker": "eac2019f.010102",
+						"x": 1290,
+						"y": 220,
+						"wires": []
+					}, {
+						"id": "eac2019f.060102",
+						"type": "function",
+						"z": "eac2019f.000000",
+						"name": "Emit ValBool",
+						"func": "msg.payload = msg.payload.button === 0 ? true : false;\n\nreturn msg;",
+						"outputs": 1,
+						"noerr": 0,
+						"x": 430,
+						"y": 140,
+						"wires": [["eac2019f.030102"]]
+					}, {
+						"id": "eac2019f.070102",
+						"type": "function",
+						"z": "eac2019f.000000",
+						"name": "ToRGB",
+						"func": "try {\n    on = parseInt(msg.payload.rgbLed.on);\n    val = parseInt(msg.payload.rgbLed.val);\n    if (msg.payload.button === 0) {\n        on_new = (on + 1) % 2;\n    msg.payload = { 'on': on_new, 'val': val }\n    } else {\n        on_new = on;\n    msg.payload = null;\n    }\n} catch (error) {\n    val = msg.payload;\n}\n\nreturn msg;\n",
+						"outputs": 1,
+						"noerr": 0,
+						"x": 440,
+						"y": 180,
+						"wires": [["eac2019f.040102"]]
+					}, {
+						"id": "eac2019f.080102",
+						"type": "function",
+						"z": "eac2019f.000000",
+						"name": "Incr counter",
+						"func": "try {\n    val = parseInt(msg.payload.display);\n} catch (error) {\n    val = msg.payload;\n}\n\nif (msg.payload.button === 0) {\n    msg.payload = val + 1;\n    return msg;\n}",
+						"outputs": 1,
+						"noerr": 0,
+						"x": 430,
+						"y": 220,
+						"wires": [["eac2019f.050102"]]
+					}, {
+						"id": "eac2019f.090102",
+						"type": "function",
+						"z": "eac2019f.000000",
+						"name": "toObj",
+						"func": "msg.payload = JSON.parse(msg.payload)\nreturn msg;",
+						"outputs": 1,
+						"noerr": 0,
+						"x": 270,
+						"y": 180,
+						"wires": [["eac2019f.060102", "eac2019f.070102", "eac2019f.080102"]]
+					}, {
+						"id": "eac2019f.010102",
+						"type": "mqtt-broker",
+						"z": "eac2019f.000000",
+						"name": "",
+						"broker": "192.168.43.102",
+						"port": "1883",
+						"clientid": "",
+						"usetls": false,
+						"compatmode": true,
+						"keepalive": "60",
+						"cleansession": true,
+						"birthTopic": "",
+						"birthQos": "0",
+						"birthPayload": "",
+						"closeTopic": "",
+						"closeQos": "0",
+						"closePayload": "",
+						"willTopic": "",
+						"willQos": "0",
+						"willPayload": ""
+					}, {
+						"id": "eac2019f.020103",
+						"type": "mqtt in",
+						"z": "eac2019f.000000",
+						"name": "RpiZ 103 Button",
+						"topic": "/grove/button",
+						"qos": "2",
+						"datatype": "auto",
+						"broker": "eac2019f.010103",
+						"x": 120,
+						"y": 300,
+						"wires": [["eac2019f.090103"]]
+					}, {
+						"id": "eac2019f.030103",
+						"type": "mqtt out",
+						"z": "eac2019f.000000",
+						"name": "RpiZ 103 Led",
+						"topic": "/grove/button_led",
+						"qos": "",
+						"retain": "",
+						"broker": "eac2019f.010103",
+						"x": 1280,
+						"y": 260,
+						"wires": []
+					}, {
+						"id": "eac2019f.040103",
+						"type": "mqtt out",
+						"z": "eac2019f.000000",
+						"name": "RpiZ 103 RGB",
+						"topic": "/grove/rgb_led",
+						"qos": "",
+						"retain": "",
+						"broker": "eac2019f.010103",
+						"x": 1280,
+						"y": 300,
+						"wires": []
+					}, {
+						"id": "eac2019f.050103",
+						"type": "mqtt out",
+						"z": "eac2019f.000000",
+						"name": "RpiZ 103 Display",
+						"topic": "/grove/4digit_display",
+						"qos": "",
+						"retain": "",
+						"broker": "eac2019f.010103",
+						"x": 1290,
+						"y": 340,
+						"wires": []
+					}, {
+						"id": "eac2019f.060103",
+						"type": "function",
+						"z": "eac2019f.000000",
+						"name": "Emit ValBool",
+						"func": "msg.payload = msg.payload.button === 0 ? true : false;\n\nreturn msg;",
+						"outputs": 1,
+						"noerr": 0,
+						"x": 430,
+						"y": 260,
+						"wires": [["eac2019f.030103"]]
+					}, {
+						"id": "eac2019f.070103",
+						"type": "function",
+						"z": "eac2019f.000000",
+						"name": "ToRGB",
+						"func": "try {\n    on = parseInt(msg.payload.rgbLed.on);\n    val = parseInt(msg.payload.rgbLed.val);\n    if (msg.payload.button === 0) {\n        on_new = (on + 1) % 2;\n    msg.payload = { 'on': on_new, 'val': val }\n    } else {\n        on_new = on;\n    msg.payload = null;\n    }\n} catch (error) {\n    val = msg.payload;\n}\n\nreturn msg;\n",
+						"outputs": 1,
+						"noerr": 0,
+						"x": 440,
+						"y": 300,
+						"wires": [["eac2019f.040103"]]
+					}, {
+						"id": "eac2019f.080103",
+						"type": "function",
+						"z": "eac2019f.000000",
+						"name": "Incr counter",
+						"func": "try {\n    val = parseInt(msg.payload.display);\n} catch (error) {\n    val = msg.payload;\n}\n\nif (msg.payload.button === 0) {\n    msg.payload = val + 1;\n    return msg;\n}",
+						"outputs": 1,
+						"noerr": 0,
+						"x": 430,
+						"y": 340,
+						"wires": [["eac2019f.050103"]]
+					}, {
+						"id": "eac2019f.090103",
+						"type": "function",
+						"z": "eac2019f.000000",
+						"name": "toObj",
+						"func": "msg.payload = JSON.parse(msg.payload)\nreturn msg;",
+						"outputs": 1,
+						"noerr": 0,
+						"x": 270,
+						"y": 300,
+						"wires": [["eac2019f.060103", "eac2019f.070103", "eac2019f.080103"]]
+					}, {
+						"id": "eac2019f.010103",
+						"type": "mqtt-broker",
+						"z": "eac2019f.000000",
+						"name": "",
+						"broker": "192.168.43.103",
+						"port": "1883",
+						"clientid": "",
+						"usetls": false,
+						"compatmode": true,
+						"keepalive": "60",
+						"cleansession": true,
+						"birthTopic": "",
+						"birthQos": "0",
+						"birthPayload": "",
+						"closeTopic": "",
+						"closeQos": "0",
+						"closePayload": "",
+						"willTopic": "",
+						"willQos": "0",
+						"willPayload": ""
+					}, {
+						"id": "eac2019f.020104",
+						"type": "mqtt in",
+						"z": "eac2019f.000000",
+						"name": "RpiZ 104 Button",
+						"topic": "/grove/button",
+						"qos": "2",
+						"datatype": "auto",
+						"broker": "eac2019f.010104",
+						"x": 120,
+						"y": 420,
+						"wires": [["eac2019f.090104"]]
+					}, {
+						"id": "eac2019f.030104",
+						"type": "mqtt out",
+						"z": "eac2019f.000000",
+						"name": "RpiZ 104 Led",
+						"topic": "/grove/button_led",
+						"qos": "",
+						"retain": "",
+						"broker": "eac2019f.010104",
+						"x": 1280,
+						"y": 380,
+						"wires": []
+					}, {
+						"id": "eac2019f.040104",
+						"type": "mqtt out",
+						"z": "eac2019f.000000",
+						"name": "RpiZ 104 RGB",
+						"topic": "/grove/rgb_led",
+						"qos": "",
+						"retain": "",
+						"broker": "eac2019f.010104",
+						"x": 1280,
+						"y": 420,
+						"wires": []
+					}, {
+						"id": "eac2019f.050104",
+						"type": "mqtt out",
+						"z": "eac2019f.000000",
+						"name": "RpiZ 104 Display",
+						"topic": "/grove/4digit_display",
+						"qos": "",
+						"retain": "",
+						"broker": "eac2019f.010104",
+						"x": 1290,
+						"y": 460,
+						"wires": []
+					}, {
+						"id": "eac2019f.060104",
+						"type": "function",
+						"z": "eac2019f.000000",
+						"name": "Emit ValBool",
+						"func": "msg.payload = msg.payload.button === 0 ? true : false;\n\nreturn msg;",
+						"outputs": 1,
+						"noerr": 0,
+						"x": 430,
+						"y": 380,
+						"wires": [["eac2019f.030104"]]
+					}, {
+						"id": "eac2019f.070104",
+						"type": "function",
+						"z": "eac2019f.000000",
+						"name": "ToRGB",
+						"func": "try {\n    on = parseInt(msg.payload.rgbLed.on);\n    val = parseInt(msg.payload.rgbLed.val);\n    if (msg.payload.button === 0) {\n        on_new = (on + 1) % 2;\n    msg.payload = { 'on': on_new, 'val': val }\n    } else {\n        on_new = on;\n    msg.payload = null;\n    }\n} catch (error) {\n    val = msg.payload;\n}\n\nreturn msg;\n",
+						"outputs": 1,
+						"noerr": 0,
+						"x": 440,
+						"y": 420,
+						"wires": [["eac2019f.040104"]]
+					}, {
+						"id": "eac2019f.080104",
+						"type": "function",
+						"z": "eac2019f.000000",
+						"name": "Incr counter",
+						"func": "try {\n    val = parseInt(msg.payload.display);\n} catch (error) {\n    val = msg.payload;\n}\n\nif (msg.payload.button === 0) {\n    msg.payload = val + 1;\n    return msg;\n}",
+						"outputs": 1,
+						"noerr": 0,
+						"x": 430,
+						"y": 460,
+						"wires": [["eac2019f.050104"]]
+					}, {
+						"id": "eac2019f.090104",
+						"type": "function",
+						"z": "eac2019f.000000",
+						"name": "toObj",
+						"func": "msg.payload = JSON.parse(msg.payload)\nreturn msg;",
+						"outputs": 1,
+						"noerr": 0,
+						"x": 270,
+						"y": 420,
+						"wires": [["eac2019f.060104", "eac2019f.070104", "eac2019f.080104"]]
+					}, {
+						"id": "eac2019f.010104",
+						"type": "mqtt-broker",
+						"z": "eac2019f.000000",
+						"name": "",
+						"broker": "192.168.43.104",
+						"port": "1883",
+						"clientid": "",
+						"usetls": false,
+						"compatmode": true,
+						"keepalive": "60",
+						"cleansession": true,
+						"birthTopic": "",
+						"birthQos": "0",
+						"birthPayload": "",
+						"closeTopic": "",
+						"closeQos": "0",
+						"closePayload": "",
+						"willTopic": "",
+						"willQos": "0",
+						"willPayload": ""
+					}],
+				"path_flow": "",
+				"packages": ["enact-actuation-conflict-manager-node", "node-red-contrib-mqtt-broker"]
+			}
+		],
+		"links": [],
+		"containments": [{
+				"name": "Docker_on_RPiZero-101",
+				"properties": [],
+				"src": "/RPiZero-101/offerDocker",
+				"target": "/NodeRED-101/demandDocker"
+			}, {
+				"name": "NodeRED-flow-101_on_RPiZero-101",
+				"properties": [],
+				"src": "/NodeRED-101/offerNodeRED",
+				"target": "/NodeRED-flow-101/demandNodeRED"
+			}, {
+				"name": "Docker_on_RPiZero-102",
+				"properties": [],
+				"src": "/RPiZero-102/offerDocker",
+				"target": "/NodeRED-102/demandDocker"
+			}, {
+				"name": "NodeRED-flow-102_on_RPiZero-102",
+				"properties": [],
+				"src": "/NodeRED-102/offerNodeRED",
+				"target": "/NodeRED-flow-102/demandNodeRED"
+			}, {
+				"name": "Docker_on_RPiZero-103",
+				"properties": [],
+				"src": "/RPiZero-103/offerDocker",
+				"target": "/NodeRED-103/demandDocker"
+			}, {
+				"name": "NodeRED-flow-103_on_RPiZero-103",
+				"properties": [],
+				"src": "/NodeRED-103/offerNodeRED",
+				"target": "/NodeRED-flow-103/demandNodeRED"
+			}, {
+				"name": "Docker_on_RPiZero-104",
+				"properties": [],
+				"src": "/RPiZero-104/offerDocker",
+				"target": "/NodeRED-104/demandDocker"
+			}, {
+				"name": "NodeRED-flow-104_on_RPiZero-104",
+				"properties": [],
+				"src": "/NodeRED-104/offerNodeRED",
+				"target": "/NodeRED-flow-104/demandNodeRED"
+			}, {
+				"name": "NodeRED-Application_on_Docker-Application",
+				"properties": [],
+				"src": "/Docker-Application/offerDocker",
+				"target": "/NodeRED-Application/demandDocker"
+			}, {
+				"name": "NodeRED-flow-Application_on_NodeRED-Application",
+				"properties": [],
+				"src": "/NodeRED-Application/offerNodeRED",
+				"target": "/NodeRED-flow-Application/demandNodeRED"
+			}
+		],
+		"type_registry": []
+	},
+	"graph": {
+		"elements": {
+			"nodes": [{
+					"data": {
+						"id": "RPiZero-101"
+					},
+					"position": {
+						"x": 285,
+						"y": 190
+					},
+					"group": "nodes",
+					"removed": false,
+					"selected": false,
+					"selectable": true,
+					"locked": false,
+					"grabbable": true,
+					"classes": "container"
+				}, {
+					"data": {
+						"id": "NodeRED-101",
+						"parent": "RPiZero-101"
+					},
+					"position": {
+						"x": 285,
+						"y": 190
+					},
+					"group": "nodes",
+					"removed": false,
+					"selected": false,
+					"selectable": true,
+					"locked": false,
+					"grabbable": true,
+					"classes": "node_red"
+				}, {
+					"data": {
+						"id": "NodeRED-flow-101",
+						"parent": "NodeRED-101"
+					},
+					"position": {
+						"x": 285,
+						"y": 190
+					},
+					"group": "nodes",
+					"removed": false,
+					"selected": false,
+					"selectable": true,
+					"locked": false,
+					"grabbable": true,
+					"classes": ""
+				}, {
+					"data": {
+						"id": "RPiZero-102"
+					},
+					"position": {
+						"x": 385,
+						"y": 190
+					},
+					"group": "nodes",
+					"removed": false,
+					"selected": false,
+					"selectable": true,
+					"locked": false,
+					"grabbable": true,
+					"classes": "container"
+				}, {
+					"data": {
+						"id": "NodeRED-102",
+						"parent": "RPiZero-102"
+					},
+					"position": {
+						"x": 385,
+						"y": 190
+					},
+					"group": "nodes",
+					"removed": false,
+					"selected": false,
+					"selectable": true,
+					"locked": false,
+					"grabbable": true,
+					"classes": "node_red"
+				}, {
+					"data": {
+						"id": "NodeRED-flow-102",
+						"parent": "NodeRED-102"
+					},
+					"position": {
+						"x": 385,
+						"y": 190
+					},
+					"group": "nodes",
+					"removed": false,
+					"selected": false,
+					"selectable": true,
+					"locked": false,
+					"grabbable": true,
+					"classes": ""
+				}, {
+					"data": {
+						"id": "RPiZero-103"
+					},
+					"position": {
+						"x": 285,
+						"y": 290
+					},
+					"group": "nodes",
+					"removed": false,
+					"selected": false,
+					"selectable": true,
+					"locked": false,
+					"grabbable": true,
+					"classes": "container"
+				}, {
+					"data": {
+						"id": "NodeRED-103",
+						"parent": "RPiZero-103"
+					},
+					"position": {
+						"x": 285,
+						"y": 290
+					},
+					"group": "nodes",
+					"removed": false,
+					"selected": false,
+					"selectable": true,
+					"locked": false,
+					"grabbable": true,
+					"classes": "node_red"
+				}, {
+					"data": {
+						"id": "NodeRED-flow-103",
+						"parent": "NodeRED-103"
+					},
+					"position": {
+						"x": 285,
+						"y": 290
+					},
+					"group": "nodes",
+					"removed": false,
+					"selected": false,
+					"selectable": true,
+					"locked": false,
+					"grabbable": true,
+					"classes": ""
+				}, {
+					"data": {
+						"id": "RPiZero-104"
+					},
+					"position": {
+						"x": 385,
+						"y": 290
+					},
+					"group": "nodes",
+					"removed": false,
+					"selected": false,
+					"selectable": true,
+					"locked": false,
+					"grabbable": true,
+					"classes": "container"
+				}, {
+					"data": {
+						"id": "NodeRED-104",
+						"parent": "RPiZero-104"
+					},
+					"position": {
+						"x": 385,
+						"y": 290
+					},
+					"group": "nodes",
+					"removed": false,
+					"selected": false,
+					"selectable": true,
+					"locked": false,
+					"grabbable": true,
+					"classes": "node_red"
+				}, {
+					"data": {
+						"id": "NodeRED-flow-104",
+						"parent": "NodeRED-104"
+					},
+					"position": {
+						"x": 385,
+						"y": 290
+					},
+					"group": "nodes",
+					"removed": false,
+					"selected": false,
+					"selectable": true,
+					"locked": false,
+					"grabbable": true,
+					"classes": ""
+				}, {
+					"data": {
+						"id": "Docker-Application"
+					},
+					"position": {
+						"x": 183.66514345708916,
+						"y": 218.4663312166767
+					},
+					"group": "nodes",
+					"removed": false,
+					"selected": false,
+					"selectable": true,
+					"locked": false,
+					"grabbable": true,
+					"classes": "container"
+				}, {
+					"data": {
+						"id": "NodeRED-Application",
+						"parent": "Docker-Application"
+					},
+					"position": {
+						"x": 183.66514345708916,
+						"y": 218.4663312166767
+					},
+					"group": "nodes",
+					"removed": false,
+					"selected": false,
+					"selectable": true,
+					"locked": false,
+					"grabbable": true,
+					"classes": "node_red"
+				}, {
+					"data": {
+						"id": "NodeRED-flow-Application",
+						"parent": "NodeRED-Application"
+					},
+					"position": {
+						"x": 183.66514345708916,
+						"y": 218.4663312166767
+					},
+					"group": "nodes",
+					"removed": false,
+					"selected": false,
+					"selectable": true,
+					"locked": false,
+					"grabbable": true,
+					"classes": ""
+				}
+		] 
+		},
+		"style": [{
+				"selector": "node",
+				"style": {
+					"label": "data(id)",
+					"background-fit": "contain",
+					"background-image-opacity": "0.3",
+					"text-valign": "center",
+					"text-halign": "center",
+					"font-size": "4px",
+					"font-weight": "bold"
+				}
+			}, {
+				"selector": "node.container",
+				"style": {
+					"padding": "10px",
+					"text-valign": "top",
+					"text-halign": "center",
+					"background-color": "#DDD",
+					"font-size": "8px",
+					"font-weight": "normal",
+					"shape": "rectangle",
+					"background-image": "./img/docker-official.svg"
+				}
+			}, {
+				"selector": "edge",
+				"style": {
+					"curve-style": "bezier",
+					"target-arrow-shape": "triangle"
+				}
+			}, {
+				"selector": "edge.control",
+				"style": {
+					"curve-style": "bezier",
+					"target-arrow-shape": "circle"
+				}
+			}, {
+				"selector": ":selected",
+				"style": {
+					"background-color": "black",
+					"line-color": "black",
+					"target-arrow-color": "black",
+					"source-arrow-color": "black"
+				}
+			}, {
+				"selector": "node.questionable",
+				"style": {
+					"border-color": "#A33",
+					"background-color": "#B55",
+					"shape": "roundrectangle"
+				}
+			}, {
+				"selector": "node.node_red",
+				"style": {
+					"background-image": "./img/node-red-256.png"
+				}
+			}, {
+				"selector": "node.ansible",
+				"style": {
+					"background-image": "./img/ansible.png"
+				}
+			}, {
+				"selector": "node.orion",
+				"style": {
+					"background-color": "#ADD8E6",
+					"background-image": "./img/fiware_logo.png"
+				}
+			}, {
+				"selector": "node.thingml",
+				"style": {
+					"background-color": "#ADD8E6",
+					"background-image": "./img/thingml_short.png"
+				}
+			}, {
+				"selector": "node.device",
+				"style": {
+					"padding": "10px",
+					"text-valign": "top",
+					"text-halign": "center",
+					"background-color": "#DDD",
+					"font-size": "8px",
+					"font-weight": "normal",
+					"shape": "rectangle",
+					"background-image": "./img/device.png"
+				}
+			}, {
+				"selector": "node.vm",
+				"style": {
+					"padding": "10px",
+					"text-valign": "top",
+					"text-halign": "center",
+					"background-color": "#DDD",
+					"font-size": "8px",
+					"font-weight": "normal",
+					"shape": "rectangle",
+					"background-image": "./img/server_cloud.png"
+				}
+			}
+		],
+		"zoomingEnabled": true,
+		"userZoomingEnabled": true,
+		"zoom": 3.2470172353340128,
+		"minZoom": 0.4,
+		"maxZoom": 6,
+		"panningEnabled": true,
+		"userPanningEnabled": true,
+		"pan": {
+			"x": -408.0676908559383,
+			"y": -443.1820530532351
+		},
+		"boxSelectionEnabled": false,
+		"renderer": {
+			"name": "canvas"
+		}
+	}
+}
+
